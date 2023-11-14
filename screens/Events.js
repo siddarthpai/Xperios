@@ -30,7 +30,7 @@ export default function App() {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <Text style={{ fontFamily: "Poppins-Regular", fontSize: 30 }}>
-        Your GQI Score is 43!
+        Your GQI Score is 47!
       </Text>
       <Text style={{ fontFamily: "Poppins-Regular", fontSize: 30 }}>
         Increase your FQ to unlock your next reward
