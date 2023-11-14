@@ -1,19 +1,16 @@
-import { useCallback } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React, { useCallback } from "react";
+import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
+import { LinearGradient } from "expo-linear-gradient";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
-  });
-  const [] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
-  });
-  const [] = useFonts({
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
   });
 
@@ -28,65 +25,96 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Text style={{ fontFamily: "Poppins-Regular", fontSize: 30 }}>
-        Your GQI Score is 43!
-      </Text>
-      <Text style={{ fontFamily: "Poppins-Regular", fontSize: 30 }}>
-        Increase your FQ to unlock your next reward
-      </Text>
-      <View style={styles.rectangularBox}>
-        <Text
-          style={{ fontFamily: "Poppins-Bold", fontSize: 20, color: "#000" }}
-        >
-          Recommended For You!
+    <LinearGradient colors={["#8E6CEA", "#B0B3FB"]} style={styles.container}>
+      <View style={styles.container} onLayout={onLayoutRootView}>
+        <Text style={{ fontFamily: "Poppins-Regular", fontSize: 23 }}>
+          Your GQI Score is 43!
         </Text>
-        <View
-          style={{
-            borderBottomColor: "black",
-            borderBottomWidth: StyleSheet.hairlineWidth,
-          }}
-        />
-        <Text style={{ fontFamily: "Poppins-Black", fontSize: 30 }}>
-          Nandi Hills Trek
+        <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
+          Increase your FQ to unlock your next reward
         </Text>
+
+        <View style={styles.rectangularBox}>
+          <Text
+            style={{
+              fontFamily: "Poppins-Bold",
+              fontSize: 20,
+              color: "#000",
+              textAlign: "center",
+              marginTop: "auto",
+              marginBottom: "auto",
+              opacity: 0.5,
+            }}
+          >
+            Recommended For You!
+          </Text>
+          <View
+            style={{
+              borderBottomColor: "black",
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
+          <Text
+            style={{
+              fontFamily: "Poppins-Black",
+              fontSize: 30,
+              textAlign: "center",
+              marginTop: "auto",
+              marginBottom: "auto",
+            }}
+          >
+            Nandi Hills Trek
+          </Text>
+        </View>
+        <Text style={{ fontFamily: "Poppins-Regular", fontSize: 20, marginTop: 40 }}>
+          Hobby Classes Near You
+        </Text>
+        <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
+          <View style={styles.rectangularBox1}>
+            {/* Change the image source URL to an actual image file */}
+            <Image
+              source={{ uri: 'https://example.com/your-image.jpg' }}
+              style={{ width: '100%', height: '100%', borderRadius: 10 }}
+            />
+          </View>
+          <View style={styles.rectangularBox1}></View>
+          <View style={styles.rectangularBox1}></View>
+          <View style={styles.rectangularBox1}></View>
+          <View style={styles.rectangularBox1}></View>
+          <View style={styles.rectangularBox1}></View>
+          <View style={styles.rectangularBox1}></View>
+          <View style={styles.rectangularBox1}></View>
+          {/* Add more rectangular boxes as needed */}
+        </ScrollView>
+        <StatusBar style="auto" />
       </View>
-      <View style={styles.rowContainer}>
-        <View style={styles.rectangularBox1}></View>
-        <View style={styles.rectangularBox1}></View>
-        <View style={styles.rectangularBox1}></View>
-      </View>
-      <StatusBar style="auto" />
-    </View>
+    </LinearGradient>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#c8a2c8",
     flex: 1,
-    alignItems: "left",
-    justifyContent: "top",
-    padding: 20, // Add padding to the container for better spacing
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    padding: 5,
   },
   rectangularBox: {
     height: 100,
-    backgroundColor: "white", // Change the background color as needed
-    marginHorizontal: 20, // Add margin for spacing
-    borderRadius: 10, // Add border radius for rounded corners
-    marginTop: 20, // Adjust the marginTop as needed
+    backgroundColor: "white",
+    borderRadius: 10,
+    marginTop: 20,
+    width: 345,
   },
   rectangularBox1: {
-    height: 50,
-    width: "33.33%",
-    backgroundColor: "white", // Change the background color as needed
-    marginHorizontal: 20, // Add margin for spacing
-    borderRadius: 10, // Add border radius for rounded corners
-    marginTop: 20, // Adjust the marginTop as needed
+    height: 116,
+    width: 116,
+    backgroundColor: "white",
+    borderRadius: 10,
+    marginTop: 10,
   },
   rowContainer: {
     flexDirection: "row",
-    justifyContent: "space-between", // Adjust as needed
-    paddingHorizontal: 20,
-    marginTop: 20,
+    gap: 21,
   },
 });
