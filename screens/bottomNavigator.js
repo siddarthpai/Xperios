@@ -3,6 +3,7 @@ import Events from "./Events";
 import Travel from "./Travel";
 import Hobbies from "./Hobbies";
 import Profile from "./Profile";
+
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
