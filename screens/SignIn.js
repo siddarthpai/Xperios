@@ -13,7 +13,7 @@ import { FirebaseRecaptchaVerifierModal } from "expo-firebase-recaptcha";
 import { firebaseConfig } from "../config";
 import firebase from "firebase/compat/app";
 
-const SignIn = (navigation) => {
+const SignIn = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [code, setCode] = useState("");
   const [verificationId, setVerificationId] = useState(null);

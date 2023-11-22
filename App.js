@@ -1,11 +1,21 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import SignIn from "./screens/SignIn";
-import MyTabs from "./screens/bottomNavigator";
-import { NavigationContainer } from "@react-navigation/native";
+import Test from "./screens/test";
 
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Events from "./screens/Events";
+
+// const Stack = createStackNavigator();
 export default function App() {
-  return <SignIn />;
+  return (
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName="SignIn">
+    //     <Stack.Screen name="SignIn" component={SignIn} />
+    //     <Stack.Screen name="Dashboard" component={bottomNavigator} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    <Events />
+  );
 }
 
 const styles = StyleSheet.create({
