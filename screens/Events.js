@@ -38,6 +38,7 @@ const App = () => {
   }
 
   return (
+    <ScrollView>
     <SafeAreaView style={{ flex: 1 }}>
       <SearchBar
         placeholder="Type Here..."
@@ -55,38 +56,6 @@ const App = () => {
           <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
             Increase your FQ to unlock your next reward
           </Text>
-          {/* <View style={styles.rectangularBox}>
-            <Text
-              style={{
-                fontFamily: "Poppins-Bold",
-                fontSize: 20,
-                color: "#000",
-                textAlign: "center",
-                marginTop: "auto",
-                marginBottom: "auto",
-                opacity: 0.5,
-              }}
-            >
-              Recommended For You!
-            </Text>
-            <View
-              style={{
-                borderBottomColor: "black",
-                borderBottomWidth: StyleSheet.hairlineWidth,
-              }}
-            />
-            <Text
-              style={{
-                fontFamily: "Poppins-Black",
-                fontSize: 30,
-                textAlign: "center",
-                marginTop: "auto",
-                marginBottom: "auto",
-              }}
-            >
-              Nandi Hills Trek
-            </Text>
-          </View> */}
           <Text
             style={{
               fontFamily: "Poppins-Regular",
@@ -186,6 +155,7 @@ const App = () => {
         </View>
       </LinearGradient>
     </SafeAreaView>
+    </ScrollView>
   );
 };
 

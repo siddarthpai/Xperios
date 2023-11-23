@@ -10,6 +10,7 @@ export const firebaseConfig = {
   messagingSenderId: "507370985844",
   appId: "1:507370985844:web:9d8d33791d6b19bab2f421",
   measurementId: "G-HJCNG0WCZW",
+  databaseURL: "https://xperios-8dda8-default-rtdb.asia-southeast1.firebasedatabase.app/",
 };
 
 if (!firebase.apps.length) {
