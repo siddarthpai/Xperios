@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { View, Text } from "react-native";
 import Events from "./Events";
 import Travel from "./Travel";
 import Hobbies from "./Hobbies";
@@ -9,9 +10,11 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator>
+      <Tab.Screen name="Home" component={Events} />
       <Tab.Screen name="Events" component={Events} />
       <Tab.Screen name="Hobbies" component={Hobbies} />
       <Tab.Screen name="Travel" component={Travel} />
+      <Tab.Screen name="Blogs" component={Profile} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

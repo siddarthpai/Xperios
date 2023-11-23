@@ -94,7 +94,79 @@ const App = () => {
               marginTop: 40,
             }}
           >
-            Happening Tomorrow
+            Recommended for you
+          </Text>
+          <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
+            <View style={styles.rectangularBox1}>
+              <Image
+                source={{ uri: "https://example.com/your-image.jpg" }}
+                style={{ width: "100%", height: "100%", borderRadius: 10 }}
+              />
+            </View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+          </ScrollView>
+          <Text
+            style={{
+              fontFamily: "Poppins-Regular",
+              fontSize: 20,
+              marginTop: 40,
+            }}
+          >
+            Networking
+          </Text>
+          <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
+            <View style={styles.rectangularBox1}>
+              <Image
+                source={{ uri: "https://example.com/your-image.jpg" }}
+                style={{ width: "100%", height: "100%", borderRadius: 10 }}
+              />
+            </View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+          </ScrollView>
+          <Text
+            style={{
+              fontFamily: "Poppins-Regular",
+              fontSize: 20,
+              marginTop: 40,
+            }}
+          >
+            Travel
+          </Text>
+          <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
+            <View style={styles.rectangularBox1}>
+              <Image
+                source={{ uri: "https://example.com/your-image.jpg" }}
+                style={{ width: "100%", height: "100%", borderRadius: 10 }}
+              />
+            </View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+            <View style={styles.rectangularBox1}></View>
+          </ScrollView>
+          <Text
+            style={{
+              fontFamily: "Poppins-Regular",
+              fontSize: 20,
+              marginTop: 40,
+            }}
+          >
+            Hobbies
           </Text>
           <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
             <View style={styles.rectangularBox1}>
