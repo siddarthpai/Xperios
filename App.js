@@ -11,12 +11,15 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen name="SignIn" component={SignIn} />
+      <Stack.Navigator
+        initialRouteName="bottomNavigator"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Stack.Screen name="Dashboard" component={bottomNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
-    // <Events />
   );
 }
 

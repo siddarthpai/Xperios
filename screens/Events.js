@@ -6,6 +6,7 @@ import {
   ScrollView,
   Image,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
@@ -19,6 +20,8 @@ const App = () => {
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
   });
+
+  const imageUrls = [""];
 
   const updateSearch = (text) => {
     setSearch(text);
@@ -37,124 +40,107 @@ const App = () => {
     return null;
   }
 
+  const handleBoxPress = () => {
+    // Add your logic to open a new box here
+    console.log("Box Pressed!");
+  };
+
+  const renderRectangularBox = (key) => (
+    <TouchableOpacity
+      key={key}
+      style={styles.rectangularBoxTouchable}
+      onPress={handleBoxPress}
+    >
+      <View style={styles.rectangularBox1}>
+        <Image
+          source={{
+            uri: "https://reactnative.dev/img/tiny_logo.png",
+          }}
+          style={{ width: "100%", height: "100%", borderRadius: 10 }}
+        />
+      </View>
+    </TouchableOpacity>
+  );
+
+  const renderRectangularBoxes = (count) => {
+    return Array.from({ length: count }, (_, index) =>
+      renderRectangularBox(index.toString())
+    );
+  };
+
   return (
     <ScrollView>
-    <SafeAreaView style={{ flex: 1 }}>
-      <SearchBar
-        placeholder="Type Here..."
-        onChangeText={updateSearch}
-        value={search}
-        lightTheme={true}
-        showCancel={true}
-        round={true}
-      />
-      <LinearGradient colors={["#8E6CEA", "#B0B3FB"]} style={styles.container}>
-        <View style={styles.container}>
-          <Text style={{ fontFamily: "Poppins-Regular", fontSize: 23 }}>
-            Your GQI Score is 43!
-          </Text>
-          <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
-            Increase your FQ to unlock your next reward
-          </Text>
-          <Text
-            style={{
-              fontFamily: "Poppins-Regular",
-              fontSize: 20,
-              marginTop: 40,
-            }}
-          >
-            Recommended for you
-          </Text>
-          <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
-            <View style={styles.rectangularBox1}>
-              <Image
-                source={{ uri: "https://example.com/your-image.jpg" }}
-                style={{ width: "100%", height: "100%", borderRadius: 10 }}
-              />
-            </View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-          </ScrollView>
-          <Text
-            style={{
-              fontFamily: "Poppins-Regular",
-              fontSize: 20,
-              marginTop: 40,
-            }}
-          >
-            Networking
-          </Text>
-          <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
-            <View style={styles.rectangularBox1}>
-              <Image
-                source={{ uri: "https://example.com/your-image.jpg" }}
-                style={{ width: "100%", height: "100%", borderRadius: 10 }}
-              />
-            </View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-          </ScrollView>
-          <Text
-            style={{
-              fontFamily: "Poppins-Regular",
-              fontSize: 20,
-              marginTop: 40,
-            }}
-          >
-            Travel
-          </Text>
-          <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
-            <View style={styles.rectangularBox1}>
-              <Image
-                source={{ uri: "https://example.com/your-image.jpg" }}
-                style={{ width: "100%", height: "100%", borderRadius: 10 }}
-              />
-            </View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-          </ScrollView>
-          <Text
-            style={{
-              fontFamily: "Poppins-Regular",
-              fontSize: 20,
-              marginTop: 40,
-            }}
-          >
-            Hobbies
-          </Text>
-          <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
-            <View style={styles.rectangularBox1}>
-              <Image
-                source={{ uri: "https://example.com/your-image.jpg" }}
-                style={{ width: "100%", height: "100%", borderRadius: 10 }}
-              />
-            </View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-            <View style={styles.rectangularBox1}></View>
-          </ScrollView>
-        </View>
-      </LinearGradient>
-    </SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
+        <SearchBar
+          placeholder="Type Here..."
+          onChangeText={updateSearch}
+          value={search}
+          lightTheme={true}
+          showCancel={true}
+          round={true}
+        />
+        <LinearGradient
+          colors={["#8E6CEA", "#B0B3FB"]}
+          style={styles.container}
+        >
+          <View style={styles.container}>
+            <Text style={{ fontFamily: "Poppins-Regular", fontSize: 23 }}>
+              Your GQI Score is 43!
+            </Text>
+            <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
+              Increase your FQ to unlock your next reward
+            </Text>
+            <Text
+              style={{
+                fontFamily: "Poppins-Regular",
+                fontSize: 20,
+                marginTop: 40,
+              }}
+            >
+              Recommended for you
+            </Text>
+            <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
+              {renderRectangularBoxes(8)}
+            </ScrollView>
+            <Text
+              style={{
+                fontFamily: "Poppins-Regular",
+                fontSize: 20,
+                marginTop: 40,
+              }}
+            >
+              Networking
+            </Text>
+            <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
+              {renderRectangularBoxes(8)}
+            </ScrollView>
+            <Text
+              style={{
+                fontFamily: "Poppins-Regular",
+                fontSize: 20,
+                marginTop: 40,
+              }}
+            >
+              Travel
+            </Text>
+            <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
+              {renderRectangularBoxes(8)}
+            </ScrollView>
+            <Text
+              style={{
+                fontFamily: "Poppins-Regular",
+                fontSize: 20,
+                marginTop: 40,
+              }}
+            >
+              Hobbies
+            </Text>
+            <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
+              {renderRectangularBoxes(8)}
+            </ScrollView>
+          </View>
+        </LinearGradient>
+      </SafeAreaView>
     </ScrollView>
   );
 };
