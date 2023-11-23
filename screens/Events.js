@@ -27,7 +27,6 @@ const App = () => {
   useEffect(() => {
     const onLayoutRootView = async () => {
       if (fontsLoaded) {
-        await SplashScreen.hideAsync();
       }
     };
 
