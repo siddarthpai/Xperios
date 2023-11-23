@@ -1,33 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
-import Test from "./screens/test";
-
+import React from "react";
+import { Button, View, Text } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import Events from "./screens/Events";
-import SignIn from "./screens/SignIn";
-import bottomNavigator from "./screens/bottomNavigator";
 
-const Stack = createStackNavigator();
+import Events from "./screens/Events";
+import Travel from "./screens/Travel";
+import Hobbies from "./screens/Hobbies";
+import Profile from "./screens/Profile";
+
+const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="bottomNavigator"
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="Dashboard" component={bottomNavigator} />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={Events} />
+        <Drawer.Screen name="Events" component={Events} />
+        <Drawer.Screen name="Hobbies" component={Hobbies} />
+        <Drawer.Screen name="Travel" component={Travel} />
+        <Drawer.Screen name="Blogs" component={Profile} />
+        <Drawer.Screen name="Profile" component={Profile} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
