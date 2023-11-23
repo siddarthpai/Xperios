@@ -7,14 +7,17 @@ import {
   Image,
   SafeAreaView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { SearchBar } from "react-native-elements";
+import Dialog from "react-native-dialog";
 
 const App = () => {
   const [search, setSearch] = useState("");
+  const [visible, setVisible] = useState(false);
   const [fontsLoaded] = useFonts({
     "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
@@ -40,26 +43,53 @@ const App = () => {
     return null;
   }
 
-  const handleBoxPress = () => {
-    // Add your logic to open a new box here
-    console.log("Box Pressed!");
+  const showDialog = () => {
+    setVisible(true);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const handleRegister = () => {
+    setVisible(false);
   };
 
   const renderRectangularBox = (key) => (
-    <TouchableOpacity
-      key={key}
-      style={styles.rectangularBoxTouchable}
-      onPress={handleBoxPress}
-    >
-      <View style={styles.rectangularBox1}>
-        <Image
-          source={{
-            uri: "https://reactnative.dev/img/tiny_logo.png",
-          }}
-          style={{ width: "100%", height: "100%", borderRadius: 10 }}
-        />
-      </View>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity
+        key={key}
+        style={styles.rectangularBoxTouchable}
+        onPress={showDialog}
+      >
+        <View style={styles.rectangularBox1}>
+          <Image
+            source={{
+              uri: "https://reactnative.dev/img/tiny_logo.png",
+            }}
+            style={{ width: "100%", height: "100%", borderRadius: 10 }}
+          />
+        </View>
+      </TouchableOpacity>
+      <Dialog.Container visible={visible}>
+        <Dialog.Title>Event Details</Dialog.Title>
+        <Dialog.Description>
+          <Image
+            source={{
+              uri: "https://reactnative.dev/img/tiny_logo.png",
+            }}
+            style={{
+              width: 100,
+              height: 100,
+              borderRadius: 10,
+            }}
+          />
+          {"\n"}Loreum Ipsium
+        </Dialog.Description>
+        <Dialog.Button label="Cancel" onPress={handleCancel} />
+        <Dialog.Button label="Register" onPress={handleRegister} />
+      </Dialog.Container>
+    </View>
   );
 
   const renderRectangularBoxes = (count) => {
