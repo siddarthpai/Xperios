@@ -1,24 +1,37 @@
 {
-  "name": "xperios",
+  "name": "otptest",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start": "expo start --tunnel",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "eject": "expo eject"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.11",
-    "expo": "~49.0.15",
+    "@react-navigation/drawer": "^6.6.6",
+    "@react-navigation/elements": "^1.3.21",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/stack": "^6.3.20",
+    "expo": "^49.0.19",
+    "expo-constants": "~14.4.2",
+    "expo-firebase-recaptcha": "~2.2.0",
+    "expo-linear-gradient": "~12.3.0",
+    "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
+    "firebase": "^9.6.11",
     "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-native": "0.72.6",
-    "expo-font": "~11.4.0",
-    "expo-splash-screen": "~0.20.5"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "react-native-dialog": "^9.3.0",
+    "react-native-elements": "^3.4.3",
+    "react-native-paper": "^5.11.2",
+    "react-native-progress": "^5.0.1",
+    "react-native-reanimated": "~3.3.0",
+    "react-native-web": "~0.19.6",
+    "react-native-webview": "13.2.2"
   },
   "private": true
 }
