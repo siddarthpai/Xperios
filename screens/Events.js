@@ -14,6 +14,8 @@ import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { SearchBar } from "react-native-elements";
 import Dialog from "react-native-dialog";
+import data from '../xperiosdata.json';
+
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -24,24 +26,24 @@ const App = () => {
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
   });
 
-  const imageUrls = [""];
+
 
   const updateSearch = (text) => {
     setSearch(text);
   };
 
-  useEffect(() => {
-    const onLayoutRootView = async () => {
-      if (fontsLoaded) {
-      }
-    };
+  // useEffect(() => {
+  //   const onLayoutRootView = async () => {
+  //     if (fontsLoaded) {
+  //     }
+  //   };
 
-    onLayoutRootView();
-  }, [fontsLoaded]);
+  //   onLayoutRootView();
+  // }, [fontsLoaded]);
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  // if (!fontsLoaded) {
+  //   return null;
+  // }
 
   const showDialog = () => {
     setVisible(true);
@@ -57,20 +59,6 @@ const App = () => {
 
   const renderRectangularBox = (key) => (
     <View>
-      <TouchableOpacity
-        key={key}
-        style={styles.rectangularBoxTouchable}
-        onPress={showDialog}
-      >
-        <View style={styles.rectangularBox1}>
-          <Image
-            source={{
-              uri: "https://reactnative.dev/img/tiny_logo.png",
-            }}
-            style={{ width: "100%", height: "100%", borderRadius: 10 }}
-          />
-        </View>
-      </TouchableOpacity>
       <Dialog.Container visible={visible}>
         <Dialog.Title>Event Details</Dialog.Title>
         <Dialog.Description>
@@ -98,41 +86,90 @@ const App = () => {
     );
   };
 
+  const eventData = data.filter((item) => item.tag === 'event');
+  const travelData = data.filter((item) => item.tag === 'travel');
+
+  const staticUserDetails = {
+    name: 'John Doe',
+    phoneNumber: '+1234567890',
+    email: 'johndoe@example.com',
+    CreativityQuotient: 30,
+    EnvironmentalQuotient: 45,
+    FitnessQuotient: 52,
+    InteractionQuotient: 80,
+    SocialServiceQuotient: 10,
+  };
+
   return (
-    <ScrollView>
-      <SafeAreaView style={{ flex: 1 }}>
-        <SearchBar
-          placeholder="Type Here..."
-          onChangeText={updateSearch}
-          value={search}
-          lightTheme={true}
-          showCancel={true}
-          round={true}
-        />
-        <LinearGradient
-          colors={["#8E6CEA", "#B0B3FB"]}
-          style={styles.container}
-        >
-          <View style={styles.container}>
-            <Text style={{ fontFamily: "Poppins-Regular", fontSize: 23 }}>
-              Your GQI Score is 43!
-            </Text>
-            <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
-              Increase your FQ to unlock your next reward
-            </Text>
-            <Text
-              style={{
-                fontFamily: "Poppins-Regular",
-                fontSize: 20,
-                marginTop: 40,
-              }}
-            >
-              Recommended for you
-            </Text>
-            <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
-              {renderRectangularBoxes(8)}
-            </ScrollView>
-            <Text
+    <SafeAreaView style={styles.container}>
+
+      <ScrollView>
+        <SafeAreaView style={{ flex: 1 }}>
+          <SearchBar
+            placeholder="Type Here..."
+            onChangeText={updateSearch}
+            value={search}
+            lightTheme={true}
+            showCancel={true}
+            round={true}
+          />
+          <LinearGradient
+            colors={["#8E6CEA", "#B0B3FB"]}
+            style={styles.container}
+          >
+            <View style={styles.container}>
+              <Text style={{ fontFamily: "Poppins-Regular", fontSize: 23 }}>
+                Your GQI Score is 43!
+              </Text>
+              <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
+                Increase your FQ to unlock your next reward
+              </Text>
+
+              <Text
+                style={{
+                  fontFamily: "Poppins-Regular",
+                  fontSize: 20,
+                  marginTop: 40,
+                  marginLeft:20,
+                }}
+              >
+                Recommended for you
+              </Text>
+              <ScrollView horizontal style={styles.container1}>
+                {eventData.map((item, index) => (
+                  <View key={index} style={styles.card}>
+                    <Image
+                      source={{ uri: `https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D` }}
+                      style={styles.image}
+                      resizeMode="cover"
+                    />
+                    <View style={styles.content}>
+                      <Text style={styles.eventName}>{item.eventName}</Text>
+                      <Text style={styles.price}>
+                        Original Price: {item.price.original}/{item.price.unit}
+                      </Text>
+                      <Text style={styles.discountedPrice}>
+                        Discounted Price: {item.price.discounted}/{item.price.unit}
+                      </Text>
+                      <TouchableOpacity style={styles.registerButton}>
+                        <Text style={styles.registerText}>Register</Text>
+                        
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                ))}
+
+                
+              </ScrollView>
+
+
+
+
+
+
+
+
+              {/* <Text
               style={{
                 fontFamily: "Poppins-Regular",
                 fontSize: 20,
@@ -143,20 +180,44 @@ const App = () => {
             </Text>
             <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
               {renderRectangularBoxes(8)}
-            </ScrollView>
-            <Text
-              style={{
-                fontFamily: "Poppins-Regular",
-                fontSize: 20,
-                marginTop: 40,
-              }}
-            >
-              Travel
-            </Text>
-            <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
-              {renderRectangularBoxes(8)}
-            </ScrollView>
-            <Text
+            </ScrollView> */}
+
+
+              <Text
+                style={{
+                  fontFamily: "Poppins-Regular",
+                  fontSize: 20,
+                  marginLeft: 20,
+                }}
+              >
+                Travel
+              </Text>
+              <ScrollView horizontal style={styles.container1}>
+                {travelData.map((item, index) => (
+                  <View key={index} style={styles.card}>
+                    <Image
+                      source={{ uri: `https://cdn.pixabay.com/photo/2018/07/16/16/08/island-3542290_1280.jpg` }}
+                      style={styles.image}
+                      resizeMode="cover"
+                    />
+                    <View style={styles.content}>
+                      <Text style={styles.eventName}>{item.eventName}</Text>
+                      <Text style={styles.price}>
+                        Original Price: {item.price.original}/{item.price.unit}
+                      </Text>
+                      <Text style={styles.discountedPrice}>
+                        Discounted Price: {item.price.discounted}/{item.price.unit}
+                      </Text>
+                      <TouchableOpacity style={styles.registerButton}>
+                        <Text style={styles.registerText}>Register</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                ))}
+              </ScrollView>
+
+
+              {/* <Text
               style={{
                 fontFamily: "Poppins-Regular",
                 fontSize: 20,
@@ -167,23 +228,23 @@ const App = () => {
             </Text>
             <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
               {renderRectangularBoxes(8)}
-            </ScrollView>
-          </View>
-        </LinearGradient>
-      </SafeAreaView>
-    </ScrollView>
+            </ScrollView> */}
+            </View>
+          </LinearGradient>
+        </SafeAreaView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    padding: 5,
+
+    height: '100%',
   },
   rectangularBox: {
-    height: 100,
+    height: 200,
     backgroundColor: "white",
     borderRadius: 10,
     marginTop: 20,
@@ -199,6 +260,49 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: "row",
     gap: 21,
+  },
+
+  container1: {
+    flexDirection: 'row',
+    padding: 10,
+    height: '100%', // Adjust to fit the entire screen
+  },
+  card: {
+    width: 250,
+    marginHorizontal: 10,
+    borderRadius: 10,
+    overflow: 'hidden',
+    height: 410,
+  },
+  image: {
+    width: 250,
+    height: 200,
+  },
+  content: {
+    padding: 15,
+  },
+  eventName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  price: {
+    fontSize: 14,
+    marginBottom: 5,
+  },
+  discountedPrice: {
+    fontSize: 14,
+    marginBottom: 15,
+  },
+  registerButton: {
+    backgroundColor: '#3498db',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  registerText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
 
