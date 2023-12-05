@@ -14,8 +14,7 @@ import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { SearchBar } from "react-native-elements";
 import Dialog from "react-native-dialog";
-import data from '../xperiosdata.json';
-
+import data from "../xperiosdata.json";
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -26,24 +25,9 @@ const App = () => {
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
   });
 
-
-
   const updateSearch = (text) => {
     setSearch(text);
   };
-
-  // useEffect(() => {
-  //   const onLayoutRootView = async () => {
-  //     if (fontsLoaded) {
-  //     }
-  //   };
-
-  //   onLayoutRootView();
-  // }, [fontsLoaded]);
-
-  // if (!fontsLoaded) {
-  //   return null;
-  // }
 
   const showDialog = () => {
     setVisible(true);
@@ -86,13 +70,13 @@ const App = () => {
     );
   };
 
-  const eventData = data.filter((item) => item.tag === 'event');
-  const travelData = data.filter((item) => item.tag === 'travel');
+  const eventData = data.filter((item) => item.tag === "event");
+  const travelData = data.filter((item) => item.tag === "travel");
 
   const staticUserDetails = {
-    name: 'John Doe',
-    phoneNumber: '+1234567890',
-    email: 'johndoe@example.com',
+    name: "John Doe",
+    phoneNumber: "+1234567890",
+    email: "johndoe@example.com",
     CreativityQuotient: 30,
     EnvironmentalQuotient: 45,
     FitnessQuotient: 52,
@@ -102,7 +86,6 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-
       <ScrollView>
         <SafeAreaView style={{ flex: 1 }}>
           <SearchBar
@@ -130,7 +113,7 @@ const App = () => {
                   fontFamily: "Poppins-Regular",
                   fontSize: 20,
                   marginTop: 40,
-                  marginLeft:20,
+                  marginLeft: 20,
                 }}
               >
                 Recommended for you
@@ -139,7 +122,9 @@ const App = () => {
                 {eventData.map((item, index) => (
                   <View key={index} style={styles.card}>
                     <Image
-                      source={{ uri: `https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D` }}
+                      source={{
+                        uri: `https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D`,
+                      }}
                       style={styles.image}
                       resizeMode="cover"
                     />
@@ -149,39 +134,16 @@ const App = () => {
                         Original Price: {item.price.original}/{item.price.unit}
                       </Text>
                       <Text style={styles.discountedPrice}>
-                        Discounted Price: {item.price.discounted}/{item.price.unit}
+                        Discounted Price: {item.price.discounted}/
+                        {item.price.unit}
                       </Text>
-                      <TouchableOpacity style={styles.registerButton}>
-                        <Text style={styles.registerText}>Register</Text>
-                        
-                      </TouchableOpacity>
                     </View>
+                    <TouchableOpacity style={styles.registerButton}>
+                      <Text style={styles.registerText}>Register</Text>
+                    </TouchableOpacity>
                   </View>
                 ))}
-
-                
               </ScrollView>
-
-
-
-
-
-
-
-
-              {/* <Text
-              style={{
-                fontFamily: "Poppins-Regular",
-                fontSize: 20,
-                marginTop: 40,
-              }}
-            >
-              Networking
-            </Text>
-            <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
-              {renderRectangularBoxes(8)}
-            </ScrollView> */}
-
 
               <Text
                 style={{
@@ -196,7 +158,9 @@ const App = () => {
                 {travelData.map((item, index) => (
                   <View key={index} style={styles.card}>
                     <Image
-                      source={{ uri: `https://cdn.pixabay.com/photo/2018/07/16/16/08/island-3542290_1280.jpg` }}
+                      source={{
+                        uri: `https://cdn.pixabay.com/photo/2018/07/16/16/08/island-3542290_1280.jpg`,
+                      }}
                       style={styles.image}
                       resizeMode="cover"
                     />
@@ -206,29 +170,16 @@ const App = () => {
                         Original Price: {item.price.original}/{item.price.unit}
                       </Text>
                       <Text style={styles.discountedPrice}>
-                        Discounted Price: {item.price.discounted}/{item.price.unit}
+                        Discounted Price: {item.price.discounted}/
+                        {item.price.unit}
                       </Text>
-                      <TouchableOpacity style={styles.registerButton}>
-                        <Text style={styles.registerText}>Register</Text>
-                      </TouchableOpacity>
                     </View>
+                    <TouchableOpacity style={styles.registerButton}>
+                      <Text style={styles.registerText}>Register</Text>
+                    </TouchableOpacity>
                   </View>
                 ))}
               </ScrollView>
-
-
-              {/* <Text
-              style={{
-                fontFamily: "Poppins-Regular",
-                fontSize: 20,
-                marginTop: 40,
-              }}
-            >
-              Hobbies
-            </Text>
-            <ScrollView horizontal contentContainerStyle={styles.rowContainer}>
-              {renderRectangularBoxes(8)}
-            </ScrollView> */}
             </View>
           </LinearGradient>
         </SafeAreaView>
@@ -241,7 +192,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
 
-    height: '100%',
+    height: "100%",
   },
   rectangularBox: {
     height: 200,
@@ -263,16 +214,16 @@ const styles = StyleSheet.create({
   },
 
   container1: {
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: 10,
-    height: '100%', // Adjust to fit the entire screen
+    height: "100%", // Adjust to fit the entire screen
   },
   card: {
     width: 250,
     marginHorizontal: 10,
     borderRadius: 10,
-    overflow: 'hidden',
-    height: 410,
+    overflow: "hidden",
+    height: 400,
   },
   image: {
     width: 250,
@@ -280,10 +231,12 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 15,
+
+    height: "100%",
   },
   eventName: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
   },
   price: {
@@ -293,16 +246,22 @@ const styles = StyleSheet.create({
   discountedPrice: {
     fontSize: 14,
     marginBottom: 15,
+    fontWeight: "bold",
   },
   registerButton: {
-    backgroundColor: '#3498db',
+    backgroundColor: "#3498db",
     padding: 10,
     borderRadius: 5,
-    alignItems: 'center',
+    alignItems: "center",
+
+    position: "absolute",
+    bottom: 30,
+    left: 40,
+    width: "70%",
   },
   registerText: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: "white",
+    fontWeight: "bold",
   },
 });
 
