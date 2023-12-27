@@ -12,9 +12,10 @@ import {
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
-import { SearchBar } from "react-native-elements";
+import { Searchbar } from "react-native-paper";
 import Dialog from "react-native-dialog";
 import data from "../xperiosdata.json";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -24,14 +25,6 @@ const App = () => {
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
   });
-
-  const updateSearch = (text) => {
-    setSearch(text);
-  };
-
-  const showDialog = () => {
-    setVisible(true);
-  };
 
   const handleCancel = () => {
     setVisible(false);
@@ -84,104 +77,100 @@ const App = () => {
     SocialServiceQuotient: 10,
   };
 
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const onChangeSearch = (query) => setSearchQuery(query);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <SafeAreaView style={{ flex: 1 }}>
-          <SearchBar
-            placeholder="Type Here..."
-            onChangeText={updateSearch}
-            value={search}
-            lightTheme={true}
-            showCancel={true}
-            round={true}
-          />
-          <LinearGradient
-            colors={["#8E6CEA", "#B0B3FB"]}
-            style={styles.container}
-          >
-            <View style={styles.container}>
-              <Text style={{ fontFamily: "Poppins-Regular", fontSize: 23 }}>
-                Your GQI Score is 43!
-              </Text>
-              <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
-                Increase your FQ to unlock your next reward
-              </Text>
+          <View style={styles.container}>
+            <Searchbar
+              placeholder="Search"
+              onChangeText={onChangeSearch}
+              value={searchQuery}
+              style={styles.searchbar}
+            />
+            <Text style={{ fontFamily: "Poppins-Regular", fontSize: 23 }}>
+              Your GQI Score is 43!
+            </Text>
+            <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
+              Increase your FQ to unlock your next reward
+            </Text>
 
-              <Text
-                style={{
-                  fontFamily: "Poppins-Regular",
-                  fontSize: 20,
-                  marginTop: 40,
-                  marginLeft: 20,
-                }}
-              >
-                Recommended for you
-              </Text>
-              <ScrollView horizontal style={styles.container1}>
-                {eventData.map((item, index) => (
-                  <View key={index} style={styles.card}>
-                    <Image
-                      source={{
-                        uri: `https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D`,
-                      }}
-                      style={styles.image}
-                      resizeMode="cover"
-                    />
-                    <View style={styles.content}>
-                      <Text style={styles.eventName}>{item.eventName}</Text>
-                      <Text style={styles.price}>
-                        Original Price: {item.price.original}/{item.price.unit}
-                      </Text>
-                      <Text style={styles.discountedPrice}>
-                        Discounted Price: {item.price.discounted}/
-                        {item.price.unit}
-                      </Text>
-                    </View>
-                    <TouchableOpacity style={styles.registerButton}>
-                      <Text style={styles.registerText}>Register</Text>
-                    </TouchableOpacity>
+            <Text
+              style={{
+                fontFamily: "Poppins-Regular",
+                fontSize: 20,
+                marginTop: 40,
+                marginLeft: 20,
+              }}
+            >
+              Recommended for you
+            </Text>
+            <ScrollView horizontal style={styles.container1}>
+              {eventData.map((item, index) => (
+                <View key={index} style={styles.card}>
+                  <Image
+                    source={{
+                      uri: `https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D`,
+                    }}
+                    style={styles.image}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.content}>
+                    <Text style={styles.eventName}>{item.eventName}</Text>
+                    <Text style={styles.price}>
+                      Original Price: {item.price.original}/{item.price.unit}
+                    </Text>
+                    <Text style={styles.discountedPrice}>
+                      Discounted Price: {item.price.discounted}/
+                      {item.price.unit}
+                    </Text>
                   </View>
-                ))}
-              </ScrollView>
+                  <TouchableOpacity style={styles.registerButton}>
+                    <Text style={styles.registerText}>Register</Text>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </ScrollView>
 
-              <Text
-                style={{
-                  fontFamily: "Poppins-Regular",
-                  fontSize: 20,
-                  marginLeft: 20,
-                }}
-              >
-                Travel
-              </Text>
-              <ScrollView horizontal style={styles.container1}>
-                {travelData.map((item, index) => (
-                  <View key={index} style={styles.card}>
-                    <Image
-                      source={{
-                        uri: `https://cdn.pixabay.com/photo/2018/07/16/16/08/island-3542290_1280.jpg`,
-                      }}
-                      style={styles.image}
-                      resizeMode="cover"
-                    />
-                    <View style={styles.content}>
-                      <Text style={styles.eventName}>{item.eventName}</Text>
-                      <Text style={styles.price}>
-                        Original Price: {item.price.original}/{item.price.unit}
-                      </Text>
-                      <Text style={styles.discountedPrice}>
-                        Discounted Price: {item.price.discounted}/
-                        {item.price.unit}
-                      </Text>
-                    </View>
-                    <TouchableOpacity style={styles.registerButton}>
-                      <Text style={styles.registerText}>Register</Text>
-                    </TouchableOpacity>
+            <Text
+              style={{
+                fontFamily: "Poppins-Regular",
+                fontSize: 20,
+                marginLeft: 20,
+              }}
+            >
+              Travel
+            </Text>
+            <ScrollView horizontal style={styles.container1}>
+              {travelData.map((item, index) => (
+                <View key={index} style={styles.card}>
+                  <Image
+                    source={{
+                      uri: `https://cdn.pixabay.com/photo/2018/07/16/16/08/island-3542290_1280.jpg`,
+                    }}
+                    style={styles.image}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.content}>
+                    <Text style={styles.eventName}>{item.eventName}</Text>
+                    <Text style={styles.price}>
+                      Original Price: {item.price.original}/{item.price.unit}
+                    </Text>
+                    <Text style={styles.discountedPrice}>
+                      Discounted Price: {item.price.discounted}/
+                      {item.price.unit}
+                    </Text>
                   </View>
-                ))}
-              </ScrollView>
-            </View>
-          </LinearGradient>
+                  <TouchableOpacity style={styles.registerButton}>
+                    <Text style={styles.registerText}>Register</Text>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </ScrollView>
+          </View>
         </SafeAreaView>
       </ScrollView>
     </SafeAreaView>
@@ -190,9 +179,16 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#B08CDDBD",
     flex: 1,
-
     height: "100%",
+  },
+  searchbar: {
+    backgroundColor: "#fff",
+    alignSelf: "center",
+    width: "90%",
+    marginTop: 32,
+    marginBottom: 32,
   },
   rectangularBox: {
     height: 200,

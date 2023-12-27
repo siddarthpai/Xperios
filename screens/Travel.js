@@ -4,9 +4,10 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 import { useFonts } from "expo-font";
 import { Button } from "@rneui/themed";
 import { Icon } from "react-native-elements";
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { ScrollView } from "react-native";
 import { SafeAreaView } from "react-native";
+import { Searchbar } from "react-native-paper";
 
 export const SLIDER_WIDTH = Dimensions.get("window").width + 30;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8);
@@ -57,10 +58,19 @@ const App = () => {
     );
   };
 
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const onChangeSearch = (query) => setSearchQuery(query);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.container}>
+          <Searchbar
+            placeholder="Search"
+            onChangeText={onChangeSearch}
+            value={searchQuery}
+            style={styles.searchbar}
+          />
           <View>
             <Carousel
               data={data}
@@ -259,6 +269,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "center",
     justifyContent: "space-between",
+  },
+  searchbar: {
+    backgroundColor: "#fff",
+    alignSelf: "center",
+    width: "90%",
+    marginTop: 32,
+    marginBottom: 32,
   },
 });
 
