@@ -1,13 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { ProgressBar } from 'react-native-paper';
+import React from "react";
+import { StyleSheet, Text, View, Image, Button } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { ProgressBar } from "react-native-paper";
 
 const Profile = () => {
   const staticUserDetails = {
-    name: 'John Doe',
-    phoneNumber: '+1234567890',
-    email: 'johndoe@example.com',
+    name: "John Doe",
+    phoneNumber: "+1234567890",
+    email: "johndoe@example.com",
     CreativityQuotient: 30,
     EnvironmentalQuotient: 45,
     FitnessQuotient: 52,
@@ -19,11 +19,16 @@ const Profile = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerContent}>
-          <Image style={styles.avatar} source={{ uri: 'https://www.bootdey.com/img/Content/avatar/avatar6.png' }} />
+          <Image
+            style={styles.avatar}
+            source={{
+              uri: "https://www.bootdey.com/img/Content/avatar/avatar6.png",
+            }}
+          />
           <View style={styles.info}>
             <Text style={styles.name}>John Doe</Text>
             <Text style={styles.username}>@johndoe</Text>
-            <Button title="Edit Profile" onPress={() => { }} />
+            <Button title="Edit Profile" onPress={() => {}} />
           </View>
         </View>
       </View>
@@ -33,27 +38,47 @@ const Profile = () => {
 
         <View style={styles.quotient}>
           <Text>Creativity Quotient:</Text>
-          <ProgressBar style={styles.progressBar} progress={staticUserDetails.CreativityQuotient / 100} color="#3498db" /> 
+          <ProgressBar
+            style={styles.progressBar}
+            progress={staticUserDetails.CreativityQuotient / 100}
+            color="#3498db"
+          />
         </View>
 
         <View style={styles.quotient}>
           <Text>Environmental Quotient:</Text>
-          <ProgressBar style={styles.progressBar} progress={staticUserDetails.EnvironmentalQuotient / 100} color="#3498db" />
+          <ProgressBar
+            style={styles.progressBar}
+            progress={staticUserDetails.EnvironmentalQuotient / 100}
+            color="#3498db"
+          />
         </View>
 
         <View style={styles.quotient}>
           <Text>Fitness Quotient:</Text>
-          <ProgressBar style={styles.progressBar} progress={staticUserDetails.FitnessQuotient / 100} color="#3498db" />
+          <ProgressBar
+            style={styles.progressBar}
+            progress={staticUserDetails.FitnessQuotient / 100}
+            color="#3498db"
+          />
         </View>
 
         <View style={styles.quotient}>
           <Text>Interaction Quotient:</Text>
-          <ProgressBar style={styles.progressBar} progress={staticUserDetails.InteractionQuotient / 100} color="#3498db" />
+          <ProgressBar
+            style={styles.progressBar}
+            progress={staticUserDetails.InteractionQuotient / 100}
+            color="#3498db"
+          />
         </View>
 
         <View style={styles.quotient}>
           <Text>Social Service Quotient:</Text>
-          <ProgressBar style={styles.progressBar} progress={staticUserDetails.SocialServiceQuotient / 100} color="#3498db" />
+          <ProgressBar
+            style={styles.progressBar}
+            progress={staticUserDetails.SocialServiceQuotient / 100}
+            color="#3498db"
+          />
         </View>
       </View>
 
@@ -65,17 +90,17 @@ const Profile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: "#B08CDDBD",
   },
   header: {
     marginTop: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 20,
   },
   headerContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginLeft: 50,
   },
   avatar: {
@@ -88,10 +113,10 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   username: {
-    color: '#999',
+    color: "#999",
     fontSize: 18,
   },
   content: {
@@ -100,7 +125,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
   },
   quotient: {
