@@ -3,6 +3,7 @@ import { View, Text, Image } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
+import Details from './screens/Details';
 
 import Events from "./screens/Events";
 import Travel from "./screens/Travel";
@@ -86,6 +87,14 @@ export default function App() {
         <Drawer.Screen
           name="Profile"
           component={Profile}
+          options={{
+            headerTitle: () => <Text></Text>,
+          }}
+        />
+
+        <Drawer.Screen
+          name="Details"
+          component={Details}
           options={{
             headerTitle: () => <Text></Text>,
           }}

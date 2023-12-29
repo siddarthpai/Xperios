@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Muse: Will of the People",
+    "location": "Jakarta, Indonesia",
+    "date": "July 23 2023",
+    "attendees": 10000,
+    "imageUrl": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Join us for a day of inspiration and empowerment as we explore the voices shaping our nation's future.",
+    "userReviews": [
+      {
+        "username": "Jane Doe",
+        "comment": "A fantastic event, full of insightful discussions and engaging speakers!"
+      },
+      {
+        "username": "John Smith",
+        "comment": "An unforgettable experience that broadened my perspective on social change."
+      }
+    ],
+    "individualCost": "₹1000",
+    "costWithFriends": "₹850"
+  },
+  {
+    "id": 2,
+    "name": "Epic Adventure",
+    "location": "Paris, France",
+    "date": "August 15 2023",
+    "attendees": 8000,
+    "imageUrl": "https://images.unsplash.com/photo-1528543606781-2f6e6857f318?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWR2ZW50dXJlfGVufDB8fDB8fHww",
+    "description": "Embark on a journey through the heart of Paris, discovering hidden gems and breathtaking views.",
+    "userReviews": [
+      {
+        "username": "Emily Johnson",
+        "comment": "A magical experience that captured the essence of Parisian culture!"
+      },
+      {
+        "username": "Alex Turner",
+        "comment": "A must-do for anyone seeking adventure and stunning sights."
+      }
+    ],
+    "individualCost": "₹1000",
+    "costWithFriends": "₹850"
+  },
+  {
+    "id": 3,
+    "name": "Nature's Beauty",
+    "location": "Amazon Rainforest",
+    "date": "September 5 2023",
+    "attendees": 12000,
+    "imageUrl": "https://images.unsplash.com/photo-1593320630130-3a049de97ba2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TmF0dXJlcyUyMGJldXR5fGVufDB8fDB8fHww",
+    "description": "Immerse yourself in the wonders of the Amazon, discovering its biodiversity and natural marvels.",
+    "userReviews": [
+      {
+        "username": "Sophia Clark",
+        "comment": "A life-changing experience in the heart of nature, an absolute must for eco-enthusiasts!"
+      },
+      {
+        "username": "David Miller",
+        "comment": "An incredible adventure that brought me closer to nature's wonders."
+      }
+    ],
+    "individualCost": "₹1000",
+    "costWithFriends": "₹850"
+  }
+]
