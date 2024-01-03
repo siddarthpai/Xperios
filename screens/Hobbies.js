@@ -15,7 +15,11 @@ const ImagesTopHalf = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView vertical contentContainerStyle={styles.scrollViewContent}>
+      <ScrollView
+        vertical
+        contentContainerStyle={styles.scrollViewContent}
+        showsVerticalScrollIndicator="false"
+      >
         <Searchbar
           placeholder="Search"
           onChangeText={onChangeSearch}

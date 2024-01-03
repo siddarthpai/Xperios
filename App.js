@@ -3,13 +3,14 @@ import { View, Text, Image } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
-import Details from './screens/Details';
+import Details from "./screens/Details";
 
 import Events from "./screens/Events";
 import Travel from "./screens/Travel";
 import Hobbies from "./screens/Hobbies";
 import Profile from "./screens/Profile";
 import Landing from "./screens/Landing";
+import Community from "./screens/Community";
 
 const Drawer = createDrawerNavigator();
 
@@ -78,8 +79,8 @@ export default function App() {
           }}
         />
         <Drawer.Screen
-          name="Blogs"
-          component={Profile}
+          name="Community"
+          component={Community}
           options={{
             headerTitle: () => <Text></Text>,
           }}
@@ -96,6 +97,7 @@ export default function App() {
           name="Details"
           component={Details}
           options={{
+            drawerItemStyle: { display: "none" },
             headerTitle: () => <Text></Text>,
           }}
         />
