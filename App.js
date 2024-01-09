@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
@@ -15,37 +15,71 @@ import Community from "./screens/Community";
 const Drawer = createDrawerNavigator();
 
 export default function App() {
-  const customHeader = ({ navigation }) => ({
-    headerLeft: () => (
-      <View
-        style={{ marginLeft: 10, flexDirection: "row", alignItems: "center" }}
-      >
-        <Icon
-          name="bars" // Hamburger menu icon
-          type="font-awesome"
-          size={30}
-          color="black"
-          onPress={() => navigation.toggleDrawer()}
-        />
-        <Icon
-          name="user"
-          type="font-awesome"
-          style={{ marginLeft: 16 }}
-          color="#B08CDDBD"
-        ></Icon>
-        <Text style={{ marginLeft: 10, fontSize: 18, fontWeight: "bold" }}>
-          Welcome back {"\n"} Shishimaroo!
-        </Text>
-      </View>
-    ),
-    headerRight: () => (
-      <View
-        style={{ marginRight: 10, flexDirection: "row", alignItems: "center" }}
-      >
-        <Icon name="bell" type="font-awesome" size={24} color="#B08CDDBD" />
-      </View>
-    ),
-  });
+  const customHeader = ({ navigation, route }) => {
+    const isDetailsScreen = route && route.name === 'Details';
+
+    if (isDetailsScreen) {
+      return {
+        headerLeft: () => (
+          <TouchableOpacity
+            style={{
+              marginLeft: 10,
+              paddingVertical: 8,
+              paddingHorizontal: 12,
+              borderRadius: 6,
+              backgroundColor: '#f0f0f0',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}
+            onPress={() => navigation.navigate('Events')}
+          >
+            <Icon name="chevron-left" type="font-awesome" size={20} color="black" />
+            <Text style={{ fontSize: 16, marginLeft: 6 }}>Back</Text>
+          </TouchableOpacity>
+
+        ),
+        headerRight: () => (
+          <View
+            style={{ marginRight: 10, flexDirection: 'row', alignItems: 'center' }}
+          >
+            <Icon name="bell" type="font-awesome" size={24} color="#B08CDDBD" />
+          </View>
+        ),
+      };
+    }
+
+    return {
+      headerLeft: () => (
+        <View
+          style={{ marginLeft: 10, flexDirection: 'row', alignItems: 'center' }}
+        >
+          <Icon
+            name="bars"
+            type="font-awesome"
+            size={30}
+            color="black"
+            onPress={() => navigation.toggleDrawer()}
+          />
+          <Icon
+            name="user"
+            type="font-awesome"
+            style={{ marginLeft: 16 }}
+            color="#B08CDDBD"
+          ></Icon>
+          <Text style={{ marginLeft: 10, fontSize: 18, fontWeight: 'bold' }}>
+            Welcome back {'\n'} Shishimaroo!
+          </Text>
+        </View>
+      ),
+      headerRight: () => (
+        <View
+          style={{ marginRight: 10, flexDirection: 'row', alignItems: 'center' }}
+        >
+          <Icon name="bell" type="font-awesome" size={24} color="#B08CDDBD" />
+        </View>
+      ),
+    };
+  };
 
   return (
     <NavigationContainer>
