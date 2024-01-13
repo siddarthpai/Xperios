@@ -11,6 +11,7 @@ import Hobbies from "./screens/Hobbies";
 import Profile from "./screens/Profile";
 import Landing from "./screens/Landing";
 import Community from "./screens/Community";
+import SignIn from "./screens/SignIn";
 
 const Drawer = createDrawerNavigator();
 
@@ -52,7 +53,7 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Home" screenOptions={customHeader}>
         <Drawer.Screen
           name="Home"
-          component={Landing}
+          component={SignIn}
           options={{
             headerTitle: () => <Text></Text>,
           }}
