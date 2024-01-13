@@ -1,7 +1,7 @@
 // events/Details.js
-import React, { useEffect, useState } from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import eventsData from "../events.json";
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity,ScrollView } from 'react-native';
+import eventsData from '../events.json';
 
 const Details = ({ route }) => {
   const { eventId } = route.params;
@@ -18,74 +18,79 @@ const Details = ({ route }) => {
   }, [eventId]);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        {eventDetails && (
-          <Image source={{ uri: eventDetails.imageUrl }} style={styles.image} />
-        )}
-      </View>
-      <View style={styles.overlayBox}>
-        {eventDetails && (
-          <React.Fragment>
-            <Text style={styles.eventNameText}>{eventDetails.name}</Text>
-            <Image
-              source={require("../assets/location.png")} // Use the location.png from assets
-              style={styles.locationIcon} // Apply styles for the location icon
-            />
-            <Text style={styles.locationText}>{eventDetails.location}</Text>
-            <Image
-              source={require("../assets/calendar.png")} // Use the location.png from assets
-              style={styles.calendarIcon} // Apply styles for the location icon
-            />
-            <View style={styles.dateGroup1}>
-              <Text style={styles.dateText}>5 Jan 2024, 9 AM</Text>
-            </View>
-            {/* Date Group 2 */}
-            <View style={styles.dateGroup2}>
-              <Text style={styles.dateText}>4 Jan 2024, 5 AM</Text>
-            </View>
+    <ScrollView
+      style={{ backgroundColor: "#B08CDD" }}
+      showsVerticalScrollIndicator="false"
+    >
+      <View style={styles.container}>
+        <View style={styles.imageContainer}>
+          {eventDetails && (
+            <Image source={{ uri: eventDetails.imageUrl }} style={styles.image} />
+          )}
+        </View>
+        <View style={styles.overlayBox}>
+          {eventDetails && (
+            <React.Fragment>
+              <Text style={styles.eventNameText}>{eventDetails.name}</Text>
+              <Image
+                source={require("../assets/location.png")} // Use the location.png from assets
+                style={styles.locationIcon} // Apply styles for the location icon
+              />
+              <Text style={styles.locationText}>{eventDetails.location}</Text>
+              <Image
+                source={require("../assets/calendar.png")} // Use the location.png from assets
+                style={styles.calendarIcon} // Apply styles for the location icon
+              />
+              <View style={styles.dateGroup1}>
+                <Text style={styles.dateText}>5 Jan 2024, 9 AM</Text>
+              </View>
+              {/* Date Group 2 */}
+              <View style={styles.dateGroup2}>
+                <Text style={styles.dateText}>4 Jan 2024, 5 AM</Text>
+              </View>
 
-            <View style={styles.chips1}>
-              <Text style={styles.group84}>
-                Individual{"\n"} {eventDetails.individualCost}
+              <View style={styles.chips1}>
+                <Text style={styles.group84}>
+                  Individual{"\n"} {eventDetails.individualCost}
+                </Text>
+              </View>
+
+              <View style={styles.chips2}>
+                <Text style={styles.group84}>
+                  With Friends{"\n"} {eventDetails.costWithFriends}
+                </Text>
+              </View>
+
+              <Text style={styles.eventDescription}>
+                {eventDetails.description}
               </Text>
-            </View>
 
-            <View style={styles.chips2}>
-              <Text style={styles.group84}>
-                With Friends{"\n"} {eventDetails.costWithFriends}
+              <View style={styles.chips}>
+                <Text style={styles.contactHostText}>Contact the host !</Text>
+              </View>
+
+              <Text style={styles.userReviewsText}>User Reviews</Text>
+
+              <Text style={styles.username}>BALUUUUUU🐻</Text>
+
+              <Text style={styles.review}>
+                An exhilerating experience! Would totally recommend
               </Text>
-            </View>
 
-            <Text style={styles.eventDescription}>
-              {eventDetails.description}
-            </Text>
+              <Text style={styles.star}>⭐</Text>
 
-            <View style={styles.chips}>
-              <Text style={styles.contactHostText}>Contact the host !</Text>
-            </View>
+              <TouchableOpacity style={styles.register}>
+                <Text style={styles.registerText}>REGISTER</Text>
+              </TouchableOpacity>
 
-            <Text style={styles.userReviewsText}>User Reviews</Text>
-
-            <Text style={styles.username}>BALUUUUUU🐻</Text>
-
-            <Text style={styles.review}>
-              An exhilerating experience! Would totally recommend
-            </Text>
-
-            <Text style={styles.star}>⭐</Text>
-
-            <TouchableOpacity style={styles.register}>
-              <Text style={styles.registerText}>REGISTER</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.more}>
-              <Text>more...</Text>
-            </TouchableOpacity>
-          </React.Fragment>
-        )}
+              <TouchableOpacity style={styles.more}>
+                <Text>more...</Text>
+              </TouchableOpacity>
+            </React.Fragment>
+          )}
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -93,15 +98,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#B08CDDBD",
+
   },
   imageContainer: {
     marginTop: 26,
-    marginLeft: 20,
+    position: "absolute",
+    alignSelf: "center",
+    justifyContent: "center",
     width: 338,
     height: 177.88,
     borderRadius: 12.94,
     overflow: "hidden",
   },
+
   image: {
     width: "100%",
     height: "100%",
@@ -123,6 +132,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.13,
     shadowRadius: 20.6966552734375,
     elevation: 5,
+
   },
   star: {
     position: "absolute",
@@ -177,6 +187,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: "5.13%",
     right: "40.11%",
+    width: "100%",
     top: "2.77%",
     bottom: "91.94%",
   },

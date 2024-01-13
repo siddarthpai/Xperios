@@ -1,264 +1,469 @@
-import React, { useState, useCallback, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  SafeAreaView,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
-import { useFonts } from "expo-font";
-import { StatusBar } from "expo-status-bar";
-import { LinearGradient } from "expo-linear-gradient";
-import { Searchbar } from "react-native-paper";
-import Dialog from "react-native-dialog";
-import data from "../xperiosdata.json";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import React from 'react';
+import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const App = () => {
-  const [search, setSearch] = useState("");
-  const [visible, setVisible] = useState(false);
-  const [fontsLoaded] = useFonts({
-    "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
-    "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
-    "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
-  });
-
-  const handleCancel = () => {
-    setVisible(false);
-  };
-
-  const handleRegister = () => {
-    setVisible(false);
-  };
-
-  const renderRectangularBox = (key) => (
-    <View>
-      <Dialog.Container visible={visible}>
-        <Dialog.Title>Event Details</Dialog.Title>
-        <Dialog.Description>
-          <Image
-            source={{
-              uri: "https://reactnative.dev/img/tiny_logo.png",
-            }}
-            style={{
-              width: 100,
-              height: 100,
-              borderRadius: 10,
-            }}
-          />
-          {"\n"}Loreum Ipsium
-        </Dialog.Description>
-        <Dialog.Button label="Cancel" onPress={handleCancel} />
-        <Dialog.Button label="Register" onPress={handleRegister} />
-      </Dialog.Container>
-    </View>
-  );
-
-  const renderRectangularBoxes = (count) => {
-    return Array.from({ length: count }, (_, index) =>
-      renderRectangularBox(index.toString())
-    );
-  };
-
-  const eventData = data.filter((item) => item.tag === "event");
-  const travelData = data.filter((item) => item.tag === "travel");
-
-  const staticUserDetails = {
-    name: "John Doe",
-    phoneNumber: "+1234567890",
-    email: "johndoe@example.com",
-    CreativityQuotient: 30,
-    EnvironmentalQuotient: 45,
-    FitnessQuotient: 52,
-    InteractionQuotient: 80,
-    SocialServiceQuotient: 10,
-  };
-
-  const [searchQuery, setSearchQuery] = React.useState("");
-  const onChangeSearch = (query) => setSearchQuery(query);
-
+const HomeComponent = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <SafeAreaView style={{ flex: 1 }}>
-          <View style={styles.container}>
-            <Searchbar
-              placeholder="Search"
-              onChangeText={onChangeSearch}
-              value={searchQuery}
-              style={styles.searchbar}
-            />
-            <Text style={{ fontFamily: "Poppins-Regular", fontSize: 23 }}>
-              Your GQI Score is 43!
-            </Text>
-            <Text style={{ fontFamily: "Poppins-Regular", fontSize: 16 }}>
-              Increase your FQ to unlock your next reward
-            </Text>
+    <ScrollView
+      style={styles.container}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        alignItems: 'center',
+      }}
+    >
+      <View style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 281,
+        height: 28,
+        marginTop: 15,
+      }}>
+        <Text style={{ color: '#761CBC', fontSize: 23, fontWeight: 600, }}>Good Morning, </Text>
+        <Text style={{ color: '#000000', fontSize: 23, fontWeight: 600, }}>Lakshmi</Text>
+      </View>
+      <View style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 24,
+      }}>
+        <View style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 28,
+          width: 362,
+          height: 260,
+          borderRadius: 12,
+          backgroundColor: '#380C72',
+        }}>
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 154, width: 342, height: 71 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 8, width: 111, height: 70 }}>
+              <View style={{ flexDirection: 'column' }}>
+                <Text style={{ fontWeight: '600', fontSize: 16, color: '#EBE7F1' }}>GQI</Text>
+                <Text style={{ fontWeight: '700', fontSize: 36, textAlign: 'center', color: '#FFFFFF' }}>850 Pts</Text>
+              </View>
+              <Image
+                source={require('../assets/gift.png')} // Adjust the path as needed
+                style={styles.giftImage}
 
-            <Text
-              style={{
-                fontFamily: "Poppins-Regular",
-                fontSize: 20,
-                marginTop: 40,
-                marginLeft: 20,
-              }}
-            >
-              Recommended for you
-            </Text>
-            <ScrollView horizontal style={styles.container1}>
-              {eventData.map((item, index) => (
-                <View key={index} style={styles.card}>
-                  <Image
-                    source={{
-                      uri: `https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D`,
-                    }}
-                    style={styles.image}
-                    resizeMode="cover"
-                  />
-                  <View style={styles.content}>
-                    <Text style={styles.eventName}>{item.eventName}</Text>
-                    <Text style={styles.price}>
-                      Original Price: {item.price.original}/{item.price.unit}
-                    </Text>
-                    <Text style={styles.discountedPrice}>
-                      Discounted Price: {item.price.discounted}/
-                      {item.price.unit}
-                    </Text>
-                  </View>
-                  <TouchableOpacity style={styles.registerButton}>
-                    <Text style={styles.registerText}>Register</Text>
-                  </TouchableOpacity>
-                </View>
-              ))}
-            </ScrollView>
-
-            <Text
-              style={{
-                fontFamily: "Poppins-Regular",
-                fontSize: 20,
-                marginLeft: 20,
-              }}
-            >
-              Travel
-            </Text>
-            <ScrollView horizontal style={styles.container1}>
-              {travelData.map((item, index) => (
-                <View key={index} style={styles.card}>
-                  <Image
-                    source={{
-                      uri: `https://cdn.pixabay.com/photo/2018/07/16/16/08/island-3542290_1280.jpg`,
-                    }}
-                    style={styles.image}
-                    resizeMode="cover"
-                  />
-                  <View style={styles.content}>
-                    <Text style={styles.eventName}>{item.eventName}</Text>
-                    <Text style={styles.price}>
-                      Original Price: {item.price.original}/{item.price.unit}
-                    </Text>
-                    <Text style={styles.discountedPrice}>
-                      Discounted Price: {item.price.discounted}/
-                      {item.price.unit}
-                    </Text>
-                  </View>
-                  <TouchableOpacity style={styles.registerButton}>
-                    <Text style={styles.registerText}>Register</Text>
-                  </TouchableOpacity>
-                </View>
-              ))}
-            </ScrollView>
+              />
+            </View>
           </View>
-        </SafeAreaView>
+          <Text style={{ fontWeight: '500', fontSize: 16, textAlign: 'center', color: '#EBE7F1' }}>Earn more points and Enjoy exclusive benefits</Text>
+          <View style={{ boxSizing: 'border-box', width: 336, height: 84, backgroundColor: 'rgba(255, 255, 255, 0.25)', borderWidth: 1, borderColor: 'rgba(255, 255, 255, 0.35)', borderRadius: 8 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', padding: 0, gap: 20, width: 304, height: 48, left: 16, top: 18 }}>
+              <View style={{ flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 5, width: 192, height: 48 }}>
+                <Text style={{ fontWeight: '700', fontSize: 20, textAlign: 'center', color: '#FFFFFF' }}>Free 50 Points</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 4, width: 192, height: 19 }}>
+                  <Text style={{ fontWeight: '500', fontSize: 16, textAlign: 'center', color: '#EBE7F1' }}>Time Remaining:</Text>
+                  <Text style={{ fontWeight: '500', fontSize: 16, textAlign: 'center', color: '#EBE7F1' }}>10:45:22</Text>
+                </View>
+              </View>
+              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10, gap: 10, width: 92, height: 41, backgroundColor: '#FFFFFF', borderRadius: 4 }}>
+                <Text style={{ fontWeight: '600', fontSize: 16, textAlign: 'center', color: '#380C72' }}>Claim</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+
+
+      {/* <View style={styles.frame4548}>
+        <Image
+          style={styles.image1}
+          source={{ uri: 'https://picsum.photos/330/203' }} // Lorem Picsum URL
+        />
+        <View style={styles.rectangle1} />
+        <View style={styles.group28}>
+          <TouchableOpacity style={styles.heartIcon} onPress={() => console.log('Heart clicked')}>
+            <Image
+              source={require('../assets/like.png')} // Adjust the path as needed
+              style={{ width: 26, height: 26 }}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.frame4553}>
+          <View style={styles.frame4552}>
+            <Text style={styles.dollarSign}>$</Text>
+            <Text style={styles.number270}>270</Text>
+          </View>
+        </View>
+      </View>
+
+
+      <View style={styles.frame4556}>
+        <View style={styles.frame4555}>
+          <Text style={styles.leceisterSquareKitchen}>Leceister Square kitchen</Text>
+          <Text style={styles.text4936}>4.9</Text>
+        </View>
+        <View style={styles.frame4550}>
+          <Text style={styles.address}>31-36 Leicester Square, England</Text>
+        </View>
+      </View> */}
+
+      <View style={styles.topRecommendations}>
+        <Text style={styles.title}>Our Top Recommendations</Text>
+      </View>
+
+      <ScrollView horizontal contentContainerStyle={styles.cards}>
+        <View style={styles.propertyCard}>
+          <View style={styles.propertyImage}>
+            <Image
+              style={styles.image}
+              source={{ uri: 'https://picsum.photos/330/203' }} // Lorem Picsum URL
+            />
+            <View style={styles.overlay} />
+            <View style={styles.favorite}>
+              <TouchableOpacity onPress={() => console.log('Heart clicked')}>
+                <Image
+                  source={require('../assets/like.png')} // Adjust the path as needed
+                  style={styles.heartIcon}
+                />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.price1}>
+              <View style={styles.price}>
+                <Text style={styles.currency}>$</Text>
+                <Text style={styles.amount}>270</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.propertyDetails}>
+            <View style={styles.rating}>
+              <Text style={styles.squareKitchen}>Leceister Square kitchen</Text>
+              <Text style={styles.ratingNumber}>⭐ 4.9</Text>
+            </View>
+            <View style={styles.address}>
+              <Image
+                source={require("../assets/location.png")} // Use the location.png from assets
+                style={styles.locationIcon} // Apply styles for the location icon
+              />
+              <Text style={styles.addressText}>31-36 Leicester Square, England</Text>
+            </View>
+          </View>
+        </View>
+
+
+
+        <View style={styles.propertyCard}>
+          <View style={styles.propertyImage}>
+            <Image
+              style={styles.image}
+              source={{ uri: 'https://picsum.photos/330/203' }} // Lorem Picsum URL
+            />
+            <View style={styles.overlay} />
+            <View style={styles.favorite}>
+              <TouchableOpacity onPress={() => console.log('Heart clicked')}>
+                <Image
+                  source={require('../assets/like.png')} // Adjust the path as needed
+                  style={styles.heartIcon}
+                />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.price1}>
+              <View style={styles.price}>
+                <Text style={styles.currency}>$</Text>
+                <Text style={styles.amount}>270</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.propertyDetails}>
+            <View style={styles.rating}>
+              <Text style={styles.squareKitchen}>Leceister Square kitchen</Text>
+              <Text style={styles.ratingNumber}>⭐ 4.9</Text>
+            </View>
+            <View style={styles.address}>
+              <Image
+                source={require("../assets/location.png")} // Use the location.png from assets
+                style={styles.locationIcon} // Apply styles for the location icon
+              />
+              <Text style={styles.addressText}>31-36 Leicester Square, England</Text>
+            </View>
+          </View>
+        </View>
       </ScrollView>
-    </SafeAreaView>
+
+    </ScrollView>
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#B08CDDBD",
     flex: 1,
-    height: "100%",
+    backgroundColor: "#B08CDD",
   },
-  searchbar: {
-    backgroundColor: "#fff",
-    alignSelf: "center",
-    width: "90%",
-    marginTop: 32,
-    marginBottom: 32,
-  },
-  rectangularBox: {
-    height: 200,
-    backgroundColor: "white",
-    borderRadius: 10,
-    marginTop: 20,
-    width: 345,
-  },
-  rectangularBox1: {
-    height: 116,
-    width: 116,
-    backgroundColor: "white",
-    borderRadius: 10,
-    marginTop: 10,
-  },
-  rowContainer: {
-    flexDirection: "row",
-    gap: 21,
+  giftImage: {
+    width: 77,
+    height: 71,
+    left: 152,
   },
 
-  container1: {
-    flexDirection: "row",
-    padding: 10,
-    height: "100%", // Adjust to fit the entire screen
-  },
-  card: {
-    width: 250,
-    marginHorizontal: 10,
-    borderRadius: 10,
-    overflow: "hidden",
-    height: 400,
-  },
-  image: {
-    width: 250,
-    height: 200,
-  },
-  content: {
-    padding: 15,
 
-    height: "100%",
+
+  locationIcon: {
+    position: "absolute",
+    left: "0.5%",
+    top: "9.52%",
+    width: 20,
+    height: 20,
   },
-  eventName: {
+
+  frame4556: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    padding: 0,
+    gap: 14,
+    width: 330,
+    height: 55,
+  },
+  frame4555: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: 0,
+    gap: 54,
+    width: 330,
+    height: 22,
+  },
+  leceisterSquareKitchen: {
+    width: 229,
+    height: 22,
+    fontFamily: 'Sora',
+    fontWeight: '600',
     fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 10,
+    lineHeight: 22,
+    textAlign: 'center',
+    color: '#000000',
+  },
+
+  image1: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    resizeMode: 'cover',
+  },
+  rectangle1: {
+    width: 330,
+    height: 209,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+  },
+  group28: {
+    width: 40,
+    height: 40,
+    position: 'absolute',
+    left: 286,
+    top: 20,
+  },
+  heartIcon: {
+    width: 24,
+    height: 24,
+  },
+
+
+  propertyCard: {
+    justifyContent: 'center',
+    width: 330,
+    height: 280,
+    borderRadius: 8,
+    overflow: 'hidden',
+    paddingHorizontal: 10,
+  },
+  propertyImage: {
+    position: 'relative',
+    width: '100%',
+    height: 203,
+  },
+
+  cards: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 16,
+    gap: 20,
+  },
+
+  image: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    borderRadius:12,
+  },
+  overlay: {
+    position: 'absolute',
+    width: '100%',
+    height: 203,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    borderRadius:12,
+  },
+  favorite: {
+    position: 'absolute',
+    width: 40,
+    height: 40,
+    right: 12,
+    top: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heartIcon: {
+    width: 26,
+    height: 26,
+  },
+  price1: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    paddingVertical: 9,
+    paddingHorizontal: 14,
+    gap: 10,
+    position: 'absolute',
+    width: 87,
+    height: 46,
+    left: 12,
+    top: 12,
+    backgroundColor: '#380C72',
+    borderRadius: 4,
+
   },
   price: {
-    fontSize: 14,
-    marginBottom: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 0,
+    gap: 2,
+    width: 59,
+    height: 28,
   },
-  discountedPrice: {
+  currency: {
+    width: 10,
+    height: 17,
+    fontFamily: 'Sora',
+    fontWeight: '700',
     fontSize: 14,
-    marginBottom: 15,
-    fontWeight: "bold",
+    lineHeight: 17,
+    textAlign: 'center',
+    color: '#FFFFFF',
   },
-  registerButton: {
-    backgroundColor: "#3498db",
-    padding: 10,
-    borderRadius: 5,
-    alignItems: "center",
+  amount: {
+    width: 47,
+    height: 28,
+    fontFamily: 'Sora',
+    fontWeight: '700',
+    fontSize: 23,
+    lineHeight: 28,
+    textAlign: 'center',
+    color: '#FFFFFF',
+  },
 
-    position: "absolute",
-    bottom: 30,
-    left: 40,
-    width: "70%",
+  topRecommendations: {
+    width: 348,
+    height: 24,
+    marginTop:20,
   },
-  registerText: {
-    color: "white",
-    fontWeight: "bold",
+  title: {
+    fontWeight: '600',
+    fontSize: 20,
+    lineHeight: 24,
+    textAlign: 'left',
+    color: '#761CBC',
+  },
+  propertyDetails: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    paddingHorizontal: 3,
+    paddingTop: 10,
+    width: '100%',
+    height: 55,
+  },
+  rating: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    height: 22,
+  },
+  squareKitchen: {
+    fontWeight: '600',
+    fontSize: 18,
+    color: '#000000',
+  },
+  ratingNumber: {
+    fontWeight: '600',
+    fontSize: 16,
+    color: '#000000',
+  },
+  address: {
+    width: '100%',
+    height: 19,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addressText: {
+    fontWeight: '400',
+    fontSize: 16,
+    color: '#646464',
+    textAlign: 'center',
+    marginRight: 20,
+
   },
 });
 
-export default App;
+export default HomeComponent;
+
+
+
+
+
+// import React, { useEffect, useState } from 'react';
+// import { View, Text } from 'react-native';
+// import { getDatabase, ref, set, onValue } from 'firebase/database';
+// import { app } from '../travelconfig';
+
+// const YourComponent = () => {
+//   const [travelData, setTravelData] = useState(null);
+
+//   useEffect(() => {
+//     const db = getDatabase(app);
+//     const travelRef = ref(db, 'Travel');
+
+//     const randomData = {
+//       data1: 'Random value 1',
+//       data2: 'Random value 2',
+//       data3: 'Random value 3',
+//       // Add more data as needed
+//     };
+
+//     set(travelRef, randomData)
+//       .then(() => {
+//         console.log('Random data added to Travel node successfully!');
+
+//         // Read data from Travel node
+//         onValue(travelRef, (snapshot) => {
+//           const fetchedData = snapshot.val();
+//           setTravelData(fetchedData);
+//         });
+//       })
+//       .catch((error) => {
+//         console.error('Error adding random data to Travel node: ', error);
+//       });
+//   }, []);
+
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       {travelData && (
+//         Object.entries(travelData).map(([key, value]) => (
+//           <View key={key}>
+//             <Text>{key}: {value}</Text>
+//           </View>
+//         ))
+//       )}
+//     </View>
+//   );
+// };
+
+// export default YourComponent;
