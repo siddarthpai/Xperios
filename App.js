@@ -12,12 +12,13 @@ import Profile from "./screens/Profile";
 import Landing from "./screens/Landing";
 import Community from "./screens/Community";
 import SignIn from "./screens/SignIn";
+import Login from "./screens/Login";
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
   const customHeader = ({ navigation, route }) => {
-    const isDetailsScreen = route && route.name === 'Details';
+    const isDetailsScreen = route && route.name === "Details";
 
     if (isDetailsScreen) {
       return {
@@ -28,20 +29,28 @@ export default function App() {
               paddingVertical: 8,
               paddingHorizontal: 12,
               borderRadius: 6,
-              backgroundColor: '#f0f0f0',
-              flexDirection: 'row',
-              alignItems: 'center',
+              backgroundColor: "#f0f0f0",
+              flexDirection: "row",
+              alignItems: "center",
             }}
-            onPress={() => navigation.navigate('Events')}
+            onPress={() => navigation.navigate("Events")}
           >
-            <Icon name="chevron-left" type="font-awesome" size={20} color="black" />
+            <Icon
+              name="chevron-left"
+              type="font-awesome"
+              size={20}
+              color="black"
+            />
             <Text style={{ fontSize: 16, marginLeft: 6 }}>Back</Text>
           </TouchableOpacity>
-
         ),
         headerRight: () => (
           <View
-            style={{ marginRight: 10, flexDirection: 'row', alignItems: 'center' }}
+            style={{
+              marginRight: 10,
+              flexDirection: "row",
+              alignItems: "center",
+            }}
           >
             <Icon name="bell" type="font-awesome" size={24} color="#B08CDDBD" />
           </View>
@@ -52,7 +61,7 @@ export default function App() {
     return {
       headerLeft: () => (
         <View
-          style={{ marginLeft: 10, flexDirection: 'row', alignItems: 'center' }}
+          style={{ marginLeft: 10, flexDirection: "row", alignItems: "center" }}
         >
           <Icon
             name="bars"
@@ -67,14 +76,18 @@ export default function App() {
             style={{ marginLeft: 16 }}
             color="#B08CDDBD"
           ></Icon>
-          <Text style={{ marginLeft: 10, fontSize: 18, fontWeight: 'bold' }}>
-            Welcome back {'\n'} Shishimaroo!
+          <Text style={{ marginLeft: 10, fontSize: 18, fontWeight: "bold" }}>
+            Welcome back {"\n"} Shishimaroo!
           </Text>
         </View>
       ),
       headerRight: () => (
         <View
-          style={{ marginRight: 10, flexDirection: 'row', alignItems: 'center' }}
+          style={{
+            marginRight: 10,
+            flexDirection: "row",
+            alignItems: "center",
+          }}
         >
           <Icon name="bell" type="font-awesome" size={24} color="#B08CDDBD" />
         </View>
@@ -87,7 +100,7 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Home" screenOptions={customHeader}>
         <Drawer.Screen
           name="Home"
-          component={SignIn}
+          component={Landing}
           options={{
             headerTitle: () => <Text></Text>,
           }}
@@ -131,6 +144,14 @@ export default function App() {
         <Drawer.Screen
           name="Details"
           component={Details}
+          options={{
+            drawerItemStyle: { display: "none" },
+            headerTitle: () => <Text></Text>,
+          }}
+        />
+        <Drawer.Screen
+          name="OTP"
+          component={SignIn}
           options={{
             drawerItemStyle: { display: "none" },
             headerTitle: () => <Text></Text>,
