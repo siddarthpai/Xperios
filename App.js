@@ -13,6 +13,7 @@ import Landing from "./screens/Landing";
 import Community from "./screens/Community";
 import SignIn from "./screens/SignIn";
 import Login from "./screens/Login";
+import test from "./screens/test";
 
 const Drawer = createDrawerNavigator();
 

@@ -1,5 +1,13 @@
 import React, { useRef, useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, TouchableWithoutFeedback, Keyboard } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { FirebaseRecaptchaVerifierModal } from "expo-firebase-recaptcha";
 import { firebaseConfig } from "../config";
 import firebase from "firebase/compat/app";
@@ -24,7 +32,10 @@ const SignIn = ({ navigation }) => {
 
   const confirmCode = () => {
     const phoneNum = phoneNumber;
-    const credential = firebase.auth.PhoneAuthProvider.credential(verificationId, code);
+    const credential = firebase.auth.PhoneAuthProvider.credential(
+      verificationId,
+      code
+    );
     firebase
       .auth()
       .signInWithCredential(credential)
@@ -40,61 +51,61 @@ const SignIn = ({ navigation }) => {
           EnvironmentalQuotient: 0,
           SocialServiceQuotient: 0,
         };
-        
-    firebase
-      .database()
-      .ref(`profiles/${user.uid}`)
-      .set(userDetails)
-      .then(() => {
-        console.log("User details saved to the database!");
-        navigation.navigate("Dashboard");
+
+        firebase
+          .database()
+          .ref(`profiles/${user.uid}`)
+          .set(userDetails)
+          .then(() => {
+            console.log("User details saved to the database!");
+            navigation.navigate("Dashboard");
+          })
+          .catch((error) => {
+            console.error("Error saving user details:", error);
+          });
       })
       .catch((error) => {
-        console.error("Error saving user details:", error);
+        alert(error);
       });
-  })
-      .catch ((error) => {
-  alert(error);
-});
   };
 
-const handleTap = () => {
-  Keyboard.dismiss();
-};
+  const handleTap = () => {
+    Keyboard.dismiss();
+  };
 
-return (
-  <TouchableWithoutFeedback onPress={handleTap}>
-    <View style={styles.container}>
-      <FirebaseRecaptchaVerifierModal
-        ref={recaptchaVerifier}
-        firebaseConfig={firebaseConfig}
-      />
-      <Text style={styles.otpText}>Login using OTP</Text>
-      <TextInput
-        placeholder="Phone Number"
-        onChangeText={setPhoneNumber}
-        keyboardType="phone-pad"
-        autoCompleteType="tel"
-        style={styles.textInput}
-      />
-      <TouchableOpacity
-        style={styles.sendVerification}
-        onPress={sendVerification}
-      >
-        <Text style={styles.buttonText}>Send Verification</Text>
-      </TouchableOpacity>
-      <TextInput
-        placeholder="Confirmation Code"
-        onChangeText={setCode}
-        keyboardType="number-pad"
-        style={styles.textInput}
-      />
-      <TouchableOpacity style={styles.sendCode} onPress={confirmCode}>
-        <Text style={styles.buttonText}>Confirm Verification</Text>
-      </TouchableOpacity>
-    </View>
-  </TouchableWithoutFeedback>
-);
+  return (
+    <TouchableWithoutFeedback onPress={handleTap}>
+      <View style={styles.container}>
+        <FirebaseRecaptchaVerifierModal
+          ref={recaptchaVerifier}
+          firebaseConfig={firebaseConfig}
+        />
+        <Text style={styles.otpText}>Login using OTP</Text>
+        <TextInput
+          placeholder="Phone Number"
+          onChangeText={setPhoneNumber}
+          keyboardType="phone-pad"
+          autoCompleteType="tel"
+          style={styles.textInput}
+        />
+        <TouchableOpacity
+          style={styles.sendVerification}
+          onPress={sendVerification}
+        >
+          <Text style={styles.buttonText}>Send Verification</Text>
+        </TouchableOpacity>
+        <TextInput
+          placeholder="Confirmation Code"
+          onChangeText={setCode}
+          keyboardType="number-pad"
+          style={styles.textInput}
+        />
+        <TouchableOpacity style={styles.sendCode} onPress={confirmCode}>
+          <Text style={styles.buttonText}>Confirm Verification</Text>
+        </TouchableOpacity>
+      </View>
+    </TouchableWithoutFeedback>
+  );
 };
 
 export default SignIn;
