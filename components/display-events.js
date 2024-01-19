@@ -1,147 +1,116 @@
-import {
-    Dimensions,
-    Text,
-    View,
-    StyleSheet,
-    Image,
-    ImageBackground,
-    TouchableOpacity
-} from "react-native";
-import { useFonts } from "expo-font";
-import { Button } from "@rneui/themed";
-import { ScrollView } from "react-native";
-import { SafeAreaView } from "react-native";
-import { Searchbar } from "react-native-paper";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { db2 } from "../events-config";
 import { Icon } from "react-native-elements";
-import eventsData from '../events.json'
 
-const Events = ({ navigation }) => {
-    const handleEventPress = (eventId) => {
-        navigation.navigate('Details', { eventId });
-    };
+const DisplayEvents = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    return (
-        <ScrollView horizontal style={styles1.scrollView}>
-            {eventsData.map((event) => (
-                <TouchableOpacity
-                    key={event.id}
-                    onPress={() => handleEventPress(event.id)}
-                >
-                    <View style={styles1.itemContainer}>
-                        <View style={styles1.whiteBox}>
-                            <Image
-                                style={{
-                                    width: "90%",
-                                    height: 100,
-                                    borderRadius: 15,
-                                    alignSelf: "center",
-                                    marginTop: 10,
-                                    marginBottom: 10,
-                                }}
-                                source={{ uri: event.imageUrl }}
-                            />
-                            <View
-                                style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    flexDirection: "column",
-                                    justifyContent: "flex-start",
-                                    alignItems: "flex-start",
-                                    marginVertical: 6,
-                                }}>
-                                <Text
-                                    style={{
-                                        color: "black",
-                                        fontSize: 12,
-                                        fontWeight: "bold",
-                                        marginLeft: 10,
-                                    }}
-                                >{event.muse}</Text>
-                                <View
-                                    style={{
-                                        flexDirection: "row",
-                                        justifyContent: "flex-start",
-                                        alignItems: "center",
-                                        marginTop: 8,
-                                    }}
-                                >
-                                    <Icon
-                                        name="place"
-                                        color="#2D264B4D"
-                                        size={16}
-                                        style={{ marginLeft: 8 }}
-                                    />
-                                    <Text style={{
-                                        color: "black",
-                                        fontSize: 10,
-                                    }}>{event.location}</Text>
-                                </View>
+  useEffect(() => {
+    // Reference to the root of your database
+    const database = db2;
+    const dataRef = ref(database);
 
-                                <View
-                                    style={{
-                                        flexDirection: "row",
-                                        justifyContent: "flex-start",
-                                        alignItems: "center",
-                                        marginTop: 8,
-                                    }}>
-                                    <Icon
-                                        name="event"
-                                        color="#2D264B4D"
-                                        size={16}
-                                        style={{ marginLeft: 8 }}
-                                    />
-                                    <Text style={{
-                                        color: "black",
-                                        fontSize: 10,
-                                        fontWeight: "400",
-                                    }}>{event.date}</Text>
-                                </View>
-
-                                <View
-                                    style={{
-                                        flexDirection: "row",
-                                        justifyContent: "flex-start",
-                                        alignItems: "center",
-                                        marginTop: 32,
-                                    }}>
-                                    <Icon
-                                        name="tag"
-                                        type="font-awesome"
-                                        color="#EC441E"
-                                        size={16}
-                                        style={{ marginLeft: 10 }}
-                                    />
-                                    <Text style={{
-                                        marginLeft: 5,
-                                        fontSize: 16,
-                                        fontWeight: "bold",
-                                        color: "#EC441E",
-                                    }}>{event.attendees}</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            ))}
-        </ScrollView>
+    // Set up a listener for real-time changes
+    const unsubscribe = onValue(
+      dataRef,
+      (snapshot) => {
+        const dataFromDb = snapshot.val();
+        if (dataFromDb) {
+          // Convert object to an array
+          const dataArray = Object.keys(dataFromDb).map((key) => ({
+            id: key,
+            ...dataFromDb[key],
+          }));
+          setData(dataArray);
+        } else {
+          setData([]);
+        }
+        setLoading(false);
+      },
+      (error) => {
+        console.error("Error fetching data:", error);
+        setError(error.message);
+        setLoading(false);
+      }
     );
+
+    // Cleanup: Unsubscribe from the database changes when the component unmounts
+    return () => unsubscribe();
+  }, []);
+
+  if (loading) {
+    return <Text>Loading...</Text>;
+  }
+
+  if (error) {
+    return <Text>Error: {error}</Text>;
+  }
+
+  return (
+    <ScrollView horizontal style={styles.scrollView}>
+      {data.map((item) => (
+        <View key={item.id} style={styles.card}>
+          <Image source={{ uri: item.Image }} style={styles.image} />
+          <View style={styles.cardContent}>
+            <Text style={styles.category}>{item.Category}</Text>
+            <Text style={styles.name}>{item.Name}</Text>
+            <Text style={styles.location}>{item.Location}</Text>
+            <Text style={styles.price}>{item.Price}</Text>
+          </View>
+        </View>
+      ))}
+    </ScrollView>
+  );
 };
 
-const styles1 = StyleSheet.create({
-    scrollView: {
-      flexDirection: 'row',
-      padding: 10,
-    },
-    itemContainer: {
-      marginRight: 20, // Adjust this margin to set the gap between items
-    },
-    whiteBox: {
-      width: 200, // Adjust width as needed
-      height: 250,
-      backgroundColor: 'white',
-      borderRadius: 8,
-    },
-  });
-
-export default Events;
+const styles = StyleSheet.create({
+  scrollView: {
+    flexDirection: "row",
+  },
+  card: {
+    width: 300,
+    margin: 10,
+    borderRadius: 10,
+    overflow: "hidden",
+    backgroundColor: "#fff",
+    elevation: 5,
+  },
+  image: {
+    width: "100%",
+    height: 150,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    resizeMode: 'cover',
+  },
+  
+  cardContent: {
+    padding: 15,
+  },
+  category: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 5,
+    color: "#3498db",
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 5,
+    color: "#333",
+  },
+  location: {
+    fontSize: 14,
+    marginBottom: 5,
+    color: "#666",
+  },
+  price: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#e74c3c",
+  },
+});
+export default DisplayEvents;

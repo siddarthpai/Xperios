@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 import { Searchbar } from "react-native-paper";
+import DisplayHobbies from "../components/display-hobbies";
 
 const ImagesTopHalf = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -93,85 +94,7 @@ const ImagesTopHalf = () => {
             </Text>
           </View>
         </View>
-        <ScrollView
-          horizontal
-          contentContainerStyle={hobbiescard.scrollViewContent}
-          style={hobbiescard.scrollView}
-          showsHorizontalScrollIndicator={false}
-        >
-          {/* First Card */}
-          <View style={hobbiescard.cardContainer}>
-            {/* Image */}
-            <Image
-              source={{
-                uri: "https://media.istockphoto.com/id/1182748993/photo/four-hands-working-on-pottery-wheel.webp?b=1&s=612x612&w=0&k=20&c=gYetitgcSjba0FogkXTQyIbTUnGuwn2MYiR6CjBWjdM=",
-              }}
-              style={hobbiescard.cardImage}
-            />
-            {/* Text */}
-            <View style={hobbiescard.cardTextContainer}>
-              <Text style={hobbiescard.cardRating}>★5.0</Text>
-              <Text style={hobbiescard.cardTitle}>
-                Pottery Class - Beginners
-              </Text>
-              <Text style={hobbiescard.cardPrice}>From $136 / person</Text>
-            </View>
-          </View>
-
-          {/* Second Card */}
-          <View style={hobbiescard.cardContainer}>
-            {/* Image */}
-            <Image
-              source={{
-                uri: "https://media.istockphoto.com/id/1135143424/photo/ballet-class-on-the-stage-of-the-theater-with-light-and-smoke-children-are-engaged-in.jpg?s=612x612&w=0&k=20&c=aDEBJ0uY3y-qiWQ912hggKYIiKK7lgXYcjEWFFh14vk=",
-              }}
-              style={hobbiescard.cardImage}
-            />
-            {/* Text */}
-            <View style={hobbiescard.cardTextContainer}>
-              <Text style={hobbiescard.cardRating}>★4.8</Text>
-              <Text style={hobbiescard.cardTitle}>Ballet Workshop</Text>
-              <Text style={hobbiescard.cardPrice}>From $125 / person</Text>
-            </View>
-          </View>
-
-          <View style={hobbiescard.cardContainer}>
-            {/* Image */}
-            <Image
-              source={{
-                uri: "https://media.istockphoto.com/id/1182748993/photo/four-hands-working-on-pottery-wheel.webp?b=1&s=612x612&w=0&k=20&c=gYetitgcSjba0FogkXTQyIbTUnGuwn2MYiR6CjBWjdM=",
-              }}
-              style={hobbiescard.cardImage}
-            />
-            {/* Text */}
-            <View style={hobbiescard.cardTextContainer}>
-              <Text style={hobbiescard.cardRating}>★5.0</Text>
-              <Text style={hobbiescard.cardTitle}>
-                Pottery Class - Beginners
-              </Text>
-              <Text style={hobbiescard.cardPrice}>From $136 / person</Text>
-            </View>
-          </View>
-
-          <View style={hobbiescard.cardContainer}>
-            {/* Image */}
-            <Image
-              source={{
-                uri: "https://media.istockphoto.com/id/1135143424/photo/ballet-class-on-the-stage-of-the-theater-with-light-and-smoke-children-are-engaged-in.jpg?s=612x612&w=0&k=20&c=aDEBJ0uY3y-qiWQ912hggKYIiKK7lgXYcjEWFFh14vk=",
-              }}
-              style={hobbiescard.cardImage}
-            />
-            {/* Text */}
-            <View style={hobbiescard.cardTextContainer}>
-              <Text style={hobbiescard.cardRating}>★ 4.8</Text>
-              <Text style={hobbiescard.cardTitle}>Ballet Workshop</Text>
-              <Text style={hobbiescard.cardPrice}>From $125 / person</Text>
-            </View>
-          </View>
-
-          {/* Repeat the above two cards */}
-          {/* ... */}
-        </ScrollView>
+        <DisplayHobbies />
       </ScrollView>
       <View style={{ color: "#761CBC" }}></View>
     </View>

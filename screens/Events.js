@@ -16,6 +16,7 @@ import React, { useState, useRef } from "react";
 import { Icon } from "react-native-elements";
 import eventsData from '../events.json'
 import { useNavigation } from '@react-navigation/native';
+import DisplayEvents from "../components/display-events";
 
 
 const App = () => {
@@ -198,109 +199,7 @@ const App = () => {
             Find {"\n"} <Text style={styles.purpleText}>Trending Events</Text>
           </Text>
 
-          <ScrollView horizontal style={styles1.scrollView}>
-            {eventsData.map((event) => (
-              <TouchableOpacity
-                key={event.id}
-                onPress={() => handleEventPress(event.id)}
-              >
-                <View style={styles1.itemContainer}>
-                  <View style={styles1.whiteBox}>
-                    <Image
-                      style={{
-                        width: "90%",
-                        height: 100,
-                        borderRadius: 15,
-                        alignSelf: "center",
-                        marginTop: 10,
-                        marginBottom: 10,
-                      }}
-                      source={{ uri: event.imageUrl }}
-                    />
-                    <View
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        flexDirection: "column",
-                        justifyContent: "flex-start",
-                        alignItems: "flex-start",
-                        marginVertical: 6,
-                      }}>
-                      <Text
-                        style={{
-                          color: "black",
-                          fontSize: 12,
-                          fontWeight: "bold",
-                          marginLeft: 10,
-                        }}
-                      >{event.name}</Text>
-                      <View
-                        style={{
-                          flexDirection: "row",
-                          justifyContent: "flex-start",
-                          alignItems: "center",
-                          marginTop: 8,
-                        }}
-                      >
-                        <Icon
-                          name="place"
-                          color="#2D264B4D"
-                          size={16}
-                          style={{ marginLeft: 8 }}
-                        />
-                        <Text style={{
-                          color: "black",
-                          fontSize: 10,
-                        }}>{event.location}</Text>
-                      </View>
-
-                      <View
-                        style={{
-                          flexDirection: "row",
-                          justifyContent: "flex-start",
-                          alignItems: "center",
-                          marginTop: 8,
-                        }}>
-                        <Icon
-                          name="event"
-                          color="#2D264B4D"
-                          size={16}
-                          style={{ marginLeft: 8 }}
-                        />
-                        <Text style={{
-                          color: "black",
-                          fontSize: 10,
-                          fontWeight: "400",
-                        }}>{event.date}</Text>
-                      </View>
-
-                      <View
-                        style={{
-                          flexDirection: "row",
-                          justifyContent: "flex-start",
-                          alignItems: "center",
-                          marginTop: 32,
-                        }}>
-                        <Icon
-                          name="tag"
-                          type="font-awesome"
-                          color="#EC441E"
-                          size={16}
-                          style={{ marginLeft: 10 }}
-                        />
-                        <Text style={{
-                          marginLeft: 5,
-                          fontSize: 16,
-                          fontWeight: "bold",
-                          color: "#EC441E",
-                        }}>{event.attendees}</Text>
-                      </View>
-                    </View>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
+          <DisplayEvents />
         </View>
 
 
