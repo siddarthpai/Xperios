@@ -3,7 +3,9 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
-import Details from "./screens/Details";
+import detailsEvents from "./screens/detailsEvents";
+import detailsTravel from "./screens/detailsTravel";
+import detailsHobbies from "./screens/detailsHobbies";
 
 import Events from "./screens/Events";
 import Travel from "./screens/Travel";
@@ -13,7 +15,6 @@ import Landing from "./screens/Landing";
 import Community from "./screens/Community";
 import SignIn from "./screens/SignIn";
 import Login from "./screens/Login";
-import test from "./screens/test";
 
 const Drawer = createDrawerNavigator();
 
@@ -143,8 +144,24 @@ export default function App() {
         />
 
         <Drawer.Screen
-          name="Details"
-          component={Details}
+          name="eventDetails"
+          component={detailsEvents}
+          options={{
+            drawerItemStyle: { display: "none" },
+            headerTitle: () => <Text></Text>,
+          }}
+        />
+        <Drawer.Screen
+          name="hobbiesDetails"
+          component={detailsHobbies}
+          options={{
+            drawerItemStyle: { display: "none" },
+            headerTitle: () => <Text></Text>,
+          }}
+        />
+        <Drawer.Screen
+          name="travelDetails"
+          component={detailsTravel}
           options={{
             drawerItemStyle: { display: "none" },
             headerTitle: () => <Text></Text>,

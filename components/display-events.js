@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { db2 } from "../events-config";
-import { Icon } from "react-native-elements";
+import { edb } from "../config";
+import { useNavigation } from "@react-navigation/native";
 
 const DisplayEvents = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigation = useNavigation();
 
   useEffect(() => {
-    // Reference to the root of your database
-    const database = db2;
+    const database = edb;
     const dataRef = ref(database);
 
-    // Set up a listener for real-time changes
     const unsubscribe = onValue(
       dataRef,
       (snapshot) => {
         const dataFromDb = snapshot.val();
         if (dataFromDb) {
-          // Convert object to an array
           const dataArray = Object.keys(dataFromDb).map((key) => ({
             id: key,
             ...dataFromDb[key],
@@ -38,9 +43,12 @@ const DisplayEvents = () => {
       }
     );
 
-    // Cleanup: Unsubscribe from the database changes when the component unmounts
     return () => unsubscribe();
   }, []);
+
+  const handleEventCardPress = (eventId) => {
+    navigation.navigate("eventDetails", { id: eventId });
+  };
 
   if (loading) {
     return <Text>Loading...</Text>;
@@ -53,7 +61,11 @@ const DisplayEvents = () => {
   return (
     <ScrollView horizontal style={styles.scrollView}>
       {data.map((item) => (
-        <View key={item.id} style={styles.card}>
+        <TouchableOpacity
+          key={item.id}
+          style={styles.card}
+          onPress={() => handleEventCardPress(item.id)}
+        >
           <Image source={{ uri: item.Image }} style={styles.image} />
           <View style={styles.cardContent}>
             <Text style={styles.category}>{item.Category}</Text>
@@ -61,7 +73,7 @@ const DisplayEvents = () => {
             <Text style={styles.location}>{item.Location}</Text>
             <Text style={styles.price}>{item.Price}</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );
@@ -84,9 +96,9 @@ const styles = StyleSheet.create({
     height: 150,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
-  
+
   cardContent: {
     padding: 15,
   },

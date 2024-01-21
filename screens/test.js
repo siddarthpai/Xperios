@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { db } from "../config";
+import { tdb } from "../config";
 
 const ReadData = () => {
   const [data, setData] = useState([]);
@@ -9,8 +9,7 @@ const ReadData = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Reference to the root of your database
-    const database = db;
+    const database = tdb;
     const dataRef = ref(database);
 
     // Set up a listener for real-time changes
@@ -54,9 +53,9 @@ const ReadData = () => {
       <Text>Data from Realtime Database:</Text>
       {data.map((item) => (
         <View key={item.id}>
-          <Text>{item.eventName}</Text>
-          <Text>{item.price.discounted}</Text>
-          <Text>{item.price.original}</Text>
+          <Text>{item.Category}</Text>
+          <Text>{item.Name}</Text>
+          <Text>{item.Price}</Text>
         </View>
       ))}
     </View>

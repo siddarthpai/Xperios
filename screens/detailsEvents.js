@@ -1,21 +1,35 @@
-// events/Details.js
-import React, { useEffect, useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity,ScrollView } from 'react-native';
-import eventsData from '../events.json';
+import React, { useEffect, useState } from "react";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { edb } from "../config";
+import { TouchableOpacity } from "react-native";
 
 const Details = ({ route }) => {
-  const { eventId } = route.params;
+  const { id } = route.params;
   const [eventDetails, setEventDetails] = useState(null);
 
-  const findEventById = (id) => {
-    const event = eventsData.find((event) => event.id === id);
-    return event;
-  };
-
   useEffect(() => {
-    const details = findEventById(eventId);
-    setEventDetails(details);
-  }, [eventId]);
+    const database = edb;
+    const eventRef = ref(database);
+
+    const unsubscribe = onValue(
+      eventRef,
+      (snapshot) => {
+        const dataFromDb = snapshot.val();
+        if (dataFromDb) {
+          const event = Object.values(dataFromDb).find(
+            (event) => event.id === id
+          );
+          setEventDetails(event);
+        }
+      },
+      (error) => {
+        console.error("Error fetching data:", error);
+      }
+    );
+
+    return () => unsubscribe();
+  }, [id]);
 
   return (
     <ScrollView
@@ -25,21 +39,21 @@ const Details = ({ route }) => {
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           {eventDetails && (
-            <Image source={{ uri: eventDetails.imageUrl }} style={styles.image} />
+            <Image source={{ uri: eventDetails.Image }} style={styles.image} />
           )}
         </View>
         <View style={styles.overlayBox}>
           {eventDetails && (
             <React.Fragment>
-              <Text style={styles.eventNameText}>{eventDetails.name}</Text>
+              <Text style={styles.eventNameText}>{eventDetails.Name}</Text>
               <Image
-                source={require("../assets/location.png")} // Use the location.png from assets
-                style={styles.locationIcon} // Apply styles for the location icon
+                source={require("../assets/location.png")}
+                style={styles.locationIcon}
               />
-              <Text style={styles.locationText}>{eventDetails.location}</Text>
+              <Text style={styles.locationText}>{eventDetails.Location}</Text>
               <Image
-                source={require("../assets/calendar.png")} // Use the location.png from assets
-                style={styles.calendarIcon} // Apply styles for the location icon
+                source={require("../assets/calendar.png")}
+                style={styles.calendarIcon}
               />
               <View style={styles.dateGroup1}>
                 <Text style={styles.dateText}>5 Jan 2024, 9 AM</Text>
@@ -51,13 +65,13 @@ const Details = ({ route }) => {
 
               <View style={styles.chips1}>
                 <Text style={styles.group84}>
-                  Individual{"\n"} {eventDetails.individualCost}
+                  Individual{"\n"} {eventDetails.Price}
                 </Text>
               </View>
 
               <View style={styles.chips2}>
                 <Text style={styles.group84}>
-                  With Friends{"\n"} {eventDetails.costWithFriends}
+                  With Friends{"\n"} {eventDetails.Price}
                 </Text>
               </View>
 
@@ -98,7 +112,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#B08CDDBD",
-
   },
   imageContainer: {
     marginTop: 26,
@@ -132,7 +145,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.13,
     shadowRadius: 20.6966552734375,
     elevation: 5,
-
   },
   star: {
     position: "absolute",

@@ -4,7 +4,8 @@ import "firebase/compat/firestore";
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
-export const firebaseConfig = {
+export const eventsFirebaseConfig = {
+  name: "events",
   apiKey: "AIzaSyDjVanUt1avR9zh3jI2Kyld6nAdGtFLBr8",
   authDomain: "xperios-8dda8.firebaseapp.com",
   projectId: "xperios-8dda8",
@@ -12,11 +13,21 @@ export const firebaseConfig = {
   messagingSenderId: "507370985844",
   appId: "1:507370985844:web:9d8d33791d6b19bab2f421",
   measurementId: "G-HJCNG0WCZW",
-  databaseURL:
-    "https://xperios-8dda8-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  databaseURL: "https://xperios-events.asia-southeast1.firebasedatabase.app/",
+};
+export const hobbiesFirebaseConfig = {
+  name: "hobbies",
+  apiKey: "AIzaSyDjVanUt1avR9zh3jI2Kyld6nAdGtFLBr8",
+  authDomain: "xperios-8dda8.firebaseapp.com",
+  projectId: "xperios-8dda8",
+  storageBucket: "xperios-8dda8.appspot.com",
+  messagingSenderId: "507370985844",
+  appId: "1:507370985844:web:9d8d33791d6b19bab2f421",
+  measurementId: "G-HJCNG0WCZW",
+  databaseURL: "https://xperios-hobbies.asia-southeast1.firebasedatabase.app/",
 };
 
-export const firebaseConfig1 = {
+export const travelFirebaseConfig = {
   apiKey: "AIzaSyDjVanUt1avR9zh3jI2Kyld6nAdGtFLBr8",
   authDomain: "xperios-8dda8.firebaseapp.com",
   projectId: "xperios-8dda8",
@@ -28,16 +39,12 @@ export const firebaseConfig1 = {
     "https://xperios-traveldata.asia-southeast1.firebasedatabase.app/",
 };
 
-if (!firebase.apps.length) {
-  app = firebase.initializeApp(firebaseConfig1);
-}
-const db1 = getDatabase(app);
+const app1 = initializeApp(eventsFirebaseConfig, "events");
+const app2 = initializeApp(hobbiesFirebaseConfig, "hobbies");
+const app3 = initializeApp(travelFirebaseConfig, "travel");
 
-export { db1 };
+const edb = getDatabase(app1);
+const hdb = getDatabase(app2);
+const tdb = getDatabase(app3);
 
-if (!firebase.apps.length) {
-  app = firebase.initializeApp(firebaseConfig);
-}
-const db = getDatabase(app);
-
-export { db };
+export { edb, hdb, tdb };
