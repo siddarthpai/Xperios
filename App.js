@@ -102,7 +102,7 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Home" screenOptions={customHeader}>
         <Drawer.Screen
           name="Home"
-          component={Login}
+          component={Landing}
           options={{
             headerTitle: () => <Text></Text>,
           }}
