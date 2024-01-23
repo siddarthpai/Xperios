@@ -19,7 +19,7 @@ const ImagesTopHalf = () => {
       <ScrollView
         vertical
         contentContainerStyle={styles.scrollViewContent}
-        showsVerticalScrollIndicator="false"
+        showsVerticalScrollIndicator={false}
       >
         <Searchbar
           placeholder="Search"
