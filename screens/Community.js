@@ -58,7 +58,7 @@ const UserPost = ({
           height: "fit",
           alignSelf: "center",
           width: "90%",
-          borderRadius: "20",
+          borderRadius: 20,
           marginBottom: 32,
         }}
       >
@@ -177,10 +177,7 @@ const Community = () => {
   const onChangeSearch = (query) => setSearchQuery(query);
 
   return (
-    <ScrollView
-      style={{ backgroundColor: "#B08CDD" }}
-      showsVerticalScrollIndicator="false"
-    >
+    <ScrollView style={{ backgroundColor: "#B08CDD" }}>
       <Searchbar
         placeholder="Connect with your friends!"
         onChangeText={onChangeSearch}

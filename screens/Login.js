@@ -3,6 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import * as Google from "expo-auth-session/providers/google";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as WebBrowser from "expo-web-browser";
+import { makeRedirectUri } from "expo-auth-session";
+
+WebBrowser.maybeCompleteAuthSession();
 
 export default function Login() {
   const navigate = useNavigation();
@@ -14,14 +18,12 @@ export default function Login() {
   const [userInfo, setUserInfo] = useState(null);
 
   const [request, response, promptAsync] = Google.useAuthRequest({
-    expoClientId:
-      "507370985844-k8vhgpnshkm4qbslclqo3li6la7iqonp.apps.googleusercontent.com",
     androidClientId:
-      "507370985844-sfjrqmrasd0uk80bd5ivskl3m2j9huib.apps.googleusercontent.com",
+      "507370985844-stbbqnfng06pqulu43q3qd6254hf7j6h.apps.googleusercontent.com",
     iosClientId:
-      "507370985844-0jmfcmt0b2t7lqd9r7eoq0mms89761c7.apps.googleusercontent.com",
+      "507370985844-m9kv18qnl37o35qiqq130fgh9mcgdp3s.apps.googleusercontent.com",
     webClientId:
-      "507370985844-chk054u7noa6uij2f7nkp1ll9i6p3tn8.apps.googleusercontent.com",
+      "507370985844-q880vuk85gcnoib3ep791km70tlo2ilc.apps.googleusercontent.com",
   });
 
   useEffect(() => {

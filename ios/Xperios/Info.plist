@@ -28,6 +28,7 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>com.xperios.Xperios</string>
+          <string>com.xperios.Xperios</string>
         </array>
       </dict>
     </array>
