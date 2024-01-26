@@ -15,6 +15,8 @@ import Landing from "./screens/Landing";
 import Community from "./screens/Community";
 import SignIn from "./screens/SignIn";
 import Login from "./screens/Login";
+import Rewards from "./screens/Rewards";
+import Booking from "./screens/Booking";
 import Friends from "./screens/Friends";
 
 const Drawer = createDrawerNavigator();
@@ -139,6 +141,21 @@ export default function App() {
         <Drawer.Screen
           name="Profile"
           component={Profile}
+          options={{
+            headerTitle: () => <Text></Text>,
+          }}
+        />
+        <Drawer.Screen
+          name="Rewards"
+          component={Rewards}
+          options={{
+            headerTitle: () => <Text></Text>,
+          }}
+        />
+
+        <Drawer.Screen
+          name="Booking"
+          component={Booking}
           options={{
             headerTitle: () => <Text></Text>,
           }}
