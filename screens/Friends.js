@@ -12,7 +12,7 @@ const User = (props) => {
             borderRadius: 9999,
           }}
           source={{
-            uri: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+            uri: props.profileImage,
           }}
         />
       </View>
@@ -48,31 +48,79 @@ const User = (props) => {
   );
 };
 
+const Recommendations = (props) => {
+  return (
+    <View>
+      <View style={{ width: 46, margin: 16 }}>
+        <Image
+          style={{
+            width: 46,
+            height: 46,
+            borderRadius: 9999,
+            borderColor: "#5334C7",
+            borderWidth: 1,
+          }}
+          source={{
+            uri: props.image,
+          }}
+        />
+        <Text
+          style={{
+            fontWeight: "bold",
+            alignSelf: "center",
+            color: "white",
+            marginTop: 10,
+          }}
+        >
+          {props.name}
+        </Text>
+      </View>
+    </View>
+  );
+};
+
 export default function Friends() {
   const usersData = [
     {
       id: 1,
-      userName: "John Doe",
+      userName: "John Doe5",
       bio: "Software Developer",
       points: 100,
       profileImage:
         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     },
     {
-      id: 1,
-      userName: "John Doe",
+      id: 2,
+      userName: "John Doe4",
       bio: "Software Developer",
       points: 100,
-      profileImage: "https://example.com/johndoe.jpg",
+      profileImage:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     },
     {
-      id: 1,
-      userName: "John Doe",
+      id: 3,
+      userName: "John Doe3",
       bio: "Software Developer",
       points: 100,
-      profileImage: "https://example.com/johndoe.jpg",
+      profileImage:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     },
-    // Fit this data acc to your needs
+    {
+      id: 4,
+      userName: "John Doe1",
+      bio: "Software Developer",
+      points: 100,
+      profileImage:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+    },
+    {
+      id: 5,
+      userName: "John Doe2",
+      bio: "Software Developer",
+      points: 100,
+      profileImage:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+    },
   ];
   return (
     <ScrollView
@@ -89,6 +137,47 @@ export default function Friends() {
             profileImage={user.profileImage}
           />
         ))}
+      </View>
+      <View>
+        <Text
+          style={{
+            fontSize: 30,
+            margin: 25,
+            color: "white",
+            fontWeight: "bold",
+            alignSelf: "center",
+          }}
+        >
+          People you may know{" "}
+        </Text>
+        <View style={{ flexDirection: "column" }}>
+          <View style={{ flexDirection: "row", alignSelf: "center" }}>
+            <Recommendations
+              name="Sid"
+              image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            />
+            <Recommendations
+              name="Sid"
+              image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            />
+            <Recommendations
+              name="Sid"
+              image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            />
+          </View>
+          <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: "row", alignSelf: "center" }}>
+              <Recommendations
+                name="Sid"
+                image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              />
+              <Recommendations
+                name="Sid"
+                image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              />
+            </View>
+          </View>
+        </View>
       </View>
     </ScrollView>
   );

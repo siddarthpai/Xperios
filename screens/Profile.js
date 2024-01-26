@@ -43,9 +43,35 @@ const Profile = () => {
     console.log("Edit clicked");
   };
 
-  const handleMyFriendsClick = () => {
-    // Navigate to the "Friends" tab
-    navigation.navigate("Friends");
+  const handlePageChange = ({ page }) => {
+    navigation.navigate(page);
+  };
+
+  const Chest = () => {
+    return (
+      <View
+        style={{
+          backgroundColor: "white",
+          width: 33,
+          height: 33,
+          borderRadius: 30,
+          borderColor: "#FFC700",
+          position: "absolute",
+          right: 0,
+        }}
+      >
+        <Image
+          style={{
+            width: 20,
+            height: 18,
+            position: "absolute",
+            top: 7,
+            left: 7,
+          }}
+          source={require("../assets/chest.png")}
+        />
+      </View>
+    );
   };
 
   return (
@@ -141,7 +167,9 @@ const Profile = () => {
             </View>
           </View>
           <View style={styles.header1}>
-            <TouchableOpacity onPress={() => console.log("Button pressed")}>
+            <TouchableOpacity
+              onPress={() => handlePageChange({ page: "Upcoming" })}
+            >
               <View
                 style={{
                   backgroundColor: "#B08CDDBD",
@@ -166,7 +194,9 @@ const Profile = () => {
                 </Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => console.log("Button pressed")}>
+            <TouchableOpacity
+              onPress={() => handlePageChange({ page: "Activities" })}
+            >
               <View
                 style={{
                   backgroundColor: "#FF678296",
@@ -190,7 +220,9 @@ const Profile = () => {
                 </Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => console.log("Button pressed")}>
+            <TouchableOpacity
+              onPress={() => handlePageChange({ page: "Rewards" })}
+            >
               <View
                 style={{
                   backgroundColor: "#4DC4DEA3",
@@ -218,7 +250,7 @@ const Profile = () => {
           <View style={styles.header1}>
             <TouchableOpacity
               style={{ marginLeft: "20%", marginBottom: "10%" }}
-              onPress={() => console.log("Button pressed")}
+              onPress={() => handlePageChange({ page: "Groups" })}
             >
               <View
                 style={{
@@ -246,7 +278,7 @@ const Profile = () => {
 
             <TouchableOpacity
               style={{ marginBottom: "10%" }}
-              onPress={handleMyFriendsClick}
+              onPress={() => handlePageChange({ page: "Friends" })}
             >
               <View
                 style={{
@@ -288,18 +320,25 @@ const Profile = () => {
             >
               Creativity Quotient:
             </Text>
-            <ProgressBar
-              style={styles.progressBar}
-              progress={staticUserDetails.CreativityQuotient / 10000}
-              color="#24B874"
-            />
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ flex: 1 }}>
+                <ProgressBar
+                  style={styles.progressBar}
+                  progress={staticUserDetails.CreativityQuotient / 10000}
+                  color="#24B874"
+                />
+              </View>
+
+              <Chest />
+            </View>
+
             <View style={{ flexDirection: "row" }}>
               <Text style={{ fontWeight: "bold", margin: 5 }}>
                 {staticUserDetails.CreativityQuotient}
               </Text>
               <Text
                 style={{
-                  margin: 5,
+                  margin: 10,
                   color: "#877777",
                   position: "absolute",
                   right: 0,
@@ -312,18 +351,24 @@ const Profile = () => {
 
           <View style={styles.quotient}>
             <Text style={styles.text}>Fitness Quotient:</Text>
-            <ProgressBar
-              style={styles.progressBar}
-              progress={staticUserDetails.FitnessQuotient / 10000}
-              color="#24B874"
-            />
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ flex: 1 }}>
+                <ProgressBar
+                  style={styles.progressBar}
+                  progress={staticUserDetails.FitnessQuotient / 10000}
+                  color="#24B874"
+                />
+              </View>
+              <Chest />
+            </View>
+
             <View style={{ flexDirection: "row" }}>
               <Text style={{ fontWeight: "bold", margin: 5 }}>
                 {staticUserDetails.FitnessQuotient}
               </Text>
               <Text
                 style={{
-                  margin: 5,
+                  margin: 10,
                   color: "#877777",
                   position: "absolute",
                   right: 0,
@@ -336,18 +381,24 @@ const Profile = () => {
 
           <View style={styles.quotient}>
             <Text style={styles.text}>Interaction Quotient:</Text>
-            <ProgressBar
-              style={styles.progressBar}
-              progress={staticUserDetails.InteractionQuotient / 10000}
-              color="#24B874"
-            />
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ flex: 1 }}>
+                <ProgressBar
+                  style={styles.progressBar}
+                  progress={staticUserDetails.InteractionQuotient / 10000}
+                  color="#24B874"
+                />
+              </View>
+              <Chest />
+            </View>
+
             <View style={{ flexDirection: "row" }}>
               <Text style={{ fontWeight: "bold", margin: 5 }}>
                 {staticUserDetails.InteractionQuotient}
               </Text>
               <Text
                 style={{
-                  margin: 5,
+                  margin: 10,
                   color: "#877777",
                   position: "absolute",
                   right: 0,

@@ -149,6 +149,7 @@ export default function App() {
           name="Rewards"
           component={Rewards}
           options={{
+            drawerItemStyle: { display: "none" },
             headerTitle: () => <Text></Text>,
           }}
         />
