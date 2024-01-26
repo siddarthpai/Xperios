@@ -10,12 +10,14 @@ import {
   ScrollView,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { ProgressBar } from "react-native-paper";
+import { ProgressBar, MD3Colors } from "react-native-paper";
 import { Button } from "react-native-elements";
 import { Icon } from "react-native-elements";
 import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
+  const navigation = useNavigation();
   const handleTextClick = () => {
     Clipboard.setString("@johndoe");
     alert("Username copied to clipboard!");
@@ -27,11 +29,13 @@ const Profile = () => {
     email: "johndoe@example.com",
     friends: 36,
     activities: 27,
-    CreativityQuotient: 30,
+    CreativityQuotient: 8312,
     EnvironmentalQuotient: 45,
-    FitnessQuotient: 52,
-    InteractionQuotient: 80,
+    FitnessQuotient: 4580,
+    InteractionQuotient: 8764,
     SocialServiceQuotient: 10,
+    visionboard:
+      "https://www.ourmindfullife.com/wp-content/uploads/2023/05/Sparkle-vision-board-by-@thechampagnediet.jpg",
   };
 
   const handleEditClick = () => {
@@ -39,8 +43,16 @@ const Profile = () => {
     console.log("Edit clicked");
   };
 
+  const handleMyFriendsClick = () => {
+    // Navigate to the "Friends" tab
+    navigation.navigate("Friends");
+  };
+
   return (
-    <ScrollView>
+    <ScrollView
+      style={{ backgroundColor: "#B08CDDBD" }}
+      showsVerticalScrollIndicator={false}
+    >
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerContent}>
@@ -51,7 +63,9 @@ const Profile = () => {
               }}
             />
             <View style={styles.info}>
-              <Text style={{ color: "black", fontWeight: "bold", fontSize: 28 }}>
+              <Text
+                style={{ color: "black", fontWeight: "bold", fontSize: 28 }}
+              >
                 {staticUserDetails.name}
               </Text>
               <Text style={{ fontSize: 12, marginBottom: 5, color: "#FF5733" }}>
@@ -83,7 +97,10 @@ const Profile = () => {
                     style={{ marginRight: 5 }}
                   />
                   <Text
-                    style={{ color: "#FF5733", textDecorationLine: "underline" }}
+                    style={{
+                      color: "#FF5733",
+                      textDecorationLine: "underline",
+                    }}
                   >
                     Edit
                   </Text>
@@ -96,7 +113,11 @@ const Profile = () => {
           <View style={styles.header}>
             <View style={{ flex: 1 }}>
               <Text
-                style={{ textAlign: "center", fontWeight: "bold", fontSize: 32 }}
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  fontSize: 32,
+                }}
               >
                 {staticUserDetails.friends}+
               </Text>
@@ -106,7 +127,11 @@ const Profile = () => {
             </View>
             <View style={{ flex: 1 }}>
               <Text
-                style={{ textAlign: "center", fontWeight: "bold", fontSize: 32 }}
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  fontSize: 32,
+                }}
               >
                 {staticUserDetails.activities}+
               </Text>
@@ -119,7 +144,7 @@ const Profile = () => {
             <TouchableOpacity onPress={() => console.log("Button pressed")}>
               <View
                 style={{
-                  backgroundColor: "rgb(121,228,131)",
+                  backgroundColor: "#B08CDDBD",
                   height: 40,
                   width: 100,
                   borderRadius: 6,
@@ -144,7 +169,7 @@ const Profile = () => {
             <TouchableOpacity onPress={() => console.log("Button pressed")}>
               <View
                 style={{
-                  backgroundColor: "rgb(231,118,109)",
+                  backgroundColor: "#FF678296",
                   height: 40,
                   width: 100,
                   borderRadius: 6,
@@ -168,7 +193,7 @@ const Profile = () => {
             <TouchableOpacity onPress={() => console.log("Button pressed")}>
               <View
                 style={{
-                  backgroundColor: "rgb(120,182,228)",
+                  backgroundColor: "#4DC4DEA3",
                   height: 40,
                   marginVertical: 10,
                   marginHorizontal: 10,
@@ -190,60 +215,166 @@ const Profile = () => {
               </View>
             </TouchableOpacity>
           </View>
+          <View style={styles.header1}>
+            <TouchableOpacity
+              style={{ marginLeft: "20%", marginBottom: "10%" }}
+              onPress={() => console.log("Button pressed")}
+            >
+              <View
+                style={{
+                  backgroundColor: "#4DC4DEA3",
+                  height: 40,
+                  width: 100,
+                  borderRadius: 6,
+                  marginVertical: 10,
+                  marginHorizontal: 10,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Text
+                  style={{
+                    color: "black",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}
+                >
+                  Groups
+                </Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{ marginBottom: "10%" }}
+              onPress={handleMyFriendsClick}
+            >
+              <View
+                style={{
+                  backgroundColor: "#B08CDDBD",
+                  height: 40,
+                  marginVertical: 10,
+                  marginHorizontal: 10,
+                  width: 100,
+                  borderRadius: 6,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginRight: "60%",
+                }}
+              >
+                <Text
+                  style={{
+                    color: "black",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}
+                >
+                  My Friends
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={styles.content}>
           <Text style={styles.heading}>User Profile</Text>
 
           <View style={styles.quotient}>
-            <Text>Creativity Quotient:</Text>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontStyle: "italic",
+                color: "white",
+              }}
+            >
+              Creativity Quotient:
+            </Text>
             <ProgressBar
               style={styles.progressBar}
-              progress={staticUserDetails.CreativityQuotient / 100}
-              color="#fff"
+              progress={staticUserDetails.CreativityQuotient / 10000}
+              color="#24B874"
             />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={{ fontWeight: "bold", margin: 5 }}>
+                {staticUserDetails.CreativityQuotient}
+              </Text>
+              <Text
+                style={{
+                  margin: 5,
+                  color: "#877777",
+                  position: "absolute",
+                  right: 0,
+                }}
+              >
+                Goal 10,000
+              </Text>
+            </View>
           </View>
 
           <View style={styles.quotient}>
-            <Text>Environmental Quotient:</Text>
+            <Text style={styles.text}>Fitness Quotient:</Text>
             <ProgressBar
               style={styles.progressBar}
-              progress={staticUserDetails.EnvironmentalQuotient / 100}
-              color="#fff"
+              progress={staticUserDetails.FitnessQuotient / 10000}
+              color="#24B874"
             />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={{ fontWeight: "bold", margin: 5 }}>
+                {staticUserDetails.FitnessQuotient}
+              </Text>
+              <Text
+                style={{
+                  margin: 5,
+                  color: "#877777",
+                  position: "absolute",
+                  right: 0,
+                }}
+              >
+                Goal 10,000
+              </Text>
+            </View>
           </View>
 
           <View style={styles.quotient}>
-            <Text>Fitness Quotient:</Text>
+            <Text style={styles.text}>Interaction Quotient:</Text>
             <ProgressBar
               style={styles.progressBar}
-              progress={staticUserDetails.FitnessQuotient / 100}
-              color="#fff"
+              progress={staticUserDetails.InteractionQuotient / 10000}
+              color="#24B874"
             />
-          </View>
-
-          <View style={styles.quotient}>
-            <Text>Interaction Quotient:</Text>
-            <ProgressBar
-              style={styles.progressBar}
-              progress={staticUserDetails.InteractionQuotient / 100}
-              color="#fff"
-            />
-          </View>
-
-          <View style={styles.quotient}>
-            <Text>Social Service Quotient:</Text>
-            <ProgressBar
-              style={styles.progressBar}
-              progress={staticUserDetails.SocialServiceQuotient / 100}
-              color="#fff"
-            />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={{ fontWeight: "bold", margin: 5 }}>
+                {staticUserDetails.InteractionQuotient}
+              </Text>
+              <Text
+                style={{
+                  margin: 5,
+                  color: "#877777",
+                  position: "absolute",
+                  right: 0,
+                }}
+              >
+                Goal 10,000
+              </Text>
+            </View>
           </View>
         </View>
-
-        <StatusBar style="auto" />
+        <View
+          style={{
+            width: 351,
+            height: 194,
+            borderRadius: 20,
+            alignSelf: "center",
+            marginBottom: 50,
+          }}
+        >
+          <Image
+            style={{ width: "100%", height: "100%", borderRadius: 20 }}
+            source={{
+              uri: staticUserDetails.visionboard,
+            }}
+          />
+        </View>
       </View>
-
     </ScrollView>
   );
 };
@@ -294,10 +425,15 @@ const styles = StyleSheet.create({
   },
   progressBar: {
     marginTop: 8,
-    height: 20,
+    height: 15,
     borderRadius: 25,
     marginTop: 10,
-    backgroundColor: "B08CDDBD",
+    backgroundColor: "white",
+  },
+  text: {
+    fontWeight: "bold",
+    fontStyle: "italic",
+    color: "white",
   },
 });
 

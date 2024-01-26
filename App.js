@@ -15,6 +15,7 @@ import Landing from "./screens/Landing";
 import Community from "./screens/Community";
 import SignIn from "./screens/SignIn";
 import Login from "./screens/Login";
+import Friends from "./screens/Friends";
 
 const Drawer = createDrawerNavigator();
 
@@ -170,6 +171,14 @@ export default function App() {
         <Drawer.Screen
           name="OTP"
           component={SignIn}
+          options={{
+            drawerItemStyle: { display: "none" },
+            headerTitle: () => <Text></Text>,
+          }}
+        />
+        <Drawer.Screen
+          name="Friends"
+          component={Friends}
           options={{
             drawerItemStyle: { display: "none" },
             headerTitle: () => <Text></Text>,
