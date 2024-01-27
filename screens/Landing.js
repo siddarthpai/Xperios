@@ -68,11 +68,16 @@ const HomeComponent = () => {
                 alignItems: "flex-start",
                 padding: 0,
                 gap: 8,
-                width: 111,
+                width: "100%",
                 height: 70,
               }}
             >
-              <View style={{ flexDirection: "column" }}>
+              <View
+                style={{
+                  flexDirection: "column",
+                  width: "100%",
+                }}
+              >
                 <Text
                   style={{ fontWeight: "600", fontSize: 16, color: "#EBE7F1" }}
                 >
@@ -82,11 +87,12 @@ const HomeComponent = () => {
                   style={{
                     fontWeight: "700",
                     fontSize: 36,
-                    textAlign: "center",
+                    marginTop: 16,
                     color: "#FFFFFF",
+                    width: "100%",
                   }}
                 >
-                  850 Pts
+                  8501 Pts
                 </Text>
               </View>
               <Image
@@ -308,7 +314,7 @@ const styles = StyleSheet.create({
   giftImage: {
     width: 77,
     height: 71,
-    left: 152,
+    right: 100,
   },
 
   locationIcon: {

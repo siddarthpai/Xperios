@@ -53,7 +53,7 @@ const User = (props) => {
 const Recommendations = (props) => {
   return (
     <View>
-      <View style={{ width: "auto", alignSelf: "center", margin: 16 }}>
+      <View style={{ width: "auto", alignSelf: "center", margin: 6 }}>
         <Image
           style={{
             width: 46,
