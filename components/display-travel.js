@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     backgroundColor: "#fff",
     elevation: 15,
-    height: 450,
+    height: "auto",
+    marginBottom: 32,
   },
   image: {
     width: "100%",

@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
+import { Icon } from "react-native-elements";
+import { useNavigation } from "@react-navigation/native";
 
 const User = (props) => {
   return (
@@ -81,6 +83,11 @@ const Recommendations = (props) => {
 };
 
 export default function Friends() {
+  const navigation = useNavigation();
+  const backButton = () => {
+    navigation.navigate("Profile");
+  };
+  const profileIconUrl = "https://example.com/profile-icon.jpg";
   const usersData = [
     {
       id: 1,
@@ -136,6 +143,45 @@ export default function Friends() {
       style={{ backgroundColor: "#B08CDDBD" }}
       showsVerticalScrollIndicator={false}
     >
+      <View style={styles.headerContainer}>
+        <Icon
+          name="arrow-back"
+          type="material"
+          size={30}
+          color="#fff"
+          onPress={() => backButton()}
+        />
+
+        <View>
+          <View>
+            <Text
+              style={{
+                color: "white",
+                marginLeft: -90,
+                fontSize: 20,
+                fontWeight: "bold",
+              }}
+            >
+              My Friends
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.headerIcons}>
+          <Icon
+            name="person-circle-outline"
+            type="ionicon"
+            size={30}
+            color="#fff"
+            style={{ marginRight: 10 }}
+          />
+
+          <Icon name="search" type="material" size={30} color="#fff" />
+
+          <Icon name="more-vert" type="material" size={30} color="#fff" />
+        </View>
+      </View>
+
       <View style={{ flexDirection: "column", margin: 16 }}>
         {usersData.map((user) => (
           <User
@@ -191,3 +237,39 @@ export default function Friends() {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+    backgroundColor: "#635A8F99",
+  },
+  backButtonIcon: {
+    width: 20,
+    height: 20,
+  },
+  headerIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  profileIcon: {
+    width: 25,
+    height: 25,
+    borderRadius: 12.5,
+    marginRight: 10,
+  },
+  searchIcon: {
+    width: 25,
+    height: 25,
+    marginRight: 10,
+  },
+  settingsIcon: {
+    width: 25,
+    height: 25,
+  },
+});
