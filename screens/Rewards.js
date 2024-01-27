@@ -10,17 +10,17 @@ const data = [
     {
         title: 'Buffalo Wings',
         description: 'Enjoy a 20% off on Game night at Buffalo Wings!',
-        image: require('../assets/pizza.png'), // Using the same pizza image for Buffalo Wings
+        image: require('../assets/buffalowings.png'), // Using the same pizza image for Buffalo Wings
     },
     {
         title: 'Bistro Claytopia',
         description: 'Free entry to trivia night!',
-        image: require('../assets/pizza.png'), // Using the same pizza image for Bistro Claytopia
+        image: require('../assets/trivia.png'), // Using the same pizza image for Bistro Claytopia
     },
     {
         title: 'Hardrock Cafe',
         description: '20% off on bar bites and entry to Musical Sunday!',
-        image: require('../assets/pizza.png'), // Using the same pizza image for Hardrock Cafe
+        image: require('../assets/party.png'), // Using the same pizza image for Hardrock Cafe
     },
     // Add more data objects for additional cards
 ];

@@ -83,43 +83,51 @@ export default function Friends() {
   const usersData = [
     {
       id: 1,
-      userName: "John Doe5",
-      bio: "Software Developer",
-      points: 100,
+      userName: "Shyla Nambiar",
+      bio: "Working hard everyday!",
+      points: 185,
       profileImage:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://media.licdn.com/dms/image/C4E03AQHQHYqxLkS3ww/profile-displayphoto-shrink_400_400/0/1653607643423?e=1711584000&v=beta&t=k_2gF6P2nQ-PiWz2v2DtgA1_WxpZMu9GVeTpsEbIeuE",
     },
     {
       id: 2,
-      userName: "John Doe4",
-      bio: "Software Developer",
-      points: 100,
+      userName: "Darshan Reddy",
+      bio: "Here for new experiences!",
+      points: 134,
       profileImage:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://media.licdn.com/dms/image/D4E03AQGB3mlTrBK7rQ/profile-displayphoto-shrink_100_100/0/1676443847139?e=1711584000&v=beta&t=kjPadO6J7eiw6aienLM7k4SbeR4xsQ0-zAbnc3qVhh8",
     },
     {
       id: 3,
-      userName: "John Doe3",
-      bio: "Software Developer",
-      points: 100,
+      userName: "Ruby Inder",
+      bio: "Life is Good!",
+      points: 86,
       profileImage:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://media.licdn.com/dms/image/D5603AQE24WpW5j-qQQ/profile-displayphoto-shrink_100_100/0/1687270334272?e=1711584000&v=beta&t=eo89VDXKV1wixcKea1iHY7l9AVVTTj1rIE2WeQIS0TA",
     },
     {
       id: 4,
-      userName: "John Doe1",
-      bio: "Software Developer",
-      points: 100,
+      userName: "Rishi Singh",
+      bio: "Work hard, play hard",
+      points: 67,
       profileImage:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://media.licdn.com/dms/image/D5603AQFUdEA29aqBBQ/profile-displayphoto-shrink_100_100/0/1700827204242?e=1711584000&v=beta&t=4OEgGCyrJtQUgHefzZXK6O2ie3a9wanTKAm_cRTwNEE",
     },
     {
       id: 5,
-      userName: "John Doe2",
-      bio: "Software Developer",
-      points: 100,
+      userName: "Tanya Sethi",
+      bio: "Singing is my passion",
+      points: 50,
       profileImage:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://media.licdn.com/dms/image/D5603AQEwAk_kL-KtkA/profile-displayphoto-shrink_100_100/0/1683601661551?e=1711584000&v=beta&t=CcSiUb8PUlnYaHBYVeVazp_TumXjoYFHZHVMWynALzw",
+    },
+    {
+      id: 5,
+      userName: "Namita P",
+      bio: "Hey There!",
+      points: 21,
+      profileImage:
+        "https://media.licdn.com/dms/image/D5603AQEPmXzyXhuhMA/profile-displayphoto-shrink_100_100/0/1700823876415?e=1711584000&v=beta&t=y5ACuLMTxixAj6MXMKAlbpmLHSQgo9RqEq6VM7E-k_A",
     },
   ];
   return (
@@ -153,27 +161,27 @@ export default function Friends() {
         <View style={{ flexDirection: "column" }}>
           <View style={{ flexDirection: "row", alignSelf: "center" }}>
             <Recommendations
-              name="Sid"
-              image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              name="Harini"
+              image="https://media.licdn.com/dms/image/D5603AQGuvq-wkTzHwQ/profile-displayphoto-shrink_100_100/0/1665304823315?e=1711584000&v=beta&t=L609f00af-jQCUTc3UQNVk3dis7RPV83VxEhKcaFHQI"
             />
             <Recommendations
-              name="Sid"
-              image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              name="Samritha"
+              image="https://media.licdn.com/dms/image/D5603AQE3XBttOY6vjw/profile-displayphoto-shrink_400_400/0/1692369320741?e=1711584000&v=beta&t=Mv7RyvtmcxtcxWEsFctVnSc8RnTNBJ4GzrbN-w0vxLg"
             />
             <Recommendations
-              name="Sid"
-              image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              name="Tanishka"
+              image="https://media.licdn.com/dms/image/D5603AQG0YcMO5IJCVQ/profile-displayphoto-shrink_100_100/0/1689086680201?e=1711584000&v=beta&t=gY9tiEqizP0qqLWOBn565CsAL3CfWNL4KixY0Uf3MdI"
             />
           </View>
           <View style={{ flex: 1 }}>
             <View style={{ flexDirection: "row", alignSelf: "center" }}>
               <Recommendations
-                name="Sid"
-                image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                name="Deepika"
+                image="https://media.licdn.com/dms/image/D5603AQHvgwRskRF4nw/profile-displayphoto-shrink_400_400/0/1687279742085?e=1711584000&v=beta&t=0_MM5-4d8aT-RbTgfJVkBCGgnMqOWPqhJwuazyCEWbg"
               />
               <Recommendations
-                name="Sid"
-                image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                name="Lakshmi"
+                image="https://media.licdn.com/dms/image/D5603AQE63T1a0vmR-Q/profile-displayphoto-shrink_100_100/0/1677601394558?e=1711584000&v=beta&t=Zvjg2f4Tb-3jL9KmywAt_2LW1dewxVIHOpoe_MyX9vY"
               />
             </View>
           </View>

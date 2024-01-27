@@ -35,7 +35,7 @@ const Profile = () => {
     InteractionQuotient: 8764,
     SocialServiceQuotient: 10,
     visionboard:
-      "https://www.ourmindfullife.com/wp-content/uploads/2023/05/Sparkle-vision-board-by-@thechampagnediet.jpg",
+      "https://i.pinimg.com/originals/cc/a3/74/cca374fbd98b22c1217f5c5e5abbd25b.jpg",
   };
 
   const handleEditClick = () => {
