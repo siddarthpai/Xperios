@@ -82,7 +82,7 @@ export default function App() {
             color="#B08CDDBD"
           ></Icon>
           <Text style={{ marginLeft: 10, fontSize: 18, fontWeight: "bold" }}>
-            Welcome back {"\n"} Shishimaroo!
+            Welcome back {"\n"} Lakshmi!
           </Text>
         </View>
       ),

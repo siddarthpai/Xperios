@@ -51,7 +51,7 @@ const User = (props) => {
 const Recommendations = (props) => {
   return (
     <View>
-      <View style={{ width: 46, margin: 16 }}>
+      <View style={{ width: "auto", alignSelf: "center", margin: 16 }}>
         <Image
           style={{
             width: 46,
@@ -70,6 +70,7 @@ const Recommendations = (props) => {
             alignSelf: "center",
             color: "white",
             marginTop: 10,
+            width: "100%",
           }}
         >
           {props.name}
