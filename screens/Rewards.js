@@ -99,7 +99,7 @@ const Rewards = () => {
 
 const styles = StyleSheet.create({
   rewardsEarned: {
-    fontWeight: 700,
+    fontWeight: "700",
     fontSize: 30,
     color: "#761CBC",
     marginTop: 20,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   pointsText: {
     fontFamily: "Nunito",
     fontStyle: "normal",
-    fontWeight: 700,
+    fontWeight: "700",
     fontSize: 16,
     textAlign: "center",
     justifyContent: "center",
@@ -202,13 +202,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 4,
-    fontWeight: 700,
+    fontWeight: "700",
     fontSize: 18,
     color: "#761CBC",
   },
   productPriceText: {
     fontSize: 17,
-    fontWeight: 700,
+    fontWeight: "700",
     color: "#635A8F",
     position: "absolute",
     bottom: 0, // Fixed value for the bottom
