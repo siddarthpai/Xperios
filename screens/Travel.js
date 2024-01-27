@@ -27,19 +27,19 @@ const App = () => {
       id: 1,
       title: "Title 1",
       image:
-        "https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://www.economist.com/cdn-cgi/image/width=1424,quality=80,format=auto/content-assets/images/20230708_STP001.jpg",
     },
     {
       id: 2,
       title: "Title 2",
       image:
-        "https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://www.gns.cri.nz/assets/Uploads/Heroes/lake-hero-2-v2__FillWzEyMDAsNjAwXQ.jpg",
     },
     {
       id: 3,
       title: "Title 3",
       image:
-        "https://images.unsplash.com/photo-1520408222757-6f9f95d87d5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90dGVyeXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://i0.wp.com/hikingtheworld.blog/wp-content/uploads/2021/12/IMG_3057.jpg",
     },
   ];
   const { width } = Dimensions.get("window");
@@ -111,8 +111,8 @@ const App = () => {
               buttonStyle={{ backgroundColor: "white" }}
               titleStyle={{ color: "black", fontWeight: "bold" }}
             >
+              <Icon name="landscape" color="black" style={{ marginRight: 5 }} />
               Mountain
-              <Icon name="landscape" color="black" />
             </Button>
             <Button
               radius={"sm"}
@@ -120,8 +120,8 @@ const App = () => {
               buttonStyle={{ backgroundColor: "white" }}
               titleStyle={{ color: "black", fontWeight: "bold" }}
             >
+              <Icon name="waves" color="black" style={{ marginRight: 5 }} />
               Lake
-              <Icon name="waves" color="black" />
             </Button>
             <Button
               radius={"sm"}
@@ -129,12 +129,16 @@ const App = () => {
               buttonStyle={{ backgroundColor: "white" }}
               titleStyle={{ color: "black", fontWeight: "bold" }}
             >
+              <Icon
+                name="umbrella-outline"
+                type="ionicon"
+                size={24}
+                style={{ marginRight: 5 }}
+              />
               Beach
-              <Icon name="umbrella-beach" type="font-awesome" size={24}></Icon>
             </Button>
           </View>
-
-              <ReadData/>
+          <ReadData />
         </View>
       </ScrollView>
     </SafeAreaView>

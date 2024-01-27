@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#B08CDDBD",
   },
   imageContainer: {
-    marginTop: 26,
+    marginTop: 28,
     position: "absolute",
     alignSelf: "center",
     justifyContent: "center",
@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
     background: "#FFD233",
     height: 20,
     width: 20,
+    zIndex: 100,
   },
 
   register: {
