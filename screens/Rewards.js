@@ -40,7 +40,7 @@ const Rewards = () => {
 
             {data.map((card, index) => (
                 <View style={styles.productCard}>
-                    <Image source={require('../assets/pizza.png')} style={styles.productImage} />
+                    <Image source={card.image} style={styles.productImage} />
                     <View style={styles.productInfo}>
                         <Text style={styles.productName}>{card.title}</Text>
                         <Text style={styles.productDescription}>{card.description}</Text>

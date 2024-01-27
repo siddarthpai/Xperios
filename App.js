@@ -18,6 +18,7 @@ import Login from "./screens/Login";
 import Rewards from "./screens/Rewards";
 import Booking from "./screens/Booking";
 import Friends from "./screens/Friends";
+import FeedScreen from "./screens/groups";
 
 const Drawer = createDrawerNavigator();
 
@@ -157,6 +158,14 @@ export default function App() {
         <Drawer.Screen
           name="Booking"
           component={Booking}
+          options={{
+            headerTitle: () => <Text></Text>,
+          }}
+        />
+
+        <Drawer.Screen
+          name="Groups"
+          component={FeedScreen}
           options={{
             headerTitle: () => <Text></Text>,
           }}
