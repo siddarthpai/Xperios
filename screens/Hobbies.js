@@ -94,7 +94,9 @@ const ImagesTopHalf = () => {
             </Text>
           </View>
         </View>
-        <DisplayHobbies />
+        <View style={{ marginTop: -110 }}>
+          <DisplayHobbies />
+        </View>
       </ScrollView>
       <View style={{ color: "#761CBC" }}></View>
     </View>
@@ -234,61 +236,6 @@ const styles = StyleSheet.create({
     lineHeight: 18, // or 110%
     textAlign: "center",
     color: "#222222",
-  },
-});
-
-const hobbiescard = StyleSheet.create({
-  scrollView: {
-    flexDirection: "row",
-    marginTop: -120,
-  },
-  scrollViewContent: {
-    paddingHorizontal: 8,
-  },
-  cardContainer: {
-    width: 180,
-    height: 290,
-    marginHorizontal: 8,
-    borderRadius: 10,
-
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  cardImage: {
-    width: "100%",
-    height: 200,
-    borderRadius: 10,
-  },
-  cardTextContainer: {
-    padding: 10,
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-  },
-  cardTitle: {
-    fontFamily: "Poppins",
-    fontWeight: "600",
-    fontSize: 14,
-    lineHeight: 16,
-    color: "#222222",
-  },
-  cardPrice: {
-    fontFamily: "Poppins",
-    fontWeight: "300",
-    fontSize: 12,
-    lineHeight: 14,
-    color: "#222222",
-  },
-  cardRating: {
-    fontFamily: "Poppins",
-    fontWeight: "300",
-    fontSize: 16,
-    lineHeight: 18,
-    color: "#222222",
-    alignSelf: "flex-start",
   },
 });
 
