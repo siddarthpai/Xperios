@@ -1,5 +1,12 @@
-import React from 'react';
-import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import React from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 const HomeComponent = () => {
   return (
@@ -7,122 +14,228 @@ const HomeComponent = () => {
       style={styles.container}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{
-        alignItems: 'center',
+        alignItems: "center",
       }}
     >
-      <View style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 281,
-        height: 28,
-        marginTop: 15,
-      }}>
-        <Text style={{ color: '#761CBC', fontSize: 23, fontWeight: 600, }}>Good Morning, </Text>
-        <Text style={{ color: '#000000', fontSize: 23, fontWeight: 600, }}>Lakshmi</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          width: 281,
+          height: 28,
+          marginTop: 15,
+        }}
+      >
+        <Text style={{ color: "#761CBC", fontSize: 23, fontWeight: 600 }}>
+          Good Morning,{" "}
+        </Text>
+        <Text style={{ color: "#000000", fontSize: 23, fontWeight: 600 }}>
+          Lakshmi
+        </Text>
       </View>
-      <View style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 24,
-      }}>
-        <View style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 28,
-          width: 362,
-          height: 260,
-          borderRadius: 12,
-          backgroundColor: '#380C72',
-        }}>
-          <View style={{ flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 154, width: 342, height: 71 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 8, width: 111, height: 70 }}>
-              <View style={{ flexDirection: 'column' }}>
-                <Text style={{ fontWeight: '600', fontSize: 16, color: '#EBE7F1' }}>GQI</Text>
-                <Text style={{ fontWeight: '700', fontSize: 36, textAlign: 'center', color: '#FFFFFF' }}>850 Pts</Text>
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: 24,
+        }}
+      >
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 28,
+            width: 362,
+            height: 260,
+            borderRadius: 12,
+            backgroundColor: "#380C72",
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "flex-start",
+              padding: 0,
+              gap: 154,
+              width: 342,
+              height: 71,
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "flex-start",
+                padding: 0,
+                gap: 8,
+                width: 111,
+                height: 70,
+              }}
+            >
+              <View style={{ flexDirection: "column" }}>
+                <Text
+                  style={{ fontWeight: "600", fontSize: 16, color: "#EBE7F1" }}
+                >
+                  GQI
+                </Text>
+                <Text
+                  style={{
+                    fontWeight: "700",
+                    fontSize: 36,
+                    textAlign: "center",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  850 Pts
+                </Text>
               </View>
               <Image
-                source={require('../assets/gift.png')} // Adjust the path as needed
+                source={require("../assets/gift.png")} // Adjust the path as needed
                 style={styles.giftImage}
-
               />
             </View>
           </View>
-          <Text style={{ fontWeight: '500', fontSize: 16, textAlign: 'center', color: '#EBE7F1' }}>Earn more points and Enjoy exclusive benefits</Text>
-          <View style={{ boxSizing: 'border-box', width: 336, height: 84, backgroundColor: 'rgba(255, 255, 255, 0.25)', borderWidth: 1, borderColor: 'rgba(255, 255, 255, 0.35)', borderRadius: 8 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', padding: 0, gap: 20, width: 304, height: 48, left: 16, top: 18 }}>
-              <View style={{ flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 5, width: 192, height: 48 }}>
-                <Text style={{ fontWeight: '700', fontSize: 20, textAlign: 'center', color: '#FFFFFF' }}>Free 50 Points</Text>
-                <View style={{ flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 4, width: 192, height: 19 }}>
-                  <Text style={{ fontWeight: '500', fontSize: 16, textAlign: 'center', color: '#EBE7F1' }}>Time Remaining:</Text>
-                  <Text style={{ fontWeight: '500', fontSize: 16, textAlign: 'center', color: '#EBE7F1' }}>10:45:22</Text>
+          <Text
+            style={{
+              fontWeight: "500",
+              fontSize: 16,
+              textAlign: "center",
+              color: "#EBE7F1",
+            }}
+          >
+            Earn more points and Enjoy exclusive benefits
+          </Text>
+          <View
+            style={{
+              boxSizing: "border-box",
+              width: 336,
+              height: 84,
+              backgroundColor: "rgba(255, 255, 255, 0.25)",
+              borderWidth: 1,
+              borderColor: "rgba(255, 255, 255, 0.35)",
+              borderRadius: 8,
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                padding: 0,
+                gap: 20,
+                width: 304,
+                height: 48,
+                left: 16,
+                top: 18,
+              }}
+            >
+              <View
+                style={{
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  padding: 0,
+                  gap: 5,
+                  width: 192,
+                  height: 48,
+                }}
+              >
+                <Text
+                  style={{
+                    fontWeight: "700",
+                    fontSize: 20,
+                    textAlign: "center",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  Free 50 Points
+                </Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "flex-start",
+                    padding: 0,
+                    gap: 4,
+                    width: 192,
+                    height: 19,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontWeight: "500",
+                      fontSize: 16,
+                      textAlign: "center",
+                      color: "#EBE7F1",
+                    }}
+                  >
+                    Time Remaining:
+                  </Text>
+                  <Text
+                    style={{
+                      fontWeight: "500",
+                      fontSize: 16,
+                      textAlign: "center",
+                      color: "#EBE7F1",
+                    }}
+                  >
+                    10:45:22
+                  </Text>
                 </View>
               </View>
-              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10, gap: 10, width: 92, height: 41, backgroundColor: '#FFFFFF', borderRadius: 4 }}>
-                <Text style={{ fontWeight: '600', fontSize: 16, textAlign: 'center', color: '#380C72' }}>Claim</Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: 10,
+                  gap: 10,
+                  width: 92,
+                  height: 41,
+                  backgroundColor: "#FFFFFF",
+                  borderRadius: 4,
+                }}
+              >
+                <Text
+                  style={{
+                    fontWeight: "600",
+                    fontSize: 16,
+                    textAlign: "center",
+                    color: "#380C72",
+                  }}
+                >
+                  Claim
+                </Text>
               </View>
             </View>
           </View>
         </View>
       </View>
-
-
-      {/* <View style={styles.frame4548}>
-        <Image
-          style={styles.image1}
-          source={{ uri: 'https://picsum.photos/330/203' }} // Lorem Picsum URL
-        />
-        <View style={styles.rectangle1} />
-        <View style={styles.group28}>
-          <TouchableOpacity style={styles.heartIcon} onPress={() => console.log('Heart clicked')}>
-            <Image
-              source={require('../assets/like.png')} // Adjust the path as needed
-              style={{ width: 26, height: 26 }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.frame4553}>
-          <View style={styles.frame4552}>
-            <Text style={styles.dollarSign}>$</Text>
-            <Text style={styles.number270}>270</Text>
-          </View>
-        </View>
-      </View>
-
-
-      <View style={styles.frame4556}>
-        <View style={styles.frame4555}>
-          <Text style={styles.leceisterSquareKitchen}>Leceister Square kitchen</Text>
-          <Text style={styles.text4936}>4.9</Text>
-        </View>
-        <View style={styles.frame4550}>
-          <Text style={styles.address}>31-36 Leicester Square, England</Text>
-        </View>
-      </View> */}
 
       <View style={styles.topRecommendations}>
         <Text style={styles.title}>Our Top Recommendations</Text>
       </View>
 
-      <ScrollView horizontal contentContainerStyle={styles.cards}>
+      <ScrollView
+        horizontal
+        contentContainerStyle={styles.cards}
+        showsHorizontalScrollIndicator={false}
+      >
         <View style={styles.propertyCard}>
           <View style={styles.propertyImage}>
             <Image
               style={styles.image}
-              source={{ uri: 'https://picsum.photos/330/203' }} // Lorem Picsum URL
+              source={{ uri: "https://picsum.photos/330/203" }} // Lorem Picsum URL
             />
             <View style={styles.overlay} />
             <View style={styles.favorite}>
-              <TouchableOpacity onPress={() => console.log('Heart clicked')}>
+              <TouchableOpacity onPress={() => console.log("Heart clicked")}>
                 <Image
-                  source={require('../assets/like.png')} // Adjust the path as needed
+                  source={require("../assets/like.png")} // Adjust the path as needed
                   style={styles.heartIcon}
                 />
               </TouchableOpacity>
             </View>
             <View style={styles.price1}>
               <View style={styles.price}>
-                <Text style={styles.currency}>$</Text>
+                <Text style={styles.currency}>₹</Text>
                 <Text style={styles.amount}>270</Text>
               </View>
             </View>
@@ -137,32 +250,32 @@ const HomeComponent = () => {
                 source={require("../assets/location.png")} // Use the location.png from assets
                 style={styles.locationIcon} // Apply styles for the location icon
               />
-              <Text style={styles.addressText}>31-36 Leicester Square, England</Text>
+              <Text style={styles.addressText}>
+                31-36 Leicester Square, England
+              </Text>
             </View>
           </View>
         </View>
 
-
-
         <View style={styles.propertyCard}>
           <View style={styles.propertyImage}>
             <Image
               style={styles.image}
-              source={{ uri: 'https://picsum.photos/330/203' }} // Lorem Picsum URL
+              source={{ uri: "https://picsum.photos/330/203" }} // Lorem Picsum URL
             />
             <View style={styles.overlay} />
             <View style={styles.favorite}>
-              <TouchableOpacity onPress={() => console.log('Heart clicked')}>
+              <TouchableOpacity onPress={() => console.log("Heart clicked")}>
                 <Image
-                  source={require('../assets/like.png')} // Adjust the path as needed
+                  source={require("../assets/like.png")} // Adjust the path as needed
                   style={styles.heartIcon}
                 />
               </TouchableOpacity>
             </View>
             <View style={styles.price1}>
               <View style={styles.price}>
-                <Text style={styles.currency}>$</Text>
-                <Text style={styles.amount}>270</Text>
+                <Text style={styles.currency}>₹</Text>
+                <Text style={styles.amount}>350</Text>
               </View>
             </View>
           </View>
@@ -176,16 +289,16 @@ const HomeComponent = () => {
                 source={require("../assets/location.png")} // Use the location.png from assets
                 style={styles.locationIcon} // Apply styles for the location icon
               />
-              <Text style={styles.addressText}>31-36 Leicester Square, England</Text>
+              <Text style={styles.addressText}>
+                31-36 Leicester Square, England
+              </Text>
             </View>
           </View>
         </View>
       </ScrollView>
-
     </ScrollView>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -198,8 +311,6 @@ const styles = StyleSheet.create({
     left: 152,
   },
 
-
-
   locationIcon: {
     position: "absolute",
     left: "0.5%",
@@ -209,18 +320,18 @@ const styles = StyleSheet.create({
   },
 
   frame4556: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
     padding: 0,
     gap: 14,
     width: 330,
     height: 55,
   },
   frame4555: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
     padding: 0,
     gap: 54,
     width: 330,
@@ -229,34 +340,34 @@ const styles = StyleSheet.create({
   leceisterSquareKitchen: {
     width: 229,
     height: 22,
-    fontFamily: 'Sora',
-    fontWeight: '600',
+    fontFamily: "Sora",
+    fontWeight: "600",
     fontSize: 18,
     lineHeight: 22,
-    textAlign: 'center',
-    color: '#000000',
+    textAlign: "center",
+    color: "#000000",
   },
 
   image1: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
+    width: "100%",
+    height: "100%",
+    position: "absolute",
     left: 0,
     top: 0,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
   rectangle1: {
     width: 330,
     height: 209,
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     top: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: "rgba(0, 0, 0, 0.2)",
   },
   group28: {
     width: 40,
     height: 40,
-    position: 'absolute',
+    position: "absolute",
     left: 286,
     top: 20,
   },
@@ -265,74 +376,72 @@ const styles = StyleSheet.create({
     height: 24,
   },
 
-
   propertyCard: {
-    justifyContent: 'center',
+    justifyContent: "center",
     width: 330,
     height: 280,
     borderRadius: 8,
-    overflow: 'hidden',
+    overflow: "hidden",
     paddingHorizontal: 10,
   },
   propertyImage: {
-    position: 'relative',
-    width: '100%',
+    position: "relative",
+    width: "100%",
     height: 203,
   },
 
   cards: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     paddingVertical: 16,
     gap: 20,
   },
 
   image: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    borderRadius:12,
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+    borderRadius: 12,
   },
   overlay: {
-    position: 'absolute',
-    width: '100%',
+    position: "absolute",
+    width: "100%",
     height: 203,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    borderRadius:12,
+    backgroundColor: "rgba(0, 0, 0, 0.2)",
+    borderRadius: 12,
   },
   favorite: {
-    position: 'absolute',
+    position: "absolute",
     width: 40,
     height: 40,
     right: 12,
     top: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   heartIcon: {
     width: 26,
     height: 26,
   },
   price1: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
+    flexDirection: "column",
+    alignItems: "flex-start",
     paddingVertical: 9,
     paddingHorizontal: 14,
     gap: 10,
-    position: 'absolute',
+    position: "absolute",
     width: 87,
     height: 46,
     left: 12,
     top: 12,
-    backgroundColor: '#380C72',
+    backgroundColor: "#380C72",
     borderRadius: 4,
-
   },
   price: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 0,
     gap: 2,
     width: 59,
@@ -341,83 +450,78 @@ const styles = StyleSheet.create({
   currency: {
     width: 10,
     height: 17,
-    fontFamily: 'Sora',
-    fontWeight: '700',
+    fontFamily: "Sora",
+    fontWeight: "700",
     fontSize: 14,
     lineHeight: 17,
-    textAlign: 'center',
-    color: '#FFFFFF',
+    textAlign: "center",
+    color: "#FFFFFF",
   },
   amount: {
     width: 47,
     height: 28,
-    fontFamily: 'Sora',
-    fontWeight: '700',
+    fontFamily: "Sora",
+    fontWeight: "700",
     fontSize: 23,
     lineHeight: 28,
-    textAlign: 'center',
-    color: '#FFFFFF',
+    textAlign: "center",
+    color: "#FFFFFF",
   },
 
   topRecommendations: {
     width: 348,
     height: 24,
-    marginTop:20,
+    marginTop: 20,
   },
   title: {
-    fontWeight: '600',
+    fontWeight: "600",
     fontSize: 20,
     lineHeight: 24,
-    textAlign: 'left',
-    color: '#761CBC',
+    textAlign: "left",
+    color: "#761CBC",
   },
   propertyDetails: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
     paddingHorizontal: 3,
     paddingTop: 10,
-    width: '100%',
+    width: "100%",
     height: 55,
   },
   rating: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
     height: 22,
   },
   squareKitchen: {
-    fontWeight: '600',
+    fontWeight: "600",
     fontSize: 18,
-    color: '#000000',
+    color: "#000000",
   },
   ratingNumber: {
-    fontWeight: '600',
+    fontWeight: "600",
     fontSize: 16,
-    color: '#000000',
+    color: "#000000",
   },
   address: {
-    width: '100%',
+    width: "100%",
     height: 19,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   addressText: {
-    fontWeight: '400',
+    fontWeight: "400",
     fontSize: 16,
-    color: '#646464',
-    textAlign: 'center',
+    color: "#646464",
+    textAlign: "center",
     marginRight: 20,
-
   },
 });
 
 export default HomeComponent;
-
-
-
-
 
 // import React, { useEffect, useState } from 'react';
 // import { View, Text } from 'react-native';

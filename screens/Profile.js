@@ -136,36 +136,6 @@ const Profile = () => {
           </View>
         </View>
         <View>
-          <View style={styles.header}>
-            <View style={{ flex: 1 }}>
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontWeight: "bold",
-                  fontSize: 32,
-                }}
-              >
-                {staticUserDetails.friends}+
-              </Text>
-              <Text style={{ textAlign: "center", fontWeight: "bold" }}>
-                Friends
-              </Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontWeight: "bold",
-                  fontSize: 32,
-                }}
-              >
-                {staticUserDetails.activities}+
-              </Text>
-              <Text style={{ textAlign: "center", fontWeight: "bold" }}>
-                Activities Attended
-              </Text>
-            </View>
-          </View>
           <View style={styles.header1}>
             <TouchableOpacity
               onPress={() => handlePageChange({ page: "Upcoming" })}
