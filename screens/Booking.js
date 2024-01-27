@@ -51,7 +51,7 @@ const Booking = () => {
               backgroundColor: "white",
               alignSelf: "center",
               width: "80%",
-              height: "90%",
+              height: "auto",
               borderRadius: 10,
               marginTop: 40,
             }}
@@ -64,25 +64,25 @@ const Booking = () => {
                 />
               </View>
               <View style={{ flex: 1, marginTop: 20 }}>
-                <Text style={{ fontSize: 18, margin: 10 }}>
+                <Text style={{ fontSize: 15, margin: 10 }}>
                   <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                     Name:{" "}
                   </Text>
                   Deep Shah
                 </Text>
-                <Text style={{ fontSize: 18, margin: 10 }}>
+                <Text style={{ fontSize: 15, margin: 10 }}>
                   <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                     Ticket ID:{" "}
                   </Text>
                   D0213
                 </Text>
-                <Text style={{ fontSize: 18, margin: 10 }}>
+                <Text style={{ fontSize: 15, margin: 10 }}>
                   <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                     Order ID:{" "}
                   </Text>
                   02D34
                 </Text>
-                <Text style={{ fontSize: 18, margin: 10 }}>
+                <Text style={{ fontSize: 15, margin: 10 }}>
                   <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                     Price:{" "}
                   </Text>
@@ -91,13 +91,14 @@ const Booking = () => {
               </View>
             </View>
 
-            <Text
+            <View
               style={{
-                fontSize: 18,
-                marginTop: 10,
-                marginLeft: 20,
-                height: 50,
-                fontWeight: "bold",
+                paddingVertical: 15,
+                paddingHorizontal: 10,
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                alignSelf: "center",
               }}
             >
               <Icon
@@ -105,10 +106,27 @@ const Booking = () => {
                 type="ionicon"
                 size={20}
                 color="#B08CDDBD"
-                style={{ position: "absolute", top: 12, left: 10 }}
               />
-              Please show this QR at the enterance
-            </Text>
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: "black",
+                  fontWeight: "bold",
+                }}
+              >
+                Please show this QR at the enterance
+              </Text>
+            </View>
+
+            <Text
+              style={{
+                fontSize: 15,
+                alignSelf: "center",
+                position: "absolute",
+                bottom: 30,
+                fontWeight: "bold",
+              }}
+            ></Text>
           </View>
         </View>
         <View style={{ flex: 2 }}>
@@ -117,7 +135,7 @@ const Booking = () => {
               backgroundColor: "white",
               alignSelf: "center",
               width: "80%",
-              height: "80%",
+              height: "auto",
               borderRadius: 10,
               marginTop: 40,
               marginBottom: 20,
@@ -135,31 +153,31 @@ const Booking = () => {
               Ghar by Zakir Khan
             </Text>
 
-            <Text style={{ fontSize: 18, margin: 10 }}>
+            <Text style={{ fontSize: 16, margin: 10 }}>
               <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                 Venue:
               </Text>
               The Cheese Box Studios, Ahmedabad
             </Text>
-            <Text style={{ fontSize: 18, margin: 10 }}>
+            <Text style={{ fontSize: 16, margin: 10 }}>
               <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                 Date:
               </Text>
               13th March,2023
             </Text>
-            <Text style={{ fontSize: 18, margin: 10 }}>
+            <Text style={{ fontSize: 16, margin: 10 }}>
               <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                 Timing:
               </Text>
               7:00-9:00 PM
             </Text>
-            <Text style={{ fontSize: 18, margin: 10 }}>
+            <Text style={{ fontSize: 16, margin: 10 }}>
               <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                 Genre:
               </Text>
               Comedy
             </Text>
-            <Text style={{ fontSize: 18, margin: 10 }}>
+            <Text style={{ fontSize: 16, margin: 10 }}>
               <Text style={{ color: "#761CBC", fontWeight: "bold" }}>
                 Seat:
               </Text>

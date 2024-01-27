@@ -194,7 +194,7 @@ const Community = () => {
           imageUrl="https://via.placeholder.com/59x59"
         />
         <UserProfile
-          userName="Shishimaroo"
+          userName="imaroo"
           imageUrl="https://via.placeholder.com/59x59"
         />
         <UserProfile
