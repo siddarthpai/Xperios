@@ -47,7 +47,7 @@ const Profile = () => {
     navigation.navigate(page);
   };
 
-  const Chest = () => {
+  const Chest = (props) => {
     return (
       <View
         style={{
@@ -68,7 +68,7 @@ const Profile = () => {
             top: 7,
             left: 7,
           }}
-          source={require("../assets/chest.png")}
+          source={props.image}
         />
       </View>
     );
@@ -299,7 +299,7 @@ const Profile = () => {
                 />
               </View>
 
-              <Chest />
+              <Chest image={require("../assets/creativity.png")} />
             </View>
 
             <View style={{ flexDirection: "row" }}>
@@ -329,7 +329,7 @@ const Profile = () => {
                   color="#24B874"
                 />
               </View>
-              <Chest />
+              <Chest image={require("../assets/fitness.png")} />
             </View>
 
             <View style={{ flexDirection: "row" }}>
@@ -359,7 +359,7 @@ const Profile = () => {
                   color="#24B874"
                 />
               </View>
-              <Chest />
+              <Chest image={require("../assets/int.png")} />
             </View>
 
             <View style={{ flexDirection: "row" }}>
