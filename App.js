@@ -167,7 +167,6 @@ export default function App() {
           name="Groups"
           component={FeedScreen}
           options={{
-            drawerItemStyle: { display: "none" },
             headerTitle: () => <Text></Text>,
           }}
         />

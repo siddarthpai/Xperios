@@ -1,0 +1,48 @@
+[
+  {
+    "Name": "Shuffle Dance Workshop",
+    "Date": "19\nJan",
+    "Location": "Lahe Lahe: Bengaluru",
+    "price": "450",
+    "image": "https://assets-in.bmscdn.com/nmcms/events/banner/weblisting/shuffle-dance-workshop-et00372353-2023-10-11-t-4-38-50.jpg",
+    "rating": 4.7
+  },
+  {
+    "Name": "Paint with Fluid ( Pouring Art )",
+    "Date": "20\nJan\nOnwards",
+    "Location": "Lahe Lahe: Bengaluru",
+    "price": "1500",
+    "image": "https://assets-in.bmscdn.com/nmcms/events/banner/weblisting/paint-with-fluid-pouring-art-et00370599-2023-9-23-t-13-49-55.jpg",
+    "rating": 4.2
+  },
+  {
+    "Name": "Zakir Khan Live - Bengaluru",
+    "Dates": "Sun 25 Feb 2024 at 5:00 PM",
+    "image": "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-zakir-khan-live-bengaluru-0-2024-1-17-t-13-5-33.jpg",
+    "rating": 4.8,
+    "Location": "Bhartiya Mall Of Bengaluru",
+    "price": "1,499",
+    "withfriends": "₹ 1,299",
+    "desc": "Clear your calendars and leave your ‘Hmm..accha thik hain’ attitude at the door because the sultan of stand-up, Zakir Khan is rolling into your town like a laughter tornado with his new tour"
+  },
+  {
+    "Name": "Camping In Coorg",
+    "image": "https://media1.thrillophilia.com/filestore/bvxoig7svs8chg1m81o4eim6gubz_1498041482_camping_coorg.png?w=auto&h=600",
+    "rating": 4.1,
+    "price": "1,100",
+    "withfriends": "₹ 800",
+    "location": "Coorg",
+    "desc": "Bettinger has always been a wonderful retreat area in Madikeri, catering to both nature and adventure fans at the same time. The property is surrounded by beautiful green hills and deep tropical forest, making it an excellent weekend escape. Reach this offbeat campsite, located 20 kilometers from Coorg city, to reconnect with nature while camping in the tranquility of the area. Here, you can participate in a variety of activities with your group and experience the thrill and excitement while creating memories with your loved ones.",
+    "dates": "2 Days, 1 Nights"
+  },
+  {
+    "Name": "Write Out loud ( Poetry Evening )",
+    "Location": "Lahe Lahe: Bengaluru",
+    "Dates": "Tue 30 Jan 2024 - Tue 20 Feb 2024",
+    "price": "200",
+    "TeamPrice": "₹ 150",
+    "image": "https://assets-in.bmscdn.com/nmcms/events/banner/desktop/media-desktop-write-out-loud-poetry-evening-0-2023-12-31-t-8-20-34.jpg",
+    "rating": 3.7,
+    "description": "The Write Out Loud Poetry Evening is a celebration of the spoken word, where poets and poetry enthusiasts come together to share their creative expressions, celebrate the beauty of language, and explore the depths of human emotions through poetry. This event is an opportunity for individuals to connect with the power of words and immerse themselves in a night of literary artistry."
+  }
+]

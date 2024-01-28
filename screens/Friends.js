@@ -130,7 +130,7 @@ export default function Friends() {
         "https://media.licdn.com/dms/image/D5603AQEwAk_kL-KtkA/profile-displayphoto-shrink_100_100/0/1683601661551?e=1711584000&v=beta&t=CcSiUb8PUlnYaHBYVeVazp_TumXjoYFHZHVMWynALzw",
     },
     {
-      id: 5,
+      id: 6,
       userName: "Namita P",
       bio: "Hey There!",
       points: 21,

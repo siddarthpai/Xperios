@@ -7,8 +7,56 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import data from "../landing.json";
+console.log(data);
 
 const HomeComponent = () => {
+  const Card = (props) => {
+    return (
+      <View>
+        <View style={styles.propertyCard}>
+          <View style={styles.propertyImage}>
+            <Image
+              style={styles.image}
+              source={{
+                uri: props.image,
+              }}
+            />
+            <View style={styles.overlay} />
+            <View style={styles.favorite}>
+              <TouchableOpacity
+                onPress={() => console.log("Heart button pressed")}
+              >
+                <Image
+                  source={require("../assets/like.png")} // Adjust the path as needed
+                  style={styles.heartIcon}
+                />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.price1}>
+              <View style={styles.price}>
+                <Text style={styles.currency}>₹</Text>
+                <Text style={styles.amount}>{props.price}</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.propertyDetails}>
+            <View style={styles.rating}>
+              <Text style={styles.squareKitchen}>{props.name}</Text>
+              <Text style={styles.ratingNumber}>⭐ {props.rating}</Text>
+            </View>
+            <View style={styles.address}>
+              <Image
+                source={require("../assets/location.png")} // Use the location.png from assets
+                style={styles.locationIcon} // Apply styles for the location icon
+              />
+              <Text style={styles.addressText}>{props.location}</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    );
+  };
   return (
     <ScrollView
       style={styles.container}
@@ -224,83 +272,15 @@ const HomeComponent = () => {
         contentContainerStyle={styles.cards}
         showsHorizontalScrollIndicator={false}
       >
-        <View style={styles.propertyCard}>
-          <View style={styles.propertyImage}>
-            <Image
-              style={styles.image}
-              source={{ uri: "https://picsum.photos/330/203" }} // Lorem Picsum URL
-            />
-            <View style={styles.overlay} />
-            <View style={styles.favorite}>
-              <TouchableOpacity onPress={() => console.log("Heart clicked")}>
-                <Image
-                  source={require("../assets/like.png")} // Adjust the path as needed
-                  style={styles.heartIcon}
-                />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.price1}>
-              <View style={styles.price}>
-                <Text style={styles.currency}>₹</Text>
-                <Text style={styles.amount}>270</Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.propertyDetails}>
-            <View style={styles.rating}>
-              <Text style={styles.squareKitchen}>Leceister Square kitchen</Text>
-              <Text style={styles.ratingNumber}>⭐ 4.9</Text>
-            </View>
-            <View style={styles.address}>
-              <Image
-                source={require("../assets/location.png")} // Use the location.png from assets
-                style={styles.locationIcon} // Apply styles for the location icon
-              />
-              <Text style={styles.addressText}>
-                31-36 Leicester Square, England
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.propertyCard}>
-          <View style={styles.propertyImage}>
-            <Image
-              style={styles.image}
-              source={{ uri: "https://picsum.photos/330/203" }} // Lorem Picsum URL
-            />
-            <View style={styles.overlay} />
-            <View style={styles.favorite}>
-              <TouchableOpacity onPress={() => console.log("Heart clicked")}>
-                <Image
-                  source={require("../assets/like.png")} // Adjust the path as needed
-                  style={styles.heartIcon}
-                />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.price1}>
-              <View style={styles.price}>
-                <Text style={styles.currency}>₹</Text>
-                <Text style={styles.amount}>350</Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.propertyDetails}>
-            <View style={styles.rating}>
-              <Text style={styles.squareKitchen}>Leceister Square kitchen</Text>
-              <Text style={styles.ratingNumber}>⭐ 4.9</Text>
-            </View>
-            <View style={styles.address}>
-              <Image
-                source={require("../assets/location.png")} // Use the location.png from assets
-                style={styles.locationIcon} // Apply styles for the location icon
-              />
-              <Text style={styles.addressText}>
-                31-36 Leicester Square, England
-              </Text>
-            </View>
-          </View>
-        </View>
+        {data.map((card) => (
+          <Card
+            name={card.Name}
+            rating={card.rating}
+            location={card.Location}
+            price={card.price}
+            image={card.image}
+          />
+        ))}
       </ScrollView>
     </ScrollView>
   );
@@ -438,7 +418,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     gap: 10,
     position: "absolute",
-    width: 87,
+    width: 90,
     height: 46,
     left: 12,
     top: 12,
@@ -450,7 +430,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 0,
     gap: 2,
-    width: 59,
+    width: 100,
     height: 28,
   },
   currency: {
@@ -464,7 +444,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
   },
   amount: {
-    width: 47,
+    width: "auto",
     height: 28,
     fontFamily: "Sora",
     fontWeight: "700",
@@ -522,8 +502,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 16,
     color: "#646464",
-    textAlign: "center",
-    marginRight: 20,
+    marginRight: 5,
   },
 });
 
