@@ -186,49 +186,44 @@ const Community = () => {
       />
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <UserProfile
-          userName="SidPai"
-          imageUrl="https://via.placeholder.com/59x59"
-        />
-        <UserProfile
-          userName="Charam🌹"
-          imageUrl="https://via.placeholder.com/59x59"
-        />
-        <UserProfile
-          userName="imaroo"
-          imageUrl="https://via.placeholder.com/59x59"
+          userName="Sujatha"
+          imageUrl="https://media.licdn.com/dms/image/C4E03AQHQHYqxLkS3ww/profile-displayphoto-shrink_400_400/0/1653607643423?e=1711584000&v=beta&t=k_2gF6P2nQ-PiWz2v2DtgA1_WxpZMu9GVeTpsEbIeuE"
+        
+        
         />
         <UserProfile
           userName="Deepika"
-          imageUrl="https://via.placeholder.com/59x59"
+          imageUrl="https://media.licdn.com/dms/image/D5603AQHvgwRskRF4nw/profile-displayphoto-shrink_400_400/0/1687279742085?e=1711584000&v=beta&t=0_MM5-4d8aT-RbTgfJVkBCGgnMqOWPqhJwuazyCEWbg"
+        />
+        <UserProfile
+          userName="Lakshmi"
+          imageUrl="https://media.licdn.com/dms/image/D5603AQE63T1a0vmR-Q/profile-displayphoto-shrink_100_100/0/1677601394558?e=1712188800&v=beta&t=fA5d5tdJuyfYEQjwoJ3XyjRu5x0NTpdMcD99UNNoRzA"
+        />
+        <UserProfile
+          userName="Sid"
+          imageUrl="https://media.licdn.com/dms/image/D5603AQEYSYrmiskViQ/profile-displayphoto-shrink_100_100/0/1662868149764?e=1712188800&v=beta&t=9cUsDNAGIvTNb3KHDQC1ZcjY-Gq6-kAmEoU32MJxx0U"
         />
       </ScrollView>
       <ScrollView>
         <UserPost
-          userName="SidPai"
-          userProfileSrc="https://via.placeholder.com/59x59"
-          postContent="Test Test, This is a shitty sky that I took last week, have a terrible night :) #Beauty_nature #Cloud"
-          postImageSrc="https://via.placeholder.com/307x210"
+          userName="Sid"
+          userProfileSrc="https://media.licdn.com/dms/image/D5603AQEYSYrmiskViQ/profile-displayphoto-shrink_100_100/0/1662868149764?e=1712188800&v=beta&t=9cUsDNAGIvTNb3KHDQC1ZcjY-Gq6-kAmEoU32MJxx0U"
+          postContent=" Had the best time at Ramnagara trek! #Beauty_nature #Cloud"
+          postImageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd6Uyl07AwJY6l1KabrM_kJs7d4zD9bSTDJg&usqp=CAU"
           Nolikes="399"
           Nocomments="200"
           time="5"
         />
         <UserPost
-          userName="SidPai"
-          userProfileSrc="https://via.placeholder.com/59x59"
-          postContent="Test Test, This is a shitty sky that I took last week, have a terrible night :) #Beauty_nature #Cloud"
-          postImageSrc="https://via.placeholder.com/307x210"
+          userName="Darshan"
+          userProfileSrc="https://media.licdn.com/dms/image/D4E03AQGB3mlTrBK7rQ/profile-displayphoto-shrink_100_100/0/1676443847139?e=1711584000&v=beta&t=kjPadO6J7eiw6aienLM7k4SbeR4xsQ0-zAbnc3qVhh8"
+          postContent=" Great night at Plan B Indiranagar trying the wings challenge! #Gamenight #Wings"
+          postImageSrc="https://tastesbetterfromscratch.com/wp-content/uploads/2014/09/Baked-Chicken-Wings-3.jpg"
           Nolikes="399"
           Nocomments="200"
           time="5"
         />
-        <UserPost
-          userName="Balu 🐻🐻"
-          userProfileSrc="https://via.placeholder.com/59x59"
-          postContent="Test Test, cant wait to have a wonderful night with teddy :) #Wedding_day #Cant wait!"
-          Nolikes="399"
-          Nocomments="200"
-          time="5"
-        />
+
       </ScrollView>
     </ScrollView>
   );
