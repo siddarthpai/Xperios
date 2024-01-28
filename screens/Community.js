@@ -177,8 +177,10 @@ const Community = () => {
   const onChangeSearch = (query) => setSearchQuery(query);
 
   return (
-    <ScrollView style={{ backgroundColor: "#B08CDD" }}
-    showsVerticalScrollIndicator={false}>
+    <ScrollView
+      style={{ backgroundColor: "#B08CDD" }}
+      showsVerticalScrollIndicator={false}
+    >
       <Searchbar
         placeholder="Connect with your friends!"
         onChangeText={onChangeSearch}
@@ -189,8 +191,6 @@ const Community = () => {
         <UserProfile
           userName="Sujatha"
           imageUrl="https://media.licdn.com/dms/image/C4E03AQHQHYqxLkS3ww/profile-displayphoto-shrink_400_400/0/1653607643423?e=1711584000&v=beta&t=k_2gF6P2nQ-PiWz2v2DtgA1_WxpZMu9GVeTpsEbIeuE"
-        
-        
         />
         <UserProfile
           userName="Deepika"
@@ -224,7 +224,6 @@ const Community = () => {
           Nocomments="200"
           time="5"
         />
-
       </ScrollView>
     </ScrollView>
   );
@@ -236,7 +235,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: "90%",
     marginTop: 32,
-    marginBottom: 32,
+    marginBottom: 8,
   },
 });
 

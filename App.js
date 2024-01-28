@@ -159,6 +159,7 @@ export default function App() {
           name="Booking"
           component={Booking}
           options={{
+            drawerItemStyle: { display: "none" },
             headerTitle: () => <Text></Text>,
           }}
         />

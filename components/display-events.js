@@ -10,8 +10,7 @@ import {
 import { getDatabase, ref, onValue } from "firebase/database";
 import { edb } from "../config";
 import { useNavigation } from "@react-navigation/native";
-import eventData from '../eventdetail.json'; // Adjust the path as needed
-
+import eventData from "../eventdetail.json"; // Adjust the path as needed
 
 const DisplayEvents = () => {
   const [data, setData] = useState([]);
@@ -53,7 +52,7 @@ const DisplayEvents = () => {
   };
 
   const handlePress = () => {
-    navigation.navigate('eventDetails', { eventDetails: eventData[0] });
+    navigation.navigate("eventDetails", { eventDetails: eventData[0] });
   };
 
   if (loading) {
@@ -67,17 +66,16 @@ const DisplayEvents = () => {
   return (
     <ScrollView horizontal style={styles.scrollView}>
       {/* Static Card at the beginning of the ScrollView */}
-      <TouchableOpacity
-        style={styles.card}
-        onPress={() => handlePress()}
-      >
+      <TouchableOpacity style={styles.card} onPress={() => handlePress()}>
         {/* Include static card content here */}
         <Image source={{ uri: eventData[0].image }} style={styles.image} />
         <View style={styles.cardContent}>
           <Text style={styles.category}>{eventData[0].Name}</Text>
           <Text style={styles.name}>{eventData[0].Dates}</Text>
           <Text style={styles.location}>{eventData[0].Location}</Text>
-          <Text style={styles.price}>{eventData[0].Individualprice} onwards</Text>
+          <Text style={styles.price}>
+            {eventData[0].Individualprice} onwards
+          </Text>
         </View>
       </TouchableOpacity>
 
@@ -99,7 +97,6 @@ const DisplayEvents = () => {
         </View>
       ))}
     </ScrollView>
-
   );
 };
 
@@ -109,6 +106,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 300,
+    height: 300,
     margin: 10,
     borderRadius: 10,
     overflow: "hidden",

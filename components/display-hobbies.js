@@ -11,7 +11,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { hdb } from "../config";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
-import hobby from "../hobbydetail.json"
+import hobby from "../hobbydetail.json";
 
 const DisplayHobbies = () => {
   const [data, setData] = useState([]);
@@ -57,7 +57,7 @@ const DisplayHobbies = () => {
   };
 
   const handlePress = () => {
-    navigation.navigate('hobbiesDetails', { hobbiesDetails: hobby[0] });
+    navigation.navigate("hobbiesDetails", { hobbiesDetails: hobby[0] });
   };
   if (loading) {
     return <Text>Loading...</Text>;
@@ -69,7 +69,6 @@ const DisplayHobbies = () => {
 
   return (
     <ScrollView horizontal style={styles.scrollView}>
-
       <TouchableOpacity
         key={hobby[0].id}
         style={styles.card}
@@ -85,10 +84,7 @@ const DisplayHobbies = () => {
       </TouchableOpacity>
 
       {data.map((item) => (
-        <TouchableOpacity
-          key={item.id}
-          style={styles.card}
-        >
+        <TouchableOpacity key={item.id} style={styles.card}>
           <Image source={{ uri: item.image }} style={styles.image} />
           <View style={styles.cardContent}>
             <Text style={styles.date}>{item.Date}</Text>
@@ -116,10 +112,10 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 400,
+    height: 151,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    resizeMode: "stretch",
+    resizeMode: "cover",
   },
   cardContent: {
     padding: 15,

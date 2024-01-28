@@ -3,13 +3,18 @@ import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { edb } from "../config";
 import { TouchableOpacity } from "react-native";
-import eventinfo from '../eventdetail.json';
+import eventinfo from "../eventdetail.json";
+import { useNavigation } from "@react-navigation/native";
 
 const Details = ({ route }) => {
   const { id } = route.params;
   const [eventDetails, setEventDetails] = useState(null);
-
+  const navigation = useNavigation();
   console.log(eventinfo[0]);
+
+  const navigateBooking = () => {
+    navigation.navigate("Booking");
+  };
 
   useEffect(() => {
     const database = edb;
@@ -78,9 +83,7 @@ const Details = ({ route }) => {
                 </Text>
               </View>
 
-              <Text style={styles.eventDescription}>
-                {eventinfo[0].desc}
-              </Text>
+              <Text style={styles.eventDescription}>{eventinfo[0].desc}</Text>
 
               <View style={styles.chips}>
                 <Text style={styles.contactHostText}>Contact the host !</Text>
@@ -97,7 +100,12 @@ const Details = ({ route }) => {
               <Text style={styles.star}>⭐</Text>
 
               <TouchableOpacity style={styles.register}>
-                <Text style={styles.registerText}>REGISTER</Text>
+                <Text
+                  style={styles.registerText}
+                  onPress={() => navigateBooking()}
+                >
+                  REGISTER
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.more}>
@@ -108,7 +116,6 @@ const Details = ({ route }) => {
         </View>
       </View>
     </ScrollView>
-
   );
 };
 
