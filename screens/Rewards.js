@@ -120,14 +120,13 @@ const styles = StyleSheet.create({
   },
 
   frame4522: {
-    padding: 10,
     alignItems: "center", // Center horizontally
     alignSelf: "center",
-    paddingHorizontal: 14,
+
     position: "absolute",
     width: 135,
     height: 50,
-    top: 74,
+    top: 87,
     backgroundColor: "#380C72",
     borderRadius: 32,
     justifyContent: "center",

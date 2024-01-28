@@ -32,7 +32,7 @@ const Booking = () => {
         style={{
           color: "#771DBC",
           marginLeft: 35,
-          fontSize: 40,
+          fontSize: 30,
           fontWeight: "bold",
           marginTop: 30,
         }}
@@ -45,7 +45,7 @@ const Booking = () => {
           height: "100%",
         }}
       >
-        <View style={{ flex: 2 }}>
+        <View style={{ flex: 1 }}>
           <View
             style={{
               backgroundColor: "white",
@@ -129,7 +129,7 @@ const Booking = () => {
             ></Text>
           </View>
         </View>
-        <View style={{ flex: 2 }}>
+        <View style={{ flex: 1 }}>
           <View
             style={{
               backgroundColor: "white",
@@ -137,8 +137,7 @@ const Booking = () => {
               width: "80%",
               height: "auto",
               borderRadius: 10,
-              marginTop: 40,
-              marginBottom: 20,
+              marginTop: 65,
             }}
           >
             <Text
@@ -185,7 +184,13 @@ const Booking = () => {
             </Text>
           </View>
         </View>
-        <View style={{ flex: 1 }}>
+        <View
+          style={{
+            flex: 1,
+
+            justifyContent: "center",
+          }}
+        >
           <TouchableOpacity
             style={{
               alignSelf: "center",
@@ -193,6 +198,7 @@ const Booking = () => {
               width: 179,
               height: 42,
               borderRadius: 20,
+              marginBottom: 20,
             }}
             onPress={shareTicket}
           >

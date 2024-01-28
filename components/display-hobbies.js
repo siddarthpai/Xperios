@@ -97,10 +97,10 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 150,
+    height: 400,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    resizeMode: "cover",
+    resizeMode: "stretch",
   },
   cardContent: {
     padding: 15,

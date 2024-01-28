@@ -278,8 +278,6 @@ const Profile = () => {
         </View>
 
         <View style={styles.content}>
-          <Text style={styles.heading}>User Profile</Text>
-
           <View style={styles.quotient}>
             <Text
               style={{
