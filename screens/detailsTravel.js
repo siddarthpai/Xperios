@@ -86,11 +86,17 @@ const Details = ({ route }) => {
 
               <Text style={styles.userReviewsText}>User Reviews</Text>
 
-              <Text style={styles.username}>BALUUUUUU🐻</Text>
+              <Text style={styles.username}>Dev Oberoi</Text>
 
               <Text style={styles.review}>
                 An exhilerating experience! Would totally recommend
               </Text>
+              <Text style={styles.username}>Vinita N</Text>
+
+              <Text style={styles.review}>
+                I had the best time here, can't wait to go again..
+              </Text>
+
 
               <Text style={styles.star}>⭐</Text>
 
