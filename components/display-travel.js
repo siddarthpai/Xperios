@@ -86,9 +86,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
     backgroundColor: "#fff",
-    elevation: 15,
-    height: "auto",
-    marginBottom: 32,
+    height: "fit",
+    marginBottom: 64,
   },
   image: {
     width: "100%",
@@ -97,16 +96,16 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   cardContent: {
-    padding: 15,
+    padding: 7,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 5,
+    marginBottom: 10,
     color: "#333",
   },
   description: {
-    fontSize: 14,
+    fontSize: 15,
     marginBottom: 10,
     color: "#666",
   },
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#3498db",
+    color: "#761CBC",
   },
 });
 

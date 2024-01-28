@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Image,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { useFonts } from "expo-font";
 import { Button } from "@rneui/themed";
@@ -14,10 +14,9 @@ import { SafeAreaView } from "react-native";
 import { Searchbar } from "react-native-paper";
 import React, { useState, useRef } from "react";
 import { Icon } from "react-native-elements";
-import eventsData from '../events.json'
-import { useNavigation } from '@react-navigation/native';
+import eventsData from "../events.json";
+import { useNavigation } from "@react-navigation/native";
 import DisplayEvents from "../components/display-events";
-
 
 const App = () => {
   const [index, setIndex] = useState(0);
@@ -35,7 +34,7 @@ const App = () => {
   const navigation = useNavigation();
 
   const handleEventPress = (eventId) => {
-    navigation.navigate('Details', { eventId });
+    navigation.navigate("Details", { eventId });
   };
 
   return (
@@ -43,7 +42,7 @@ const App = () => {
       <ScrollView>
         <View style={styles.container}>
           <Searchbar
-            placeholder="Search"
+            placeholder="Search event.."
             onChangeText={onChangeSearch}
             value={searchQuery}
             style={styles.searchbar}
@@ -54,7 +53,7 @@ const App = () => {
                 radius={"xl"}
                 type="solid"
                 buttonStyle={{ backgroundColor: "#FFF5D7" }}
-                titleStyle={{ color: "black" }}
+                titleStyle={{ color: "black", fontWeight: "bold" }}
               >
                 Exhibition
               </Button>
@@ -62,7 +61,7 @@ const App = () => {
                 radius={"xl"}
                 type="solid"
                 buttonStyle={{ backgroundColor: "#EDE9FF" }}
-                titleStyle={{ color: "black" }}
+                titleStyle={{ color: "black", fontWeight: "bold" }}
               >
                 Music Concert
               </Button>
@@ -70,7 +69,7 @@ const App = () => {
                 radius={"xl"}
                 type="solid"
                 buttonStyle={{ backgroundColor: "#FFECEC" }}
-                titleStyle={{ color: "black" }}
+                titleStyle={{ color: "black", fontWeight: "bold" }}
               >
                 Stand Up Show
               </Button>
@@ -78,11 +77,16 @@ const App = () => {
           </View>
           <View>
             <View style={styles.centeredBox}>
+              <Text
+                style={{ fontWeight: "bold", fontSize: "20", marginBottom: 16 }}
+              >
+                Trending Events
+              </Text>
               <ImageBackground
                 style={styles.coverImage}
                 imageStyle={{ borderRadius: 20 }}
                 source={{
-                  uri: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  uri: "https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_800/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1670932884%2Faod3dcbuth7vjk5ijrsi.png",
                 }}
               >
                 <View style={styles.textView}>
@@ -115,7 +119,7 @@ const App = () => {
                             fontWeight: "bold",
                           }}
                         >
-                          Coldplay : Music of the Spheres
+                          Farhan Akthar Live
                         </Text>
                         <View
                           style={{
@@ -134,7 +138,7 @@ const App = () => {
                               marginLeft: 8,
                             }}
                           >
-                            Gelora Bung Karno Stadium
+                            WL Superclub, Bengaluru
                           </Text>
                         </View>
                         <View
@@ -155,7 +159,7 @@ const App = () => {
                               wordWrap: "break-word",
                             }}
                           >
-                            November 15 2023
+                            January 26 2024
                           </Text>
                         </View>
                       </View>
@@ -186,7 +190,7 @@ const App = () => {
                             wordWrap: "break-word",
                           }}
                         >
-                          10,000
+                          2,500
                         </Text>
                       </View>
                     </View>
@@ -195,14 +199,23 @@ const App = () => {
               </ImageBackground>
             </View>
           </View>
-          <Text style={styles.blackText}>
-            Find {"\n"} <Text style={styles.purpleText}>Trending Events</Text>
+          <View style={{ marginBottom: 50 }}>
+            <Text style={styles.blackText}>
+              Find {"\n"} <Text style={styles.purpleText}>Trending Events</Text>
+            </Text>
+          </View>
+          <Text
+            style={{
+              fontWeight: "bold",
+              fontSize: 20,
+              marginLeft: 10,
+              marginbottom: 16,
+            }}
+          >
+            Events Near You
           </Text>
-
           <DisplayEvents />
         </View>
-
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -212,7 +225,6 @@ const styles = StyleSheet.create({
   coverImage: {
     width: 350,
     height: 200,
-    marginTop: 64,
   },
   textView: {
     position: "absolute",
@@ -230,7 +242,8 @@ const styles = StyleSheet.create({
   },
   centeredBox: {
     alignSelf: "center",
-    marginBottom: 64,
+    marginBottom: 40,
+    marginTop: 32,
   },
 
   container: {
@@ -242,20 +255,19 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 44,
     fontWeight: "bold",
-
   },
   searchbar: {
     backgroundColor: "#fff",
     alignSelf: "center",
     width: "90%",
     marginTop: 32,
-    marginBottom: 32,
+    marginBottom: 16,
   },
   purpleText: {
     color: "#761CBC",
   },
   box: {
-    margin: 16,
+    margin: 10,
     flexDirection: "row",
     alignContent: "center",
     justifyContent: "space-between",
@@ -264,7 +276,7 @@ const styles = StyleSheet.create({
 
 const styles1 = StyleSheet.create({
   scrollView: {
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: 10,
   },
   itemContainer: {
@@ -273,7 +285,7 @@ const styles1 = StyleSheet.create({
   whiteBox: {
     width: 200, // Adjust width as needed
     height: 250,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 8,
   },
 });

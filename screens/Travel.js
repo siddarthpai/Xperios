@@ -72,7 +72,7 @@ const App = () => {
             value={searchQuery}
             style={styles.searchbar}
           />
-          <View>
+          <View style={{ marginBottom: -40 }}>
             <Carousel
               data={data}
               renderItem={_renderItem}
@@ -80,26 +80,24 @@ const App = () => {
               itemWidth={Dimensions.get("window").width}
               onSnapToItem={(index) => setIndex(index)}
             />
-            <Pagination
-              dotsLength={data.length}
-              activeDotIndex={index}
-              carouselRef={isCarousel}
-              dotStyle={{
-                width: 10,
-                height: 10,
-                borderRadius: 5,
-                marginHorizontal: 8,
-                backgroundColor: "#FF5733",
-              }}
-              tappableDots={true}
-              inactiveDotStyle={{
-                backgroundColor: "#DBE0E7",
-                // Define styles for inactive dots here
-              }}
-              inactiveDotOpacity={0.4}
-              inactiveDotScale={0.6}
-            />
           </View>
+          <Pagination
+            dotsLength={data.length}
+            activeDotIndex={index}
+            carouselRef={isCarousel}
+            dotStyle={{
+              width: 8,
+              height: 8,
+              borderRadius: 5,
+              backgroundColor: "#FF5733",
+            }}
+            tappableDots={true}
+            inactiveDotStyle={{
+              backgroundColor: "#DBE0E7",
+            }}
+            inactiveDotOpacity={0.4}
+            inactiveDotScale={0.6}
+          />
           <Text style={styles.blackText}>
             Where do you wanna {"\n"}{" "}
             <Text style={styles.purpleText}>Travel</Text>?
@@ -146,11 +144,6 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  centeredBox: {
-    alignSelf: "center",
-    marginBottom: 64,
-  },
-
   container: {
     height: "100%",
     backgroundColor: "#B08CDDBD",
@@ -160,7 +153,6 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 44,
     fontWeight: "bold",
-    marginBottom: 32,
   },
   purpleText: {
     color: "#761CBC",
@@ -176,7 +168,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: "90%",
     marginTop: 32,
-    marginBottom: 32,
+    marginBottom: 10,
   },
 });
 

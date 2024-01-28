@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 5,
-    color: "#3498db",
+    color: "#761CBC",
   },
   name: {
     fontSize: 18,
