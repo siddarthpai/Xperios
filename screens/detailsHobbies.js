@@ -86,10 +86,10 @@ const Details = ({ route }) => {
 
               <Text style={styles.userReviewsText}>User Reviews</Text>
 
-              <Text style={styles.username}>BALUUUUUU🐻</Text>
+              <Text style={styles.username}>Ganesh Kamath</Text>
 
               <Text style={styles.review}>
-                An exhilerating experience! Would totally recommend
+                Incredible event! From the venue to the activities, everything was top-notch.
               </Text>
 
               <Text style={styles.star}>⭐</Text>
