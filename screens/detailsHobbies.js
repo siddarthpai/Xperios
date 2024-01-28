@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { hdb } from "../config";
 import { TouchableOpacity } from "react-native";
+import hobby from "../hobbydetail.json"
 
 const Details = ({ route }) => {
   const { id } = route.params;
@@ -38,19 +39,19 @@ const Details = ({ route }) => {
     >
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          {eventDetails && (
-            <Image source={{ uri: eventDetails.image }} style={styles.image} />
+          {hobby[0] && (
+            <Image source={{ uri: hobby[0].image }} style={styles.image} />
           )}
         </View>
         <View style={styles.overlayBox}>
-          {eventDetails && (
+          {hobby[0] && (
             <React.Fragment>
-              <Text style={styles.eventNameText}>{eventDetails.Name}</Text>
+              <Text style={styles.eventNameText}>{hobby[0].Name}</Text>
               <Image
                 source={require("../assets/location.png")}
                 style={styles.locationIcon}
               />
-              <Text style={styles.locationText}>{eventDetails.Location}</Text>
+              <Text style={styles.locationText}>{hobby[0].Location}</Text>
               <Image
                 source={require("../assets/calendar.png")}
                 style={styles.calendarIcon}
@@ -65,18 +66,18 @@ const Details = ({ route }) => {
 
               <View style={styles.chips1}>
                 <Text style={styles.group84}>
-                  Individual{"\n"} {eventDetails.Price}
+                  Individual{"\n"} {hobby[0].IndividualPrice}
                 </Text>
               </View>
 
               <View style={styles.chips2}>
                 <Text style={styles.group84}>
-                  With Friends{"\n"} {eventDetails.Price}
+                  With Friends{"\n"} {hobby[0].TeamPrice}
                 </Text>
               </View>
 
               <Text style={styles.eventDescription}>
-                {eventDetails.description}
+                {hobby[0].description}
               </Text>
 
               <View style={styles.chips}>
@@ -316,11 +317,11 @@ const styles = StyleSheet.create({
     width: 307,
     height: 100,
     left: 26,
-    top: 152,
+    top: 145,
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: 15,
+    fontSize: 13,
     lineHeight: 20,
     color: "#000000",
   },
@@ -338,7 +339,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: "5.95%",
     right: "5.36%",
-    top: "48.28%",
+    top: "52.28%",
     bottom: "46.05%",
     backgroundColor: "rgba(255, 103, 130, 0.59)",
     borderWidth: 0.64677,

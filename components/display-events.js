@@ -10,6 +10,8 @@ import {
 import { getDatabase, ref, onValue } from "firebase/database";
 import { edb } from "../config";
 import { useNavigation } from "@react-navigation/native";
+import eventData from '../eventdetail.json'; // Adjust the path as needed
+
 
 const DisplayEvents = () => {
   const [data, setData] = useState([]);
@@ -50,6 +52,10 @@ const DisplayEvents = () => {
     navigation.navigate("eventDetails", { id: eventId });
   };
 
+  const handlePress = () => {
+    navigation.navigate('eventDetails', { eventDetails: eventData[0] });
+  };
+
   if (loading) {
     return <Text>Loading...</Text>;
   }
@@ -60,22 +66,40 @@ const DisplayEvents = () => {
 
   return (
     <ScrollView horizontal style={styles.scrollView}>
+      {/* Static Card at the beginning of the ScrollView */}
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => handlePress()}
+      >
+        {/* Include static card content here */}
+        <Image source={{ uri: eventData[0].image }} style={styles.image} />
+        <View style={styles.cardContent}>
+          <Text style={styles.category}>{eventData[0].Name}</Text>
+          <Text style={styles.name}>{eventData[0].Dates}</Text>
+          <Text style={styles.location}>{eventData[0].Location}</Text>
+          <Text style={styles.price}>{eventData[0].Individualprice} onwards</Text>
+        </View>
+      </TouchableOpacity>
+
       {data.map((item) => (
-        <TouchableOpacity
-          key={item.id}
-          style={styles.card}
-          onPress={() => handleEventCardPress(item.id)}
-        >
-          <Image source={{ uri: item.Image }} style={styles.image} />
-          <View style={styles.cardContent}>
-            <Text style={styles.category}>{item.Category}</Text>
-            <Text style={styles.name}>{item.Name}</Text>
-            <Text style={styles.location}>{item.Location}</Text>
-            <Text style={styles.price}>{item.Price}</Text>
-          </View>
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity
+            key={item.id}
+            style={styles.card}
+            // onPress={() => handleEventCardPress(item.id)}
+          >
+            <Image source={{ uri: item.Image }} style={styles.image} />
+            <View style={styles.cardContent}>
+              <Text style={styles.category}>{item.Category}</Text>
+              <Text style={styles.name}>{item.Name}</Text>
+              <Text style={styles.location}>{item.Location}</Text>
+              <Text style={styles.price}>{item.Price}</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       ))}
     </ScrollView>
+
   );
 };
 
