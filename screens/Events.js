@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
     color: "#761CBC",
   },
   box: {
-    margin: 10,
+    margin: 5,
     flexDirection: "row",
     alignContent: "center",
     justifyContent: "space-between",
