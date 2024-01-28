@@ -177,7 +177,8 @@ const Community = () => {
   const onChangeSearch = (query) => setSearchQuery(query);
 
   return (
-    <ScrollView style={{ backgroundColor: "#B08CDD" }}>
+    <ScrollView style={{ backgroundColor: "#B08CDD" }}
+    showsVerticalScrollIndicator={false}>
       <Searchbar
         placeholder="Connect with your friends!"
         onChangeText={onChangeSearch}
