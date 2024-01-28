@@ -3,10 +3,13 @@ import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { edb } from "../config";
 import { TouchableOpacity } from "react-native";
+import eventinfo from '../eventdetail.json';
 
 const Details = ({ route }) => {
   const { id } = route.params;
   const [eventDetails, setEventDetails] = useState(null);
+
+  console.log(eventinfo[0]);
 
   useEffect(() => {
     const database = edb;
@@ -34,23 +37,23 @@ const Details = ({ route }) => {
   return (
     <ScrollView
       style={{ backgroundColor: "#B08CDD" }}
-      showsVerticalScrollIndicator="false"
+      showsVerticalScrollIndicator={false}
     >
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          {eventDetails && (
-            <Image source={{ uri: eventDetails.Image }} style={styles.image} />
+          {eventinfo[0] && (
+            <Image source={{ uri: eventinfo[0].image }} style={styles.image} />
           )}
         </View>
         <View style={styles.overlayBox}>
-          {eventDetails && (
+          {eventinfo[0] && (
             <React.Fragment>
-              <Text style={styles.eventNameText}>{eventDetails.Name}</Text>
+              <Text style={styles.eventNameText}>{eventinfo[0].Name}</Text>
               <Image
                 source={require("../assets/location.png")}
                 style={styles.locationIcon}
               />
-              <Text style={styles.locationText}>{eventDetails.Location}</Text>
+              <Text style={styles.locationText}>{eventinfo[0].Location}</Text>
               <Image
                 source={require("../assets/calendar.png")}
                 style={styles.calendarIcon}
@@ -65,18 +68,18 @@ const Details = ({ route }) => {
 
               <View style={styles.chips1}>
                 <Text style={styles.group84}>
-                  Individual{"\n"} {eventDetails.Price}
+                  Individual{"\n"} {eventinfo[0].Individualprice}
                 </Text>
               </View>
 
               <View style={styles.chips2}>
                 <Text style={styles.group84}>
-                  With Friends{"\n"} {eventDetails.Price}
+                  With Friends{"\n"} {eventinfo[0].withfriends}
                 </Text>
               </View>
 
               <Text style={styles.eventDescription}>
-                {eventDetails.description}
+                {eventinfo[0].desc}
               </Text>
 
               <View style={styles.chips}>
@@ -88,7 +91,7 @@ const Details = ({ route }) => {
               <Text style={styles.username}>BALUUUUUU🐻</Text>
 
               <Text style={styles.review}>
-                An exhilerating experience! Would totally recommend
+                An exhilarating experience! Would totally recommend
               </Text>
 
               <Text style={styles.star}>⭐</Text>
@@ -105,6 +108,7 @@ const Details = ({ route }) => {
         </View>
       </View>
     </ScrollView>
+
   );
 };
 
@@ -315,11 +319,11 @@ const styles = StyleSheet.create({
     width: 307,
     height: 100,
     left: 26,
-    top: 152,
+    top: 145,
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: 15,
+    fontSize: 13,
     lineHeight: 20,
     color: "#000000",
   },

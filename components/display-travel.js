@@ -5,6 +5,7 @@ import { tdb } from "../config";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
+import travelinfo from "../traveldetail.json"
 
 const ReadData = () => {
   const [data, setData] = useState([]);
@@ -45,6 +46,10 @@ const ReadData = () => {
     navigation.navigate("travelDetails", { id: travelsId });
   };
 
+  const handlePress = () => {
+    navigation.navigate('travelDetails', { travelDetails: travelinfo[0] });
+  };
+
   if (loading) {
     return <Text>Loading...</Text>;
   }
@@ -55,11 +60,26 @@ const ReadData = () => {
 
   return (
     <ScrollView horizontal style={styles.scrollView}>
+
+      <TouchableOpacity
+        key={travelinfo[0].id}
+        style={styles.card}
+        onPress={() => handlePress()}
+      >
+        <Image source={{ uri: travelinfo[0].image }} style={styles.image} />
+        <View style={styles.cardContent}>
+          <Text style={styles.title}>{travelinfo[0].Name}</Text>
+          <Text style={styles.description}>{travelinfo[0].desc}</Text>
+          <View style={styles.detailsContainer}>
+            <Text style={styles.duration}>{travelinfo[0].dates}</Text>
+            <Text style={styles.price}>{travelinfo[0].individualprice}</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
       {data.map((item) => (
         <TouchableOpacity
           key={item.id}
           style={styles.card}
-          onPress={() => handleTravelsCardPress(item.id)}
         >
           <Image source={{ uri: item.Image }} style={styles.image} />
           <View style={styles.cardContent}>

@@ -23,10 +23,10 @@ const Profile = () => {
     alert("Username copied to clipboard!");
   };
   const staticUserDetails = {
-    name: "John Doe",
-    userName: "johndoe",
-    phoneNumber: "+1234567890",
-    email: "johndoe@example.com",
+    name: "Lakshmi",
+    userName: "Lakshmi",
+    phoneNumber: "+91 95383 33095",
+    email: "vaidu.231@gmail.com",
     friends: 36,
     activities: 27,
     CreativityQuotient: 8312,
@@ -85,7 +85,8 @@ const Profile = () => {
             <Image
               style={styles.avatar}
               source={{
-                uri: "https://www.bootdey.com/img/Content/avatar/avatar6.png",
+                uri: "https://media.licdn.com/dms/image/D5603AQE63T1a0vmR-Q/profile-displayphoto-shrink_100_100/0/1677601394558?e=1712188800&v=beta&t=fA5d5tdJuyfYEQjwoJ3XyjRu5x0NTpdMcD99UNNoRzA"
+                
               }}
             />
             <View style={styles.info}>

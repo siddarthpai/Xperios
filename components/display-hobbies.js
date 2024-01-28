@@ -11,6 +11,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { hdb } from "../config";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
+import hobby from "../hobbydetail.json"
 
 const DisplayHobbies = () => {
   const [data, setData] = useState([]);
@@ -54,6 +55,10 @@ const DisplayHobbies = () => {
   const handleHobbiesCardPress = (hobbiesId) => {
     navigation.navigate("hobbiesDetails", { id: hobbiesId });
   };
+
+  const handlePress = () => {
+    navigation.navigate('hobbiesDetails', { hobbiesDetails: hobby[0] });
+  };
   if (loading) {
     return <Text>Loading...</Text>;
   }
@@ -64,11 +69,25 @@ const DisplayHobbies = () => {
 
   return (
     <ScrollView horizontal style={styles.scrollView}>
+
+      <TouchableOpacity
+        key={hobby[0].id}
+        style={styles.card}
+        onPress={() => handlePress()}
+      >
+        <Image source={{ uri: hobby[0].image }} style={styles.image} />
+        <View style={styles.cardContent}>
+          <Text style={styles.date}>{hobby[0].Dates}</Text>
+          <Text style={styles.name}>{hobby[0].Name}</Text>
+          <Text style={styles.location}>{hobby[0].Location}</Text>
+          <Text style={styles.price}>{hobby[0].TeamPrice}</Text>
+        </View>
+      </TouchableOpacity>
+
       {data.map((item) => (
         <TouchableOpacity
           key={item.id}
           style={styles.card}
-          onPress={() => handleHobbiesCardPress(item.id)}
         >
           <Image source={{ uri: item.image }} style={styles.image} />
           <View style={styles.cardContent}>
