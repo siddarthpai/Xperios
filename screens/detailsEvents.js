@@ -98,15 +98,29 @@ const Details = ({ route }) => {
               </Text>
 
               <Text style={styles.star}>⭐</Text>
-
-              <TouchableOpacity style={styles.register}>
-                <Text
-                  style={styles.registerText}
-                  onPress={() => navigateBooking()}
-                >
-                  REGISTER
-                </Text>
-              </TouchableOpacity>
+              <View style={styles.bottomRow}>
+                <View style={styles.metrics}>
+                  <Image source={require("../assets/metrics.png")} />
+                  <Text
+                    style={{
+                      color: "#FF4465",
+                      fontWeight: "700",
+                      fontSize: 20,
+                      marginLeft: 5,
+                    }}
+                  >
+                    20 pts
+                  </Text>
+                </View>
+                <TouchableOpacity style={styles.register}>
+                  <Text
+                    style={styles.registerText}
+                    onPress={() => navigateBooking()}
+                  >
+                    REGISTER
+                  </Text>
+                </TouchableOpacity>
+              </View>
 
               <TouchableOpacity style={styles.more}>
                 <Text>more...</Text>
@@ -126,7 +140,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     marginTop: 26,
-    position: "absolute",
+
     alignSelf: "center",
     justifyContent: "center",
     width: 338,
@@ -138,14 +152,15 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
-    resizeMode: "cover",
+    objectFit: "contain",
   },
   overlayBox: {
     position: "absolute",
     width: 338,
     height: 480,
     top: 214,
-    left: 20,
+    alignSelf: "center",
+    justifyContent: "center",
     backgroundColor: "white",
     borderRadius: 12,
     shadowColor: "#000000",
@@ -168,35 +183,49 @@ const styles = StyleSheet.create({
     width: 20,
   },
 
+  metrics: {
+    marginLeft: 32,
+    alignSelf: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    flex: 1,
+  },
+
+  bottomRow: {
+    position: "absolute",
+    width: "100%",
+    flexDirection: "row",
+    top: "88.85%",
+    bottom: "1.89%",
+  },
+
   register: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10.3483,
-    paddingHorizontal: 12.9354,
-    paddingVertical: 10.3483,
-    gap: 10.35,
     position: "absolute",
     left: "53.87%",
     right: "5.65%",
-    top: "88.85%",
-    bottom: "1.89%",
-    backgroundColor: "rgba(108, 188, 28, 0.77)",
+    width: 145,
+    height: 51,
+    backgroundColor: "#593DA5",
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
     borderRadius: 6.4677,
   },
   registerText: {
-    width: 88,
+    width: "100%",
     height: 23,
+    alignSelf: "center",
+    alignContent: "center",
+    textAlign: "center",
+
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "700",
-    fontSize: 17,
+    fontSize: 20,
     lineHeight: 23,
     color: "#FFFFFF",
-    flex: "none",
+    display: "flex",
     order: 0,
     flexGrow: 0,
   },
@@ -215,17 +244,20 @@ const styles = StyleSheet.create({
     bottom: "91.94%",
   },
   locationText: {
-    fontFamily: "Montserrat",
+    objectFit: "contain",
+    maxWidth: 125,
+    height: 40,
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: 15.5225,
+    fontSize: 15,
     lineHeight: 21,
     color: "#6A778B",
     position: "absolute",
     left: "12.58%",
     right: "49.32%",
-    top: "8.88%",
+    top: "8.5%",
     bottom: "87.15%",
+    textAlign: "center",
   },
   locationIcon: {
     position: "absolute",
@@ -275,49 +307,41 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: 10.3483,
-    paddingLeft: 7.76125,
-    paddingRight: 12.9354,
-    paddingTop: 10.3483,
-    gap: 10.35,
     position: "absolute",
     left: "6.15%",
     right: "53.07%",
     top: "16.48%",
     bottom: "74.91%",
-    backgroundColor: "rgba(250, 255, 0, 0.64)",
+    backgroundColor: "#4DC4DE",
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
     borderRadius: 6.4677,
-    height: 60,
+    height: 47,
+    width: 146,
   },
   chips2: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: 10.3483,
-    paddingLeft: 7.76125,
-    paddingRight: 12.9354,
-    paddingTop: 10.3483,
-    gap: 10.35,
     position: "absolute",
     left: "53.91%",
     right: "6.98%",
     top: "16.67%",
     bottom: "74.73%",
-    backgroundColor: "rgba(255, 138, 0, 0.77)",
+    backgroundColor: "#657CCF",
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
     borderRadius: 6.4677,
-    height: 60,
+    height: 47,
+    width: 146,
   },
   group84: {
-    position: "absolute",
-    width: 120,
-    height: 42,
-    top: 13,
-    fontSize: 15,
+    width: "100%",
+    height: "100%",
+    fontSize: 16,
+    fontWeight: "600",
+    top: 9,
     textAlign: "center",
   },
 
@@ -357,12 +381,13 @@ const styles = StyleSheet.create({
     height: 30.96,
   },
   contactHostText: {
-    width: 134,
+    width: "100%",
+    textAlign: "center",
     height: 20,
     fontFamily: "Montserrat",
     fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 15,
+    fontWeight: "600",
+    fontSize: 16,
     lineHeight: 20,
     color: "#000000",
   },

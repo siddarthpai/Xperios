@@ -78,7 +78,7 @@ const App = () => {
           <View>
             <View style={styles.centeredBox}>
               <Text
-                style={{ fontWeight: "bold", fontSize: "20", marginBottom: 16 }}
+                style={{ fontWeight: "bold", fontSize: 20, marginBottom: 16 }}
               >
                 Trending Events
               </Text>
