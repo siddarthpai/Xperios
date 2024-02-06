@@ -70,17 +70,18 @@ const Details = ({ route }) => {
               <View style={styles.dateGroup2}>
                 <Text style={styles.dateText}>4 Jan 2024, 5 AM</Text>
               </View>
+              <View style={styles.chipsmain}>
+                <View style={styles.chips1}>
+                  <Text style={styles.group84}>
+                    Individual{"\n"} {eventinfo[0].Individualprice}
+                  </Text>
+                </View>
 
-              <View style={styles.chips1}>
-                <Text style={styles.group84}>
-                  Individual{"\n"} {eventinfo[0].Individualprice}
-                </Text>
-              </View>
-
-              <View style={styles.chips2}>
-                <Text style={styles.group84}>
-                  With Friends{"\n"} {eventinfo[0].withfriends}
-                </Text>
+                <View style={styles.chips2}>
+                  <Text style={styles.group84}>
+                    With Friends{"\n"} {eventinfo[0].withfriends}
+                  </Text>
+                </View>
               </View>
 
               <Text style={styles.eventDescription}>{eventinfo[0].desc}</Text>
@@ -189,6 +190,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     flex: 1,
+    bottom: "10%",
   },
 
   bottomRow: {
@@ -211,6 +213,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
     borderRadius: 6.4677,
+    bottom: "5%",
   },
   registerText: {
     width: "100%",
@@ -302,16 +305,20 @@ const styles = StyleSheet.create({
     width: 19,
   },
 
-  chips1: {
+  chipsmain: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
     position: "absolute",
-    left: "6.15%",
-    right: "53.07%",
     top: "16.48%",
-    bottom: "74.91%",
+    justifyContent: "center",
+    alignContent: "center",
+    width: "100%",
+    height: "auto",
+    padding: 10,
+    gap: 10,
+  },
+
+  chips1: {
     backgroundColor: "#4DC4DE",
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
@@ -320,15 +327,6 @@ const styles = StyleSheet.create({
     width: 146,
   },
   chips2: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
-    left: "53.91%",
-    right: "6.98%",
-    top: "16.67%",
-    bottom: "74.73%",
     backgroundColor: "#657CCF",
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
@@ -347,10 +345,13 @@ const styles = StyleSheet.create({
 
   eventDescription: {
     position: "absolute",
-    width: 307,
-    height: 100,
+    width: 300,
+    height: "auto",
     left: 26,
     top: 145,
+    alignContent: "center",
+    justifyContent: "center",
+    alignSelf: "center",
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "400",

@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { hdb } from "../config";
 import { TouchableOpacity } from "react-native";
-import hobby from "../hobbydetail.json"
+import hobby from "../hobbydetail.json";
 
 const Details = ({ route }) => {
   const { id } = route.params;
@@ -35,7 +35,7 @@ const Details = ({ route }) => {
   return (
     <ScrollView
       style={{ backgroundColor: "#B08CDD" }}
-      showsVerticalScrollIndicator="false"
+      showsVerticalScrollIndicator={false}
     >
       <View style={styles.container}>
         <View style={styles.imageContainer}>
@@ -63,17 +63,18 @@ const Details = ({ route }) => {
               <View style={styles.dateGroup2}>
                 <Text style={styles.dateText}>4 Jan 2024, 5 AM</Text>
               </View>
+              <View style={styles.chipsmain}>
+                <View style={styles.chips1}>
+                  <Text style={styles.group84}>
+                    Individual{"\n"} {hobby[0].IndividualPrice}
+                  </Text>
+                </View>
 
-              <View style={styles.chips1}>
-                <Text style={styles.group84}>
-                  Individual{"\n"} {hobby[0].IndividualPrice}
-                </Text>
-              </View>
-
-              <View style={styles.chips2}>
-                <Text style={styles.group84}>
-                  With Friends{"\n"} {hobby[0].TeamPrice}
-                </Text>
+                <View style={styles.chips2}>
+                  <Text style={styles.group84}>
+                    With Friends{"\n"} {hobby[0].TeamPrice}
+                  </Text>
+                </View>
               </View>
 
               <Text style={styles.eventDescription}>
@@ -86,17 +87,36 @@ const Details = ({ route }) => {
 
               <Text style={styles.userReviewsText}>User Reviews</Text>
 
-              <Text style={styles.username}>Ganesh Kamath</Text>
+              <Text style={styles.username}>Trisha Singh</Text>
 
               <Text style={styles.review}>
-                Incredible event! From the venue to the activities, everything was top-notch.
+                Fantastic vibes, great crowd, and an unforgettable experience!
               </Text>
 
               <Text style={styles.star}>⭐</Text>
-
-              <TouchableOpacity style={styles.register}>
-                <Text style={styles.registerText}>REGISTER</Text>
-              </TouchableOpacity>
+              <View style={styles.bottomRow}>
+                <View style={styles.metrics}>
+                  <Image source={require("../assets/metrics.png")} />
+                  <Text
+                    style={{
+                      color: "#FF4465",
+                      fontWeight: "700",
+                      fontSize: 20,
+                      marginLeft: 5,
+                    }}
+                  >
+                    20 pts
+                  </Text>
+                </View>
+                <TouchableOpacity style={styles.register}>
+                  <Text
+                    style={styles.registerText}
+                    onPress={() => navigateBooking()}
+                  >
+                    REGISTER
+                  </Text>
+                </TouchableOpacity>
+              </View>
 
               <TouchableOpacity style={styles.more}>
                 <Text>more...</Text>
@@ -115,8 +135,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#B08CDDBD",
   },
   imageContainer: {
-    marginTop: 28,
-    position: "absolute",
+    marginTop: 26,
+
     alignSelf: "center",
     justifyContent: "center",
     width: 338,
@@ -128,14 +148,14 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
-    resizeMode: "cover",
   },
   overlayBox: {
     position: "absolute",
     width: 338,
     height: 480,
     top: 214,
-    left: 20,
+    alignSelf: "center",
+    justifyContent: "center",
     backgroundColor: "white",
     borderRadius: 12,
     shadowColor: "#000000",
@@ -156,38 +176,53 @@ const styles = StyleSheet.create({
     background: "#FFD233",
     height: 20,
     width: 20,
-    zIndex: 100,
+  },
+
+  metrics: {
+    marginLeft: 32,
+    alignSelf: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    flex: 1,
+    bottom: "10%",
+  },
+
+  bottomRow: {
+    position: "absolute",
+    width: "100%",
+    flexDirection: "row",
+    top: "88.85%",
+    bottom: "1.89%",
   },
 
   register: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10.3483,
-    paddingHorizontal: 12.9354,
-    paddingVertical: 10.3483,
-    gap: 10.35,
     position: "absolute",
+    bottom: "5%",
     left: "53.87%",
     right: "5.65%",
-    top: "88.85%",
-    bottom: "1.89%",
-    backgroundColor: "rgba(108, 188, 28, 0.77)",
+    width: 145,
+    height: 51,
+    backgroundColor: "#593DA5",
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
     borderRadius: 6.4677,
   },
   registerText: {
-    width: 88,
+    width: "100%",
     height: 23,
+    alignSelf: "center",
+    alignContent: "center",
+    textAlign: "center",
+
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "700",
-    fontSize: 17,
+    fontSize: 20,
     lineHeight: 23,
     color: "#FFFFFF",
-    flex: "none",
+    display: "flex",
     order: 0,
     flexGrow: 0,
   },
@@ -206,17 +241,20 @@ const styles = StyleSheet.create({
     bottom: "91.94%",
   },
   locationText: {
-    fontFamily: "Montserrat",
+    objectFit: "contain",
+    maxWidth: 125,
+    height: 40,
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: 15.5225,
+    fontSize: 15,
     lineHeight: 21,
     color: "#6A778B",
     position: "absolute",
-    left: "12.58%",
+    left: "0.58%",
     right: "49.32%",
-    top: "8.88%",
+    top: "9.5%",
     bottom: "87.15%",
+    textAlign: "center",
   },
   locationIcon: {
     position: "absolute",
@@ -261,63 +299,53 @@ const styles = StyleSheet.create({
     width: 19,
   },
 
-  chips1: {
+  chipsmain: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10.3483,
-    paddingLeft: 7.76125,
-    paddingRight: 12.9354,
-    paddingTop: 10.3483,
-    gap: 10.35,
     position: "absolute",
-    left: "6.15%",
-    right: "53.07%",
     top: "16.48%",
-    bottom: "74.91%",
-    backgroundColor: "rgba(250, 255, 0, 0.64)",
+    justifyContent: "center",
+    alignContent: "center",
+    width: "100%",
+    height: "auto",
+    padding: 10,
+    gap: 10,
+  },
+
+  chips1: {
+    backgroundColor: "#4DC4DE",
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
     borderRadius: 6.4677,
-    height: 60,
+    height: 47,
+    width: 146,
   },
   chips2: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10.3483,
-    paddingLeft: 7.76125,
-    paddingRight: 12.9354,
-    paddingTop: 10.3483,
-    gap: 10.35,
-    position: "absolute",
-    left: "53.91%",
-    right: "6.98%",
-    top: "16.67%",
-    bottom: "74.73%",
-    backgroundColor: "rgba(255, 138, 0, 0.77)",
+    backgroundColor: "#657CCF",
     borderWidth: 0.64677,
     borderColor: "#D6D6D6",
     borderRadius: 6.4677,
-    height: 60,
+    height: 47,
+    width: 146,
   },
   group84: {
-    position: "absolute",
-    width: 120,
-    height: 42,
-    top: 13,
-    fontSize: 15,
+    width: "100%",
+    height: "100%",
+    fontSize: 16,
+    fontWeight: "600",
+    top: 9,
     textAlign: "center",
   },
 
   eventDescription: {
     position: "absolute",
-    width: 307,
-    height: 100,
+    width: 300,
+    height: "auto",
     left: 26,
     top: 145,
+    alignContent: "center",
+    justifyContent: "center",
+    alignSelf: "center",
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "400",
@@ -339,7 +367,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: "5.95%",
     right: "5.36%",
-    top: "52.28%",
+    top: "48.28%",
     bottom: "46.05%",
     backgroundColor: "rgba(255, 103, 130, 0.59)",
     borderWidth: 0.64677,
@@ -348,12 +376,13 @@ const styles = StyleSheet.create({
     height: 30.96,
   },
   contactHostText: {
-    width: 134,
+    width: "100%",
+    textAlign: "center",
     height: 20,
     fontFamily: "Montserrat",
     fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 15,
+    fontWeight: "600",
+    fontSize: 16,
     lineHeight: 20,
     color: "#000000",
   },
