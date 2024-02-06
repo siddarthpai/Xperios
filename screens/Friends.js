@@ -115,7 +115,7 @@ export default function Friends() {
     },
     {
       id: 4,
-      userName: "Rishi Singh",
+      userName: "Kaushik Basavaraju",
       bio: "Work hard, play hard",
       points: 67,
       profileImage:
