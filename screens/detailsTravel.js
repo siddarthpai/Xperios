@@ -83,7 +83,7 @@ const Details = ({ route }) => {
                 <Text style={styles.contactHostText}>Contact the host !</Text>
               </View>
 
-              <Text style={styles.userReviewsText}>User Reviews</Text>
+              <Text style={styles.userReviewsText}>📝 User Reviews</Text>
 
               <Text style={styles.username}>Trisha Singh</Text>
 
@@ -94,7 +94,7 @@ const Details = ({ route }) => {
               <Text style={styles.star}>⭐</Text>
               <View style={styles.bottomRow}>
                 <View style={styles.metrics}>
-                  <Image source={require("../assets/metrics.png")} />
+                  <Image source={require("../assets/fitness.png")} />
                   <Text
                     style={{
                       color: "#FF4465",
@@ -103,7 +103,7 @@ const Details = ({ route }) => {
                       marginLeft: 5,
                     }}
                   >
-                    20 pts
+                    50 pts
                   </Text>
                 </View>
                 <TouchableOpacity style={styles.register}>
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: "5.95%",
     right: "5.36%",
-    top: "48.28%",
+    top: "52.28%",
     bottom: "46.05%",
     backgroundColor: "rgba(255, 103, 130, 0.59)",
     borderWidth: 0.64677,
@@ -387,9 +387,9 @@ const styles = StyleSheet.create({
 
   userReviewsText: {
     position: "absolute",
-    left: "12.5%",
-    right: "57.74%",
-    top: "59.02%",
+    left: "8.5%",
+    right: "54.74%",
+    top: "59.10%",
     bottom: "37.2%",
     fontFamily: "Montserrat",
     fontStyle: "normal",

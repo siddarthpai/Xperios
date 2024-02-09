@@ -85,7 +85,7 @@ const Details = ({ route }) => {
                 <Text style={styles.contactHostText}>Contact the host !</Text>
               </View>
 
-              <Text style={styles.userReviewsText}>User Reviews</Text>
+              <Text style={styles.userReviewsText}>📝 User Reviews</Text>
 
               <Text style={styles.username}>Trisha Singh</Text>
 
@@ -96,7 +96,7 @@ const Details = ({ route }) => {
               <Text style={styles.star}>⭐</Text>
               <View style={styles.bottomRow}>
                 <View style={styles.metrics}>
-                  <Image source={require("../assets/metrics.png")} />
+                  <Image source={require("../assets/creativity.png")} />
                   <Text
                     style={{
                       color: "#FF4465",
@@ -105,7 +105,7 @@ const Details = ({ route }) => {
                       marginLeft: 5,
                     }}
                   >
-                    20 pts
+                    75 pts
                   </Text>
                 </View>
                 <TouchableOpacity style={styles.register}>
@@ -241,21 +241,26 @@ const styles = StyleSheet.create({
     bottom: "91.94%",
   },
   locationText: {
-    objectFit: "contain",
-    maxWidth: 125,
-    height: 40,
+    flexDirection: "column",
+    maxWidth: 165,
+    height: "auto", // Change height to auto to allow for multiline text
     fontStyle: "normal",
     fontWeight: "300",
     fontSize: 15,
     lineHeight: 21,
     color: "#6A778B",
     position: "absolute",
-    left: "0.58%",
+    left: "12.58%",
     right: "49.32%",
     top: "9.5%",
     bottom: "87.15%",
     textAlign: "center",
+    flexWrap: "wrap", // Enable wrapping
+    overflow: "hidden", // Hide overflow to prevent unwanted behavior
+    wordWrap: "break-word", // Allow long words to break and wrap onto the next line
+    wordBreak: "break-all", // Break words when necessary to prevent overflow
   },
+  
   locationIcon: {
     position: "absolute",
     left: "5.31%",
@@ -350,7 +355,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: 13,
-    lineHeight: 20,
+    lineHeight: 17.4,
     color: "#000000",
   },
 
@@ -367,7 +372,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: "5.95%",
     right: "5.36%",
-    top: "48.28%",
+    top: "52.28%",
     bottom: "46.05%",
     backgroundColor: "rgba(255, 103, 130, 0.59)",
     borderWidth: 0.64677,
@@ -389,9 +394,9 @@ const styles = StyleSheet.create({
 
   userReviewsText: {
     position: "absolute",
-    left: "12.5%",
-    right: "57.74%",
-    top: "59.02%",
+    left: "8.5%",
+    right: "54.74%",
+    top: "59.10%",
     bottom: "37.2%",
     fontFamily: "Montserrat",
     fontStyle: "normal",

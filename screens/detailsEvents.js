@@ -90,7 +90,7 @@ const Details = ({ route }) => {
                 <Text style={styles.contactHostText}>Contact the host !</Text>
               </View>
 
-              <Text style={styles.userReviewsText}>User Reviews</Text>
+              <Text style={styles.userReviewsText}>📝 User Reviews</Text>
 
               <Text style={styles.username}>Trisha Singh</Text>
 
@@ -101,7 +101,7 @@ const Details = ({ route }) => {
               <Text style={styles.star}>⭐</Text>
               <View style={styles.bottomRow}>
                 <View style={styles.metrics}>
-                  <Image source={require("../assets/metrics.png")} />
+                  <Image source={require("../assets/int.png")} />
                   <Text
                     style={{
                       color: "#FF4465",
@@ -110,7 +110,7 @@ const Details = ({ route }) => {
                       marginLeft: 5,
                     }}
                   >
-                    20 pts
+                    25 pts
                   </Text>
                 </View>
                 <TouchableOpacity style={styles.register}>
@@ -247,12 +247,11 @@ const styles = StyleSheet.create({
     bottom: "91.94%",
   },
   locationText: {
-    objectFit: "contain",
     maxWidth: 125,
-    height: 40,
+    height: "auto", // Change height to auto to allow for multiline text
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: 15,
+    fontSize: 12,
     lineHeight: 21,
     color: "#6A778B",
     position: "absolute",
@@ -261,7 +260,10 @@ const styles = StyleSheet.create({
     top: "8.5%",
     bottom: "87.15%",
     textAlign: "center",
+    overflowWrap: "break-word", // Add this property
   },
+  
+  
   locationIcon: {
     position: "absolute",
     left: "5.31%",
@@ -395,7 +397,7 @@ const styles = StyleSheet.create({
 
   userReviewsText: {
     position: "absolute",
-    left: "12.5%",
+    left: "4.5%",
     right: "57.74%",
     top: "59.02%",
     bottom: "37.2%",
