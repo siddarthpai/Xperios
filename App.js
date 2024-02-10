@@ -6,7 +6,7 @@ import { Icon } from "react-native-elements";
 import detailsEvents from "./screens/detailsEvents";
 import detailsTravel from "./screens/detailsTravel";
 import detailsHobbies from "./screens/detailsHobbies";
-
+import { LogBox } from "react-native";
 import Events from "./screens/Events";
 import Travel from "./screens/Travel";
 import Hobbies from "./screens/Hobbies";
@@ -19,7 +19,7 @@ import Rewards from "./screens/Rewards";
 import Booking from "./screens/Booking";
 import Friends from "./screens/Friends";
 import FeedScreen from "./screens/groups";
-
+LogBox.ignoreAllLogs();
 const Drawer = createDrawerNavigator();
 
 export default function App() {
