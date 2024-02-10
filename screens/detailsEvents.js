@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     objectFit: "contain",
   },
   overlayBox: {
-    position: "absolute",
+    position: "relative",
     width: 338,
     height: 480,
     top: 214,

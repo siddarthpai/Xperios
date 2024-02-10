@@ -136,7 +136,7 @@ const FeedScreen = () => {
                 style={{
                   color: "rgba(109, 74, 205, 0.5)",
                   fontWeight: "400",
-                  fontSize: "13",
+                  fontSize: 13,
                 }}
               >
                 {post.username}
