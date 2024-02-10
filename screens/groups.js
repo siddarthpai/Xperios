@@ -185,7 +185,7 @@ const FeedScreen = () => {
           />
           <View style={styles.groupDetails}>
             <Text style={styles.groupName}>PhotoGraphy Workshop</Text>
-            <Text style={{ color: "white" }}>Description goes here</Text>
+            <Text style={{ color: "white" }}>Dissolves in 2D</Text>
           </View>
         </View>
 
