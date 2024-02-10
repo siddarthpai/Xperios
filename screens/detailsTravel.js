@@ -82,16 +82,27 @@ const Details = ({ route }) => {
               <View style={styles.chips}>
                 <Text style={styles.contactHostText}>Contact the host !</Text>
               </View>
+              <View style={styles.userReviewsText}>
+                <View style={{ flexDirection: "row", marginBottom: 10 }}>
+                  <Image source={require("../assets/reviewicon.png")} />
+                  <Text> User Reviews</Text>
+                </View>
+                <View style={{ flexDirection: "row" }}>
+                  <Text>⭐</Text>
+                  <View style={{ marginLeft: 5 }}>
+                    <Text style={{ fontWeight: 600, marginBottom: 5 }}>
+                      {" "}
+                      Trisha Singh
+                    </Text>
+                    <Text>
+                      Fantastic vibes, great crowd, and an unforgettable
+                      experience!
+                    </Text>
+                    <Text>more...</Text>
+                  </View>
+                </View>
+              </View>
 
-              <Text style={styles.userReviewsText}>📝 User Reviews</Text>
-
-              <Text style={styles.username}>Trisha Singh</Text>
-
-              <Text style={styles.review}>
-                Fantastic vibes, great crowd, and an unforgettable experience!
-              </Text>
-
-              <Text style={styles.star}>⭐</Text>
               <View style={styles.bottomRow}>
                 <View style={styles.metrics}>
                   <Image source={require("../assets/fitness.png")} />
@@ -116,9 +127,7 @@ const Details = ({ route }) => {
                 </TouchableOpacity>
               </View>
 
-              <TouchableOpacity style={styles.more}>
-                <Text>more...</Text>
-              </TouchableOpacity>
+              <TouchableOpacity style={styles.more}></TouchableOpacity>
             </React.Fragment>
           )}
         </View>
@@ -386,17 +395,19 @@ const styles = StyleSheet.create({
   },
 
   userReviewsText: {
+    marginTop: 10,
     position: "absolute",
-    left: "8.5%",
-    right: "54.74%",
-    top: "59.10%",
+    left: "6.5%",
+    right: "57.74%",
+    top: "59.02%",
     bottom: "37.2%",
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: 15,
     lineHeight: 20,
-    color: "#000000",
+    height: 60,
+    width: 300,
   },
 
   username: {

@@ -51,7 +51,13 @@ const Details = ({ route }) => {
                 source={require("../assets/location.png")}
                 style={styles.locationIcon}
               />
-              <Text style={styles.locationText}>{hobby[0].Location}</Text>
+              <View style={{ flexDirection: "row", flex: 1 }}>
+                <Text style={{ flex: 1, flexWrap: "wrap" }}>
+                  <View>
+                    <Text style={styles.locationText}>{hobby[0].Location}</Text>
+                  </View>
+                </Text>
+              </View>
               <Image
                 source={require("../assets/calendar.png")}
                 style={styles.calendarIcon}
@@ -85,15 +91,32 @@ const Details = ({ route }) => {
                 <Text style={styles.contactHostText}>Contact the host !</Text>
               </View>
 
-              <Text style={styles.userReviewsText}>📝 User Reviews</Text>
-
-              <Text style={styles.username}>Trisha Singh</Text>
-
-              <Text style={styles.review}>
-                Fantastic vibes, great crowd, and an unforgettable experience!
-              </Text>
-
-              <Text style={styles.star}>⭐</Text>
+              <View style={styles.userReviewsText}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginBottom: 10,
+                    marginTop: 16,
+                  }}
+                >
+                  <Image source={require("../assets/reviewicon.png")} />
+                  <Text> User Reviews</Text>
+                </View>
+                <View style={{ flexDirection: "row" }}>
+                  <Text>⭐</Text>
+                  <View style={{ marginLeft: 5 }}>
+                    <Text style={{ fontWeight: 600, marginBottom: 5 }}>
+                      {" "}
+                      Trisha Singh
+                    </Text>
+                    <Text>
+                      Fantastic vibes, great crowd, and an unforgettable
+                      experience!
+                    </Text>
+                    <Text>more...</Text>
+                  </View>
+                </View>
+              </View>
               <View style={styles.bottomRow}>
                 <View style={styles.metrics}>
                   <Image source={require("../assets/creativity.png")} />
@@ -118,9 +141,7 @@ const Details = ({ route }) => {
                 </TouchableOpacity>
               </View>
 
-              <TouchableOpacity style={styles.more}>
-                <Text>more...</Text>
-              </TouchableOpacity>
+              <TouchableOpacity style={styles.more}></TouchableOpacity>
             </React.Fragment>
           )}
         </View>
@@ -241,26 +262,23 @@ const styles = StyleSheet.create({
     bottom: "91.94%",
   },
   locationText: {
-    flexDirection: "column",
-    maxWidth: 165,
+    maxWidth: 150,
     height: "auto", // Change height to auto to allow for multiline text
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: 15,
+    fontSize: 14,
     lineHeight: 21,
     color: "#6A778B",
-    position: "absolute",
-    left: "12.58%",
+    position: "relative",
+    left: "33.58%",
     right: "49.32%",
-    top: "9.5%",
+    top: "10.5%",
     bottom: "87.15%",
     textAlign: "center",
-    flexWrap: "wrap", // Enable wrapping
-    overflow: "hidden", // Hide overflow to prevent unwanted behavior
-    wordWrap: "break-word", // Allow long words to break and wrap onto the next line
-    wordBreak: "break-all", // Break words when necessary to prevent overflow
+    flex: 1,
+    flexWrap: "wrap",
   },
-  
+
   locationIcon: {
     position: "absolute",
     left: "5.31%",
@@ -394,59 +412,17 @@ const styles = StyleSheet.create({
 
   userReviewsText: {
     position: "absolute",
-    left: "8.5%",
-    right: "54.74%",
-    top: "59.10%",
+    left: "6.5%",
+    right: "57.74%",
+    top: "59.02%",
     bottom: "37.2%",
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: 15,
     lineHeight: 20,
-    color: "#000000",
-  },
-
-  username: {
-    position: "absolute",
-    left: "12.5%",
-    right: "53.27%",
-    top: "64.32%",
-    bottom: "31.9%",
-    fontFamily: "Montserrat",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 15,
-    lineHeight: 20,
-    color: "#AB1818",
-  },
-
-  more: {
-    position: "absolute",
-    left: "12.5%",
-    top: "79.2%",
-    bottom: "10.02%",
-    fontFamily: "Montserrat",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 11,
-    lineHeight: 15,
-    color: "red",
-  },
-
-  review: {
-    position: "absolute",
-    width: 282,
-    height: 36,
-    fontFamily: "Montserrat",
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 13,
-    lineHeight: 18,
-    color: "#000000",
-    left: "12.5%",
-    right: "53.27%",
-    top: "69.32%",
-    bottom: "31.9%",
+    height: 60,
+    width: 300,
   },
 });
 
