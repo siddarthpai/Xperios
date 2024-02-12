@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     color: "#6A778B",
     position: "relative",
-    left: "33.58%",
+    left: "33d.58%",
     right: "49.32%",
     top: "10.5%",
     bottom: "87.15%",
