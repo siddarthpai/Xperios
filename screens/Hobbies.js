@@ -30,57 +30,39 @@ const ImagesTopHalf = () => {
 
         <View style={styles.group77}>
           <Image
-            source={{
-              uri: "https://plus.unsplash.com/premium_photo-1663134093726-cb77e87d42a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG9iYmllc3xlbnwwfHwwfHx8MA%3D%3D",
-            }}
+            source={require("../assets/hobbies/hobby1.png")}
             style={styles.image28}
           />
           <Image
-            source={{
-              uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwUECVO8fs4CYSXIfSh3ycibNWbjkrPMyPiw&usqp=CAU",
-            }}
+            source={require("../assets/hobbies/hobby2.png")}
             style={styles.image29}
           />
           <Image
-            source={{
-              uri: "https://images.unsplash.com/photo-1532272278764-53cd1fe53f72?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG9iYmllc3xlbnwwfHwwfHx8MA%3D%3D",
-            }}
+            source={require("../assets/hobbies/hobby3.png")}
             style={styles.image25}
           />
           <Image
-            source={{
-              uri: "https://images.unsplash.com/photo-1547357812-4a336d835928?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aG9iYmllc3xlbnwwfHwwfHx8MA%3D%3D",
-            }}
+            source={require("../assets/hobbies/hobby4.png")}
             style={styles.image22}
           />
           <Image
-            source={{
-              uri: "https://images.unsplash.com/photo-1522410818928-5522dacd5066?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG9iYmllc3xlbnwwfHwwfHx8MA%3D%3D",
-            }}
+            source={require("../assets/hobbies/hobby5.png")}
             style={styles.image23}
           />
           <Image
-            source={{
-              uri: "https://images.unsplash.com/photo-1537365587684-f490102e1225?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZGFuY2V8ZW58MHx8MHx8fDA%3D",
-            }}
+            source={require("../assets/hobbies/hobby6.png")}
             style={styles.image24}
           />
           <Image
-            source={{
-              uri: "https://images.unsplash.com/photo-1554965863-e1576e9340c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFjcm8lMjB5b2dhfGVufDB8fDB8fHww",
-            }}
+            source={require("../assets/hobbies/hobby7.png")}
             style={styles.image27}
           />
           <Image
-            source={{
-              uri: "https://images.unsplash.com/photo-1600965962102-9d260a71890d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3dpbW1pbmd8ZW58MHx8MHx8fDA%3D",
-            }}
+            source={require("../assets/hobbies/hobby8.png")}
             style={styles.image26}
           />
           <Image
-            source={{
-              uri: "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29va2luZ3xlbnwwfHwwfHx8MA%3D%3D",
-            }}
+            source={require("../assets/hobbies/hobby9.png")}
             style={styles.image30}
           />
 

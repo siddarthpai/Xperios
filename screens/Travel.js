@@ -26,26 +26,23 @@ const App = () => {
     {
       id: 1,
       title: "Title 1",
-      image:
-        "https://www.economist.com/cdn-cgi/image/width=1424,quality=80,format=auto/content-assets/images/20230708_STP001.jpg",
+      image: require("../assets/travel/travel1.png"),
     },
     {
       id: 2,
       title: "Title 2",
-      image:
-        "https://www.gns.cri.nz/assets/Uploads/Heroes/lake-hero-2-v2__FillWzEyMDAsNjAwXQ.jpg",
+      image: require("../assets/travel/travel2.png"),
     },
     {
       id: 3,
       title: "Title 3",
-      image:
-        "https://i0.wp.com/hikingtheworld.blog/wp-content/uploads/2021/12/IMG_3057.jpg",
+      image: require("../assets/travel/travel3.png"),
     },
   ];
   const { width } = Dimensions.get("window");
   const _renderItem = ({ item, index }) => {
     return (
-      <View style={{}}>
+      <View>
         <Image
           style={{
             width: width - 64,
@@ -53,7 +50,7 @@ const App = () => {
             margin: 32,
             borderRadius: 50,
           }}
-          source={{ uri: item.image }}
+          source={item.image}
         />
       </View>
     );

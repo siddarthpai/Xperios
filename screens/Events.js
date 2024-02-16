@@ -85,9 +85,7 @@ const App = () => {
               <ImageBackground
                 style={styles.coverImage}
                 imageStyle={{ borderRadius: 20 }}
-                source={{
-                  uri: "https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_800/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1670932884%2Faod3dcbuth7vjk5ijrsi.png",
-                }}
+                source={require("../assets/events/fa.png")}
               >
                 <View style={styles.textView}>
                   <View>

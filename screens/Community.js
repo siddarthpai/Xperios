@@ -3,7 +3,7 @@ import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
 import { Icon } from "react-native-elements";
 import { Searchbar } from "react-native-paper";
 
-const UserProfile = ({ userName, imageUrl }) => {
+const UserProfile = (props) => {
   return (
     <View
       style={{
@@ -22,10 +22,9 @@ const UserProfile = ({ userName, imageUrl }) => {
           borderWidth: 1.67,
           borderColor: "#5334C7",
         }}
-        source={{ uri: imageUrl }}
+        source={props.imageUrl}
       />
       <Icon style={{ alignSelf: "center" }} name="add" />
-
       <Text
         style={{
           color: "white",
@@ -36,7 +35,7 @@ const UserProfile = ({ userName, imageUrl }) => {
           textAlign: "center",
         }}
       >
-        {userName}
+        {props.userName}
       </Text>
     </View>
   );
@@ -72,7 +71,7 @@ const UserPost = ({
               borderWidth: 1.67,
               borderColor: "#5334C7",
             }}
-            source={{ uri: userProfileSrc }}
+            source={userProfileSrc}
           />
           <View
             style={{
@@ -104,7 +103,7 @@ const UserPost = ({
                 marginBottom: 52,
                 borderRadius: 30,
               }}
-              source={{ uri: postImageSrc }}
+              source={postImageSrc}
             />
           </View>
         )}
@@ -190,36 +189,36 @@ const Community = () => {
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <UserProfile
           userName="Sujatha"
-          imageUrl="https://media.licdn.com/dms/image/C4E03AQHQHYqxLkS3ww/profile-displayphoto-shrink_400_400/0/1653607643423?e=1711584000&v=beta&t=k_2gF6P2nQ-PiWz2v2DtgA1_WxpZMu9GVeTpsEbIeuE"
+          imageUrl={require("../assets/community/sujataha.png")}
         />
         <UserProfile
           userName="Deepika"
-          imageUrl="https://media.licdn.com/dms/image/D5603AQHvgwRskRF4nw/profile-displayphoto-shrink_400_400/0/1687279742085?e=1711584000&v=beta&t=0_MM5-4d8aT-RbTgfJVkBCGgnMqOWPqhJwuazyCEWbg"
+          imageUrl={require("../assets/community/deepika.png")}
         />
         <UserProfile
           userName="Lakshmi"
-          imageUrl="https://media.licdn.com/dms/image/D5603AQE63T1a0vmR-Q/profile-displayphoto-shrink_100_100/0/1677601394558?e=1712188800&v=beta&t=fA5d5tdJuyfYEQjwoJ3XyjRu5x0NTpdMcD99UNNoRzA"
+          imageUrl={require("../assets/community/lakshmi.png")}
         />
         <UserProfile
           userName="Sid"
-          imageUrl="https://media.licdn.com/dms/image/D5603AQEYSYrmiskViQ/profile-displayphoto-shrink_100_100/0/1662868149764?e=1712188800&v=beta&t=9cUsDNAGIvTNb3KHDQC1ZcjY-Gq6-kAmEoU32MJxx0U"
+          imageUrl={require("../assets/community/sid.png")}
         />
       </ScrollView>
       <ScrollView>
         <UserPost
           userName="Sid"
-          userProfileSrc="https://media.licdn.com/dms/image/D5603AQEYSYrmiskViQ/profile-displayphoto-shrink_100_100/0/1662868149764?e=1712188800&v=beta&t=9cUsDNAGIvTNb3KHDQC1ZcjY-Gq6-kAmEoU32MJxx0U"
+          userProfileSrc={require("../assets/community/sid.png")}
           postContent=" Had the best time at Ramnagara trek! #Beauty_nature #Cloud"
-          postImageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd6Uyl07AwJY6l1KabrM_kJs7d4zD9bSTDJg&usqp=CAU"
+          postImageSrc={require("../assets/community/sidpost.png")}
           Nolikes="399"
           Nocomments="200"
           time="5"
         />
         <UserPost
           userName="Darshan"
-          userProfileSrc="https://media.licdn.com/dms/image/D4E03AQGB3mlTrBK7rQ/profile-displayphoto-shrink_100_100/0/1676443847139?e=1711584000&v=beta&t=kjPadO6J7eiw6aienLM7k4SbeR4xsQ0-zAbnc3qVhh8"
+          userProfileSrc={require("../assets/community/darshan.png")}
           postContent=" Great night at Plan B Indiranagar trying the wings challenge! #Gamenight #Wings"
-          postImageSrc="https://tastesbetterfromscratch.com/wp-content/uploads/2014/09/Baked-Chicken-Wings-3.jpg"
+          postImageSrc={require("../assets/community/darshanpost.png")}
           Nolikes="399"
           Nocomments="200"
           time="5"
