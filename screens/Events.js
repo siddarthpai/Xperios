@@ -78,7 +78,7 @@ const App = () => {
           <View>
             <View style={styles.centeredBox}>
               <Text
-                style={{ fontWeight: "bold", fontSize: 20, marginBottom: 16 }}
+                style={{ fontWeight: "bold", fontSize: 20, marginBottom: 16 , color: "white"}}
               >
                 Trending Events
               </Text>
@@ -208,6 +208,7 @@ const App = () => {
               fontSize: 20,
               marginLeft: 10,
               marginbottom: 16,
+              color: "white"
             }}
           >
             Events Near You

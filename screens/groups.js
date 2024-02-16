@@ -75,27 +75,27 @@ const FeedScreen = () => {
       id: 1,
       username: "@vettion12",
       name: "Vinita N",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar6.png",
+      avatarUrl: "https://media.licdn.com/dms/image/D5603AQE3XBttOY6vjw/profile-displayphoto-shrink_400_400/0/1692369320741?e=1711584000&v=beta&t=Mv7RyvtmcxtcxWEsFctVnSc8RnTNBJ4GzrbN-w0vxLg",
       time: "1 day",
       description:
-        "This place is also known as one of the islands that have the most beautiful cloud in the world. Haha, at that time, i have asked",
+        "Had a blast at the workshop! The vibes were 💯. Big shoutout to the Tanmay Sir for keeping it real!",
       imageUrl: null,
     },
     {
       id: 2,
       username: "@vettion12",
       name: "Vinita N",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar6.png",
+      avatarUrl: "https://media.licdn.com/dms/image/D5603AQE3XBttOY6vjw/profile-displayphoto-shrink_400_400/0/1692369320741?e=1711584000&v=beta&t=Mv7RyvtmcxtcxWEsFctVnSc8RnTNBJ4GzrbN-w0vxLg",
       time: "1 day",
       description:
-        'you need to tks to me cuz im the one "skeleton" that bring u to this one...',
+        "Also, who's up for a trek tomorrow to see the sunrise at Nandi Hills and get some amazing clicks???",
       imageUrl: null,
     },
     {
       id: 3,
       username: "@denooo",
       name: "Dev Oberoi",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar3.png",
+      avatarUrl: "https://media.licdn.com/dms/image/D5603AQFUdEA29aqBBQ/profile-displayphoto-shrink_100_100/0/1700827204242?e=1711584000&v=beta&t=4OEgGCyrJtQUgHefzZXK6O2ie3a9wanTKAm_cRTwNEE",
       time: "11 hour",
       description:
         "Do you wanna go w/me to take some sky photo at next time? I also took alot of magnificient photos, like this ....",
@@ -106,7 +106,7 @@ const FeedScreen = () => {
       id: 4,
       username: "@shi_shi",
       name: "Sanya Jain",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar6.png",
+      avatarUrl: "https://media.licdn.com/dms/image/D5603AQEwAk_kL-KtkA/profile-displayphoto-shrink_100_100/0/1683601661551?e=1711584000&v=beta&t=CcSiUb8PUlnYaHBYVeVazp_TumXjoYFHZHVMWynALzw",
       time: "3 hour",
       description: "OHHHHHHH!!! Would love to come with you on your next shoot",
       imageUrl: null,
@@ -116,10 +116,10 @@ const FeedScreen = () => {
       id: 5,
       username: "@kirina_34",
       name: "Kiran Prasad",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar2.png",
+      avatarUrl: "https://media.licdn.com/dms/image/D5603AQE24WpW5j-qQQ/profile-displayphoto-shrink_100_100/0/1687270334272?e=1711584000&v=beta&t=eo89VDXKV1wixcKea1iHY7l9AVVTTj1rIE2WeQIS0TA",
       time: "1 hour",
       description:
-        "OMG!!!!! it's too beauty!!! I'm soo inspired after today's class :)",
+        "OMG!!!!! it's such a beauty!!! I'm soo inspired after today's class :)",
       imageUrl: null,
     },
   ]);
@@ -180,12 +180,12 @@ const FeedScreen = () => {
 
         <View style={styles.groupInfo}>
           <Image
-            source={require("../assets/gift.png")} // Adjust the path as needed
+            source={require("../assets/photography.png")} // Adjust the path as needed
             style={styles.groupDp}
           />
           <View style={styles.groupDetails}>
-            <Text style={styles.groupName}>PhotoGraphy Workshop</Text>
-            <Text style={{ color: "white" }}>Dissolves in 2D</Text>
+            <Text style={styles.groupName}>Photography Workshop</Text>
+            <Text style={{ color: "white" }}>Dissolves in 2 days</Text>
           </View>
         </View>
 
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
   },
   backButtonIcon: {
     width: 20,
-    height: 20,
+    height: 10,
     // Add more styles as needed
   },
   groupInfo: {
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     marginRight: 5,
-    marginLeft: 10,
+    
   },
   groupDetails: {
     color: "white",

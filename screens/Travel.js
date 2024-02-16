@@ -97,7 +97,7 @@ const App = () => {
           />
           <Text style={styles.blackText}>
             Where do you wanna {"\n"}{" "}
-            <Text style={styles.purpleText}>Travel</Text>?
+            <Text style={styles.purpleText}>Travel?</Text>
           </Text>
           <View style={styles.box}>
             <Button
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   },
   blackText: {
     textAlign: "center",
-    color: "black",
+    color: "white",
     fontSize: 44,
     fontWeight: "bold",
   },
