@@ -75,10 +75,10 @@ const HomeComponent = () => {
           marginTop: 15,
         }}
       >
-        <Text style={{ color: "#761CBC", fontSize: 23, fontWeight: 600 }}>
+        <Text style={{ color: "white", fontSize: 23, fontWeight: 600}}>
           Good Morning,{" "}
         </Text>
-        <Text style={{ color: "#000000", fontSize: 23, fontWeight: 600 }}>
+        <Text style={{ fontSize: 23, fontWeight: 600, color: "#3a2471" }}>
           Lakshmi
         </Text>
       </View>
@@ -464,7 +464,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 24,
     textAlign: "left",
-    color: "#761CBC",
+    color: "white",
   },
   propertyDetails: {
     flexDirection: "column",

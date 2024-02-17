@@ -24,7 +24,7 @@ const Profile = () => {
   };
   const staticUserDetails = {
     name: "Lakshmi",
-    userName: "Lakshmi",
+    userName: "lakshmi1205",
     phoneNumber: "+91 95383 33095",
     email: "vaidu.231@gmail.com",
     friends: 36,
@@ -91,22 +91,22 @@ const Profile = () => {
             />
             <View style={styles.info}>
               <Text
-                style={{ color: "black", fontWeight: "bold", fontSize: 28 }}
+                style={{ color: "black", fontWeight: "bold", fontSize: 22 }}
               >
                 {staticUserDetails.name}
               </Text>
-              <Text style={{ fontSize: 12, marginBottom: 5, color: "#FF5733" }}>
+              <Text style={{ fontSize: 12, marginBottom: 5, color: "black" }}>
                 {staticUserDetails.email}
               </Text>
-              <Text style={{ fontSize: 12, marginBottom: 5, color: "#FF5733" }}>
+              <Text style={{ fontSize: 12, marginBottom: 5, color: "black" }}>
                 {staticUserDetails.phoneNumber}
               </Text>
               <TouchableWithoutFeedback onPress={handleTextClick}>
                 <Text
                   style={{
-                    color: "black",
+                    color: "#8359ac",
                     fontWeight: "bold",
-                    fontSize: 16,
+                    fontSize: 14,
                     marginBottom: 10,
                   }}
                 >
@@ -118,14 +118,15 @@ const Profile = () => {
                   <Icon
                     name="pencil"
                     type="font-awesome"
-                    size={14}
-                    color="#FF5733"
+                    size={10}
+                    color="#2986cc"
                     onPress={handleEditClick}
                     style={{ marginRight: 5 }}
                   />
                   <Text
                     style={{
-                      color: "#FF5733",
+                      color: "#2986cc",
+                      fontSize: 13,
                       textDecorationLine: "underline",
                     }}
                   >
@@ -158,6 +159,7 @@ const Profile = () => {
                   style={{
                     color: "black",
                     fontWeight: "bold",
+                    fontSize: 13,
                     textAlign: "center",
                   }}
                 >
@@ -184,6 +186,7 @@ const Profile = () => {
                   style={{
                     color: "black",
                     fontWeight: "bold",
+                    fontSize: 13,
                     textAlign: "center",
                   }}
                 >
@@ -210,6 +213,7 @@ const Profile = () => {
                   style={{
                     color: "black",
                     fontWeight: "bold",
+                    fontSize: 13,
                     textAlign: "center",
                   }}
                 >
@@ -239,6 +243,7 @@ const Profile = () => {
                   style={{
                     color: "black",
                     fontWeight: "bold",
+                    fontSize: 13,
                     textAlign: "center",
                   }}
                 >
@@ -268,6 +273,7 @@ const Profile = () => {
                   style={{
                     color: "black",
                     fontWeight: "bold",
+                    fontSize: 13,
                     textAlign: "center",
                   }}
                 >
@@ -294,7 +300,7 @@ const Profile = () => {
                 <ProgressBar
                   style={styles.progressBar}
                   progress={staticUserDetails.CreativityQuotient / 10000}
-                  color="#24B874"
+                  color="#ffacdd"
                 />
               </View>
 
@@ -302,13 +308,13 @@ const Profile = () => {
             </View>
 
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ fontWeight: "bold", margin: 5 }}>
+              <Text style={{ fontWeight: "bold", color: "#ffc6e7",margin: 5 }}>
                 {staticUserDetails.CreativityQuotient}
               </Text>
               <Text
                 style={{
                   margin: 10,
-                  color: "#877777",
+                  color: "white",
                   position: "absolute",
                   right: 0,
                 }}
@@ -325,20 +331,20 @@ const Profile = () => {
                 <ProgressBar
                   style={styles.progressBar}
                   progress={staticUserDetails.FitnessQuotient / 10000}
-                  color="#24B874"
+                  color="#f5b7b7"
                 />
               </View>
               <Chest image={require("../assets/fitness.png")} />
             </View>
 
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ fontWeight: "bold", margin: 5 }}>
+              <Text style={{ fontWeight: "bold",color: "#f7beb2", margin: 5 }}>
                 {staticUserDetails.FitnessQuotient}
               </Text>
               <Text
                 style={{
                   margin: 10,
-                  color: "#877777",
+                  color: "white",
                   position: "absolute",
                   right: 0,
                 }}
@@ -355,20 +361,20 @@ const Profile = () => {
                 <ProgressBar
                   style={styles.progressBar}
                   progress={staticUserDetails.InteractionQuotient / 10000}
-                  color="#24B874"
+                  color="#9fc5e8"
                 />
               </View>
               <Chest image={require("../assets/int.png")} />
             </View>
 
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ fontWeight: "bold", margin: 5 }}>
+              <Text style={{ fontWeight: "bold", color: "#8cbfef",margin: 5 }}>
                 {staticUserDetails.InteractionQuotient}
               </Text>
               <Text
                 style={{
                   margin: 10,
-                  color: "#877777",
+                  color: "white",
                   position: "absolute",
                   right: 0,
                 }}

@@ -75,38 +75,37 @@ const FeedScreen = () => {
       id: 1,
       username: "@vettion12",
       name: "Vinita N",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar6.png",
+      avatarUrl: require("../assets/groups/vinita.jpg"),
       time: "1 day",
       description:
-        "This place is also known as one of the islands that have the most beautiful cloud in the world. Haha, at that time, i have asked",
+        "Had a blast at the workshop! The vibes were 💯. Big shoutout to the Tanmay Sir for keeping it real!",
       imageUrl: null,
     },
     {
       id: 2,
       username: "@vettion12",
       name: "Vinita N",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar6.png",
+      avatarUrl: require("../assets/groups/vinita.jpg"),
       time: "1 day",
       description:
-        'you need to tks to me cuz im the one "skeleton" that bring u to this one...',
+        "Also, who's up for a trek tomorrow to see the sunrise at Nandi Hills and get some amazing clicks???",
       imageUrl: null,
     },
     {
       id: 3,
       username: "@denooo",
       name: "Dev Oberoi",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar3.png",
+      avatarUrl: require("../assets/groups/dev_oberoi.jpg"),
       time: "11 hour",
       description:
         "Do you wanna go w/me to take some sky photo at next time? I also took alot of magnificient photos, like this ....",
-      imageUrl:
-        "https://th.bing.com/th/id/R.8af7f7a7c0d24ff97ec3b53e2d8d0926?rik=dg5jE%2bi3y%2bII0w&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fHzauSlF.jpg&ehk=3nXUsJtgh7j%2f6SRoXedNcSU9mC1OMqMBg34q1LuGxIo%3d&risl=&pid=ImgRaw&r=0",
-    },
+      imageUrl: require("../assets/groups/dev_message.jpg"),
+        },
     {
       id: 4,
       username: "@shi_shi",
       name: "Sanya Jain",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar6.png",
+      avatarUrl: require("../assets/groups/sanya.jpg"),
       time: "3 hour",
       description: "OHHHHHHH!!! Would love to come with you on your next shoot",
       imageUrl: null,
@@ -116,10 +115,10 @@ const FeedScreen = () => {
       id: 5,
       username: "@kirina_34",
       name: "Kiran Prasad",
-      avatarUrl: "https://bootdey.com/img/Content/avatar/avatar2.png",
+      avatarUrl: require("../assets/groups/kiran.jpg"),
       time: "1 hour",
       description:
-        "OMG!!!!! it's too beauty!!! I'm soo inspired after today's class :)",
+        "OMG!!!!! it's such a beauty!!! I'm soo inspired after today's class :)",
       imageUrl: null,
     },
   ]);
@@ -127,7 +126,7 @@ const FeedScreen = () => {
   const PostCard = ({ post }) => (
     <ScrollView vertical>
       <View style={styles.messageContainer}>
-        <Image source={{ uri: post.avatarUrl }} style={styles.messageAvatar} />
+        <Image source={post.avatarUrl} style={styles.messageAvatar} />
         <View style={styles.messageContent}>
           <View style={styles.messageHeader}>
             <Text style={styles.messageUsername}>
@@ -147,7 +146,7 @@ const FeedScreen = () => {
           <Text style={styles.messageDescription}>{post.description}</Text>
           {post.imageUrl && (
             <Image
-              source={{ uri: post.imageUrl }}
+              source={post.imageUrl}
               style={styles.messageImage}
             />
           )}
@@ -180,12 +179,12 @@ const FeedScreen = () => {
 
         <View style={styles.groupInfo}>
           <Image
-            source={require("../assets/gift.png")} // Adjust the path as needed
+            source={require("../assets/photography.png")} // Adjust the path as needed
             style={styles.groupDp}
           />
           <View style={styles.groupDetails}>
-            <Text style={styles.groupName}>PhotoGraphy Workshop</Text>
-            <Text style={{ color: "white" }}>Dissolves in 2D</Text>
+            <Text style={styles.groupName}>Photography Workshop</Text>
+            <Text style={{ color: "white" }}>Dissolves in 2 days</Text>
           </View>
         </View>
 
@@ -290,7 +289,7 @@ const styles = StyleSheet.create({
   },
   backButtonIcon: {
     width: 20,
-    height: 20,
+    height: 10,
     // Add more styles as needed
   },
   groupInfo: {
@@ -302,7 +301,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     marginRight: 5,
-    marginLeft: 10,
+    
   },
   groupDetails: {
     color: "white",
