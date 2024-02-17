@@ -75,7 +75,7 @@ const FeedScreen = () => {
       id: 1,
       username: "@vettion12",
       name: "Vinita N",
-      avatarUrl: "https://media.licdn.com/dms/image/D5603AQE3XBttOY6vjw/profile-displayphoto-shrink_400_400/0/1692369320741?e=1711584000&v=beta&t=Mv7RyvtmcxtcxWEsFctVnSc8RnTNBJ4GzrbN-w0vxLg",
+      avatarUrl: require("../assets/groups/vinita.jpg"),
       time: "1 day",
       description:
         "Had a blast at the workshop! The vibes were 💯. Big shoutout to the Tanmay Sir for keeping it real!",
@@ -85,7 +85,7 @@ const FeedScreen = () => {
       id: 2,
       username: "@vettion12",
       name: "Vinita N",
-      avatarUrl: "https://media.licdn.com/dms/image/D5603AQE3XBttOY6vjw/profile-displayphoto-shrink_400_400/0/1692369320741?e=1711584000&v=beta&t=Mv7RyvtmcxtcxWEsFctVnSc8RnTNBJ4GzrbN-w0vxLg",
+      avatarUrl: require("../assets/groups/vinita.jpg"),
       time: "1 day",
       description:
         "Also, who's up for a trek tomorrow to see the sunrise at Nandi Hills and get some amazing clicks???",
@@ -95,18 +95,17 @@ const FeedScreen = () => {
       id: 3,
       username: "@denooo",
       name: "Dev Oberoi",
-      avatarUrl: "https://media.licdn.com/dms/image/D5603AQFUdEA29aqBBQ/profile-displayphoto-shrink_100_100/0/1700827204242?e=1711584000&v=beta&t=4OEgGCyrJtQUgHefzZXK6O2ie3a9wanTKAm_cRTwNEE",
+      avatarUrl: require("../assets/groups/dev_oberoi.jpg"),
       time: "11 hour",
       description:
         "Do you wanna go w/me to take some sky photo at next time? I also took alot of magnificient photos, like this ....",
-      imageUrl:
-        "https://th.bing.com/th/id/R.8af7f7a7c0d24ff97ec3b53e2d8d0926?rik=dg5jE%2bi3y%2bII0w&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fHzauSlF.jpg&ehk=3nXUsJtgh7j%2f6SRoXedNcSU9mC1OMqMBg34q1LuGxIo%3d&risl=&pid=ImgRaw&r=0",
-    },
+      imageUrl: require("../assets/groups/dev_message.jpg"),
+        },
     {
       id: 4,
       username: "@shi_shi",
       name: "Sanya Jain",
-      avatarUrl: "https://media.licdn.com/dms/image/D5603AQEwAk_kL-KtkA/profile-displayphoto-shrink_100_100/0/1683601661551?e=1711584000&v=beta&t=CcSiUb8PUlnYaHBYVeVazp_TumXjoYFHZHVMWynALzw",
+      avatarUrl: require("../assets/groups/sanya.jpg"),
       time: "3 hour",
       description: "OHHHHHHH!!! Would love to come with you on your next shoot",
       imageUrl: null,
@@ -116,7 +115,7 @@ const FeedScreen = () => {
       id: 5,
       username: "@kirina_34",
       name: "Kiran Prasad",
-      avatarUrl: "https://media.licdn.com/dms/image/D5603AQE24WpW5j-qQQ/profile-displayphoto-shrink_100_100/0/1687270334272?e=1711584000&v=beta&t=eo89VDXKV1wixcKea1iHY7l9AVVTTj1rIE2WeQIS0TA",
+      avatarUrl: require("../assets/groups/kiran.jpg"),
       time: "1 hour",
       description:
         "OMG!!!!! it's such a beauty!!! I'm soo inspired after today's class :)",
@@ -127,7 +126,7 @@ const FeedScreen = () => {
   const PostCard = ({ post }) => (
     <ScrollView vertical>
       <View style={styles.messageContainer}>
-        <Image source={{ uri: post.avatarUrl }} style={styles.messageAvatar} />
+        <Image source={post.avatarUrl} style={styles.messageAvatar} />
         <View style={styles.messageContent}>
           <View style={styles.messageHeader}>
             <Text style={styles.messageUsername}>
@@ -147,7 +146,7 @@ const FeedScreen = () => {
           <Text style={styles.messageDescription}>{post.description}</Text>
           {post.imageUrl && (
             <Image
-              source={{ uri: post.imageUrl }}
+              source={post.imageUrl}
               style={styles.messageImage}
             />
           )}
