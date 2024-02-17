@@ -100,7 +100,7 @@ const FeedScreen = () => {
       description:
         "Do you wanna go w/me to take some sky photo at next time? I also took alot of magnificient photos, like this ....",
       imageUrl: require("../assets/groups/dev_message.jpg"),
-        },
+    },
     {
       id: 4,
       username: "@shi_shi",
@@ -145,10 +145,7 @@ const FeedScreen = () => {
           </View>
           <Text style={styles.messageDescription}>{post.description}</Text>
           {post.imageUrl && (
-            <Image
-              source={post.imageUrl}
-              style={styles.messageImage}
-            />
+            <Image source={post.imageUrl} style={styles.messageImage} />
           )}
           <View style={styles.messageFooter}>
             <View style={styles.messageButton}>
@@ -167,7 +164,11 @@ const FeedScreen = () => {
   );
 
   return (
-    <ScrollView vertical style={styles.container}>
+    <ScrollView
+      vertical
+      style={styles.container}
+      showsVerticalScrollIndicator={false}
+    >
       <View style={styles.headerContainer}>
         <Icon
           name="arrow-back"
@@ -301,7 +302,6 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     marginRight: 5,
-    
   },
   groupDetails: {
     color: "white",
