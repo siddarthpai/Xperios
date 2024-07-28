@@ -48,12 +48,16 @@ To get started with Xperios, follow these steps:
 
 ## 🎨 Screenshots
 
-Explore curated experiences tailored to your lifestyle.
+#### Explore curated experiences tailored to your lifestyle.
+
 ![Interests](assets/ss1.png)
 
-Track your creativity, fitness, and interaction quotients.
+#### Track your creativity, fitness, and interaction quotients.
+
 ![Profile](assets/ss2.png)
-Earn rewards by maintaining a balanced score across all metrics.
+
+#### Earn rewards by maintaining a balanced score across all metrics.
+
 ![Home](assets/ss3.png)
 
 ## 🚀 Usage
@@ -79,5 +83,7 @@ We welcome contributions to enhance Xperios! Please follow these steps:
 Have questions or feedback? Feel free to reach out!
 
 Email: lakshmi@xperios.in/ deepika@xperios.in / siddarthdpai@gmail.com
+
 Instagram: @xperios.in
+
 Website : https://www.xperios.in/
